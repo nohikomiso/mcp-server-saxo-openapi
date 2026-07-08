@@ -1,0 +1,367 @@
+{
+  "service": "hist",
+  "category": "transactions",
+  "url": "https://www.developer.saxo/openapi/referencedocs/hist/v1/transactions",
+  "endpoints": [
+    {
+      "name": "Historical Transactions",
+      "method": "GET",
+      "path": "/hist/v1/transactions",
+      "url": "https://www.developer.saxo/openapi/referencedocs/hist/v1/transactions/get__hist",
+      "parameters": [
+        {
+          "name": "$skip",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to skip from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "$top",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to return from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "AccountGroupKey",
+          "type": "AccountGroupKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the account group to which the resource belongs.",
+          "children": []
+        },
+        {
+          "name": "AccountKeys",
+          "type": "String []",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The keys of the accounts to which the resource belongs.",
+          "children": []
+        },
+        {
+          "name": "AssetTypes",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Comma seperated asset type list to provide filterd transaction only for passed asset types.",
+          "children": []
+        },
+        {
+          "name": "BookingId",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Booking id for which data is needed",
+          "children": []
+        },
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the client to which the historic data belongs.",
+          "children": []
+        },
+        {
+          "name": "CorporateActionId",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Corporate action id for which data is needed",
+          "children": []
+        },
+        {
+          "name": "Events",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Comma seperated event type list to provide filterd transaction only for passed event types.",
+          "children": []
+        },
+        {
+          "name": "FromDate",
+          "type": "Date",
+          "link": null,
+          "origin": "Query-String",
+          "description": "From date",
+          "children": []
+        },
+        {
+          "name": "FundingSubType",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Comma seperated event type list to provide filterd transaction only for passed funding sub types.",
+          "children": []
+        },
+        {
+          "name": "ToDate",
+          "type": "Date",
+          "link": null,
+          "origin": "Query-String",
+          "description": "To date",
+          "children": []
+        },
+        {
+          "name": "ToOpenOrClose",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Comma seperated ToOpenOrClose to provide filtered transaction only for passed ToOpen/Close/Pending.",
+          "children": []
+        },
+        {
+          "name": "TradeId",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Trade id for which data is needed",
+          "children": []
+        },
+        {
+          "name": "TransactionType",
+          "type": "TransactionType",
+          "link": "https://www.developer.saxo/openapi/referencedocs/hist/v1/transactions/get__hist/schema-transactiontype",
+          "origin": "Query-String",
+          "description": "Transaction type for which trasactions are needed",
+          "children": [
+            {
+              "name": "All",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "All Transactons",
+              "children": []
+            },
+            {
+              "name": "CashAmount",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cash Amount",
+              "children": []
+            },
+            {
+              "name": "CashTransfer",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cash transfer",
+              "children": []
+            },
+            {
+              "name": "CorporateAction",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Corporate Action",
+              "children": []
+            },
+            {
+              "name": "Trade",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Trade",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Uics",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Comma seperated Uic list to provide filterd transaction only for passed Uics.",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "Data": [
+          {
+            "AccountId": "stringValue",
+            "BkRecordId": 7,
+            "BookedAmount": 10,
+            "BookingId": "stringValue",
+            "Bookings": [
+              {
+                "AmountType": "stringValue",
+                "AmountTypeDisplay": "stringValue",
+                "AmountTypeId": "stringValue",
+                "BookedAmount": 10,
+                "BookingId": "stringValue",
+                "ConversionCost": 10,
+                "ConversionRate": 10,
+                "ConversionRateAccountToClientCurrency": 10,
+                "CostClass": "TransactionCosts",
+                "CostSubClass": "ProductCosts",
+                "Date": "2021-05-21T00:00:00Z",
+                "IntradayAmount": 10,
+                "PostingDate": "2021-05-21T00:00:00Z",
+                "RecordDate": "2021-05-21T00:00:00Z",
+                "TaxPercentage": 10,
+                "ValueDate": "2021-05-21T00:00:00Z"
+              }
+            ],
+            "Cash": {
+              "After": {
+                "Available": 10,
+                "Balance": 10,
+                "Blocked": 10
+              },
+              "Before": {
+                "Available": 10,
+                "Balance": 10,
+                "Blocked": 10
+              }
+            },
+            "Comment": "stringValue",
+            "ConversionCost": 10,
+            "ConversionRate": 10,
+            "CorporateActionId": "stringValue",
+            "CorporateActionTypeId": "stringValue",
+            "CorrectionReason": "stringValue",
+            "Currency": "stringValue",
+            "CurrencyDecimals": 99,
+            "Date": "2021-05-21T00:00:00Z",
+            "DividendCurrency": "stringValue",
+            "Event": "stringValue",
+            "EventDisplay": "stringValue",
+            "FrankedAmount": 10,
+            "FrankingCredit": 10,
+            "FromDerivative": "stringValue",
+            "FrontOfficeTradeId": "stringValue",
+            "FundingSubType": "Other",
+            "FundingSubTypeDisplay": "stringValue",
+            "IBAN": "stringValue",
+            "IBANOwnerName": "stringValue",
+            "Instrument": {
+              "AssetType": "FxSpot",
+              "Barrier1": 10,
+              "Barrier2": 10,
+              "Currency": "stringValue",
+              "CurrencyDecimals": 99,
+              "Description": "stringValue",
+              "ExchangeDescription": "stringValue",
+              "ExpiryDate": "2021-05-21T00:00:00Z",
+              "FinancingLevel": 10,
+              "IndexRatio": 10,
+              "ISINCode": "stringValue",
+              "IssuerName": "stringValue",
+              "Mnemonic": "stringValue",
+              "PriceCurrency": "stringValue",
+              "ResidualValue": 2.55,
+              "Strike": 10,
+              "Strike2": 10,
+              "Symbol": "stringValue",
+              "Uic": 99
+            },
+            "IntradayAmount": 10,
+            "IsAdvisedTrade": false,
+            "IsIntradayData": false,
+            "IsReversal": false,
+            "OriginalTradeId": 161,
+            "PositionId": "stringValue",
+            "RealizedPnL": 10,
+            "RelatedPositionId": "stringValue",
+            "RelatedTradeId": "stringValue",
+            "RemittanceInfo": "stringValue",
+            "ReportTypes": [
+              {
+                "ReportDisplayName": "stringValue",
+                "ReportName": "stringValue"
+              }
+            ],
+            "TotalCost": 10,
+            "TradeId": "stringValue",
+            "Trades": [
+              {
+                "AdjustedTradeDate": "2021-05-21T00:00:00Z",
+                "CleanPrice": 10,
+                "DecisionMakerUserId": 99,
+                "Direction": "Put",
+                "DirtyPrice": 10,
+                "ExchangeName": "stringValue",
+                "InitialMargin": 10,
+                "Instrument": {
+                  "AssetType": "SubscriptionOnCertificate",
+                  "Barrier1": 10,
+                  "Barrier2": 10,
+                  "Currency": "stringValue",
+                  "CurrencyDecimals": 99,
+                  "Description": "stringValue",
+                  "ExchangeDescription": "stringValue",
+                  "ExpiryDate": "2021-05-21T00:00:00Z",
+                  "FinancingLevel": 10,
+                  "IndexRatio": 10,
+                  "ISINCode": "stringValue",
+                  "IssuerName": "stringValue",
+                  "Mnemonic": "stringValue",
+                  "PriceCurrency": "stringValue",
+                  "ResidualValue": 2.55,
+                  "Strike": 10,
+                  "Strike2": 10,
+                  "Symbol": "stringValue",
+                  "Uic": 99
+                },
+                "MaintenanceMargin": 10,
+                "OptionEventType": "NoTouch",
+                "OrderId": "stringValue",
+                "PositionId": "stringValue",
+                "Price": 10,
+                "SpreadCost": 10,
+                "StopLoss": 10,
+                "ToolId": "stringValue",
+                "ToOpenOrClose": "ToOpen",
+                "ToOpenOrCloseDisplay": "stringValue",
+                "TradeBarrierEventStatus": false,
+                "TradedQuantity": 10,
+                "TradedValue": 10,
+                "TradeEventType": "Unknown",
+                "TradeEventTypeDisplay": "stringValue",
+                "TradeExecutionTime": "2021-05-21T00:00:00Z",
+                "TradeId": "stringValue",
+                "TradeType": "LimitNotice",
+                "Venue": "stringValue"
+              }
+            ],
+            "TransactionDescription": "stringValue",
+            "TransactionType": "Trade",
+            "TransactionTypeDisplay": "stringValue",
+            "UnderlyingInstrument": {
+              "AssetType": "FxVanillaOption",
+              "Barrier1": 10,
+              "Barrier2": 10,
+              "Currency": "stringValue",
+              "CurrencyDecimals": 99,
+              "Description": "stringValue",
+              "ExchangeDescription": "stringValue",
+              "ExpiryDate": "2021-05-21T00:00:00Z",
+              "FinancingLevel": 10,
+              "IndexRatio": 10,
+              "ISINCode": "stringValue",
+              "IssuerName": "stringValue",
+              "Mnemonic": "stringValue",
+              "PriceCurrency": "stringValue",
+              "ResidualValue": 2.55,
+              "Strike": 10,
+              "Strike2": 10,
+              "Symbol": "stringValue",
+              "Uic": 99
+            },
+            "UnderlyingInstrumentType": "stringValue",
+            "UnderlyingType": "Basket",
+            "UnFrankedAmount": 10,
+            "ValueDate": "2021-05-21T00:00:00Z",
+            "Venue": "stringValue"
+          }
+        ],
+        "MaxRows": 99
+      }
+    }
+  ]
+}

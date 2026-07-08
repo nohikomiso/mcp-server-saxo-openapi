@@ -1,0 +1,122 @@
+{
+  "service": "cs",
+  "category": "tradingconditions-contractoption",
+  "url": "https://www.developer.saxo/openapi/referencedocs/cs/v1/tradingconditions-contractoption",
+  "endpoints": [
+    {
+      "name": "Get trading conditions for a contract option.",
+      "method": "GET",
+      "path": "/cs/v1/tradingconditions/ContractOptionSpaces/{AccountKey}/{OptionRootId}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/cs/v1/tradingconditions-contractoption/get__cs_tradingconditions_contractoptionspaces_accountkey_optionrootid",
+      "parameters": [
+        {
+          "name": "AccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Route",
+          "description": "The account key to lookup the conditions for",
+          "children": []
+        },
+        {
+          "name": "FieldGroups",
+          "type": "ScheduledTradingConditionsFieldGroup []",
+          "link": "https://www.developer.saxo/openapi/referencedocs/cs/v1/tradingconditions-contractoption/get__cs_tradingconditions_contractoptionspaces_accountkey_optionrootid/schema-scheduledtradingconditionsfieldgroup",
+          "origin": "Query-String",
+          "description": "Specify which field groups to return",
+          "children": [
+            {
+              "name": "ScheduledTradingConditions",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Scheduled Trading Conditions",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "OptionRootId",
+          "type": "Integer",
+          "link": null,
+          "origin": "Route",
+          "description": "The optionRootId for the option to lookup",
+          "children": []
+        },
+        {
+          "name": "Uic",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The uic for the instrument to lookup",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "AccountCurrency": "GBP",
+        "AssetType": "FxSpot",
+        "CarryingCost": {
+          "FixedRate": 1,
+          "InterbankRate": {
+            "AskRate": 2,
+            "BidRate": 1,
+            "TradeDate": "2026-07-06T00:00:00Z"
+          },
+          "MarkUpRate": 1.5
+        },
+        "CommissionLimits": [
+          {
+            "Currency": "USD",
+            "OrderAction": "ExecuteOrder",
+            "PerUnitRate": 6
+          }
+        ],
+        "ExerciseCutOffTime": "2026-07-06T16:30:00Z",
+        "ExpirationTime": "2026-07-06T14:30:00Z",
+        "ExposureLimits": [
+          {
+            "Identifier": "CL",
+            "Level": "BaseContractNet",
+            "RuleType": "Amount",
+            "Value": 200
+          }
+        ],
+        "FinanceInterestMarkUp": 9.99,
+        "HoldingFee": {
+          "FromPeriodInDays": 120,
+          "Value": 1.6
+        },
+        "InstrumentCurrency": "USD",
+        "IsTradable": true,
+        "MarginRequirement": {
+          "MinimumUnderlyingValue": 0.5,
+          "Premium": 1,
+          "TradingProfile": "Basic",
+          "UnderlyingValueOvernightExposure": 1
+        },
+        "PortfolioBasedMargin": {
+          "ExtremeStressFactor": 15.6,
+          "Initial": 185.5,
+          "IntraWeek": 8.7,
+          "LiquidityThresholdAmount": 569987,
+          "LiquidityThresholdCurrency": "USD",
+          "VolatilityAddOn": 1000.68,
+          "VolatilityStress": 100
+        },
+        "Rating": 5,
+        "SettlementStyle": "PhysicalDelivery",
+        "SwapInterestMarkUp": 1.11,
+        "Taxes": [
+          {
+            "BuySell": "Buy",
+            "CalculationTriggerType": "Normal",
+            "CalculationType": "ValueFraction",
+            "Description": "UK Stamp Duty",
+            "Value": 0.5
+          }
+        ],
+        "Uic": 0
+      }
+    }
+  ]
+}

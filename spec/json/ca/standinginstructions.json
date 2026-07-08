@@ -1,0 +1,401 @@
+{
+  "service": "ca",
+  "category": "standinginstructions",
+  "url": "https://www.developer.saxo/openapi/referencedocs/ca/v2/standinginstructions",
+  "endpoints": [
+    {
+      "name": "Get standing instructions.",
+      "method": "GET",
+      "path": "/ca/v2/standinginstructions",
+      "url": "https://www.developer.saxo/openapi/referencedocs/ca/v2/standinginstructions/get__ca",
+      "parameters": [
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Client Key to fetch standing instructions for.",
+          "children": []
+        },
+        {
+          "name": "IncludeSubAccounts",
+          "type": "Boolean",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Indicates whether to include standing instructions from sub-clients.",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "Data": [
+          {
+            "AccountDisplayName": "Derivatives",
+            "AccountId": "12642445",
+            "AssetType": "Stock",
+            "ClientId": "9971842",
+            "CreatedDate": "0001-01-01T00:00:00Z",
+            "DisplayAndFormat": {
+              "Description": "ABB Ltd",
+              "IsinCode": "CH0012221716",
+              "Symbol": "ABB:xome"
+            },
+            "OptionType": "SECU",
+            "StandingInstructionId": "31272",
+            "Uic": 101
+          }
+        ]
+      }
+    },
+    {
+      "name": "Create new standing instruction.",
+      "method": "POST",
+      "path": "/ca/v2/standinginstructions",
+      "url": "https://www.developer.saxo/openapi/referencedocs/ca/v2/standinginstructions/post__ca",
+      "parameters": [
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Body",
+          "description": "Client identifier",
+          "children": []
+        },
+        {
+          "name": "StandingInstructions",
+          "type": "Instruction []",
+          "link": "https://www.developer.saxo/openapi/referencedocs/ca/v2/standinginstructions/post__ca/schema-si.instruction",
+          "origin": "Body",
+          "description": "Standing Instructions",
+          "children": [
+            {
+              "name": "AccountKey",
+              "type": "AccountKey",
+              "link": null,
+              "origin": "Sub",
+              "description": "Account Identifier",
+              "children": []
+            },
+            {
+              "name": "AssetType",
+              "type": "AssetType",
+              "link": "https://www.developer.saxo/openapi/referencedocs/ca/v2/standinginstructions/post__ca/schema-assettype",
+              "origin": "Sub",
+              "description": "Asset Type",
+              "children": [
+                {
+                  "name": "Bond",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Bond.",
+                  "children": []
+                },
+                {
+                  "name": "CertificateBonus",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Mirrors the price movement of the underlying only if and when the underlying price exceeds the defined barrier. If the certificate expires below the barrier, it offers partial protection/return of investment.",
+                  "children": []
+                },
+                {
+                  "name": "CertificateCappedBonus",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Certificate Capped Bonus.",
+                  "children": []
+                },
+                {
+                  "name": "CertificateCappedCapitalProtected",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Guarantees a capped percentage increase of the underlying asset's value above the issue price at expiry/maturity. Max loss is the amount invested multiplied by the CapitalProtection percentage.",
+                  "children": []
+                },
+                {
+                  "name": "CertificateCappedOutperformance",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Capped Outperformance Certificate.",
+                  "children": []
+                },
+                {
+                  "name": "CertificateConstantLeverage",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Certificate Constant Leverage.",
+                  "children": []
+                },
+                {
+                  "name": "CertificateDiscount",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Yields a capped return if the underlying asset's value is above the specified cap level at expiry. If the underlying's value is below the strike at expiry, the investor received the underlying or equivalent value. Offers direct exposure in underlying at a lower price (discount) with a capped potential profit and limited loss.",
+                  "children": []
+                },
+                {
+                  "name": "CertificateExpress",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Certificate Express kick out.",
+                  "children": []
+                },
+                {
+                  "name": "CertificateTracker",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "A certificate that mirrors the price movement of the underlying instrument. Often used to trade movements in indicies. Movements can be a fixed ratio of the underlying and can be inverted for bearish/short speculation. Risk is equivalent to owning the underlying.",
+                  "children": []
+                },
+                {
+                  "name": "CertificateUncappedCapitalProtection",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Guarantees a percentage increase of the underlying asset's value above the issue price at expiry/maturity. Max loss is the amount invested multiplied by the CapitalProtection percentage.",
+                  "children": []
+                },
+                {
+                  "name": "CertificateUncappedOutperformance",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Provides leveraged returns when the underlying price exceeds the threshold strike price. The amount leverage is defined by the Participation %. When the underlying is below the strike price, the certificate mirrors the underlying price 1:1.",
+                  "children": []
+                },
+                {
+                  "name": "CfdOnCompanyWarrant",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Cfd on unlisted warrant issued by a corporation.",
+                  "children": []
+                },
+                {
+                  "name": "CfdOnEtc",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Cfd on Etc",
+                  "children": []
+                },
+                {
+                  "name": "CfdOnEtf",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Cfd on Etf",
+                  "children": []
+                },
+                {
+                  "name": "CfdOnEtn",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Cfd on Etn",
+                  "children": []
+                },
+                {
+                  "name": "CfdOnFund",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Cfd on Fund",
+                  "children": []
+                },
+                {
+                  "name": "CfdOnRights",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Cfd on Rights",
+                  "children": []
+                },
+                {
+                  "name": "CfdOnStock",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Cfd on Stock.",
+                  "children": []
+                },
+                {
+                  "name": "CompanyWarrant",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Unlisted warrant issued by a corporation, often physically settled.",
+                  "children": []
+                },
+                {
+                  "name": "MiniFuture",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "MiniFuture.",
+                  "children": []
+                },
+                {
+                  "name": "MutualFund",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Mutual Fund.",
+                  "children": []
+                },
+                {
+                  "name": "Stock",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Stock.",
+                  "children": []
+                },
+                {
+                  "name": "Warrant",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Warrant",
+                  "children": []
+                },
+                {
+                  "name": "WarrantDoubleKnockOut",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Warrant with two knock-out barriers.",
+                  "children": []
+                },
+                {
+                  "name": "WarrantKnockOut",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Warrant with a knock-out barrier.",
+                  "children": []
+                },
+                {
+                  "name": "WarrantOpenEndKnockOut",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Knock-out Warrant with no expiry.",
+                  "children": []
+                },
+                {
+                  "name": "WarrantSpread",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Warrant with built-in spread.",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "OptionType",
+              "type": "OptionType",
+              "link": "https://www.developer.saxo/openapi/referencedocs/ca/v2/standinginstructions/post__ca/schema-optiontype",
+              "origin": "Sub",
+              "description": "The type of option to automatically elect. Must be either SECU or CASH.",
+              "children": [
+                {
+                  "name": "CASH",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Cash",
+                  "children": []
+                },
+                {
+                  "name": "SECU",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Security",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "Uic",
+              "type": "Integer",
+              "link": null,
+              "origin": "Sub",
+              "description": "The instrument that this standing instruction applies to.",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "request_sample": {
+        "ClientKey": "7m4I|vtYLUnEGg77o9uQhw==",
+        "StandingInstructions": [
+          {
+            "AccountKey": "dIm75edbgnW6aBK3CIc-sw==",
+            "AssetType": "Stock",
+            "OptionType": "SECU",
+            "Uic": 101
+          }
+        ]
+      },
+      "response_sample": {
+        "__count": 2,
+        "Data": [
+          {
+            "AccountId": "12642445",
+            "AssetType": "Stock",
+            "CreatedDate": "0001-01-01T00:00:00Z",
+            "OptionType": "SECU",
+            "StandingInstructionId": "31272",
+            "Uic": 101
+          },
+          {
+            "AccountId": "12642445",
+            "AssetType": "Stock",
+            "CreatedDate": "0001-01-01T00:00:00Z",
+            "ErrorCode": "InvalidInstrumentDetail",
+            "OptionType": "CASH",
+            "StandingInstructionId": "21272",
+            "Uic": 2103
+          }
+        ]
+      }
+    },
+    {
+      "name": "Delete standing instructions",
+      "method": "DELETE",
+      "path": "/ca/v2/standinginstructions",
+      "url": "https://www.developer.saxo/openapi/referencedocs/ca/v2/standinginstructions/delete__ca",
+      "parameters": [
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Client Identifier Key",
+          "children": []
+        },
+        {
+          "name": "StandingInstructionIds",
+          "type": "String []",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Standing instruction ids to delete.",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": null
+    }
+  ]
+}

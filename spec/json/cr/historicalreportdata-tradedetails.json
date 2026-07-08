@@ -1,0 +1,82 @@
+{
+  "service": "cr",
+  "category": "historicalreportdata-tradedetails",
+  "url": "https://www.developer.saxo/openapi/referencedocs/cr/v1/historicalreportdata-tradedetails",
+  "endpoints": [
+    {
+      "name": "Get Trade Details report for the accounts of a specified client",
+      "method": "GET",
+      "path": "/cr/v1/reports/TradeDetails/{ClientKey}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/cr/v1/historicalreportdata-tradedetails/get__cr_reports_tradedetails_clientkey",
+      "parameters": [
+        {
+          "name": "AccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The account key.",
+          "children": []
+        },
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Route",
+          "description": "Unique id of the client.",
+          "children": []
+        },
+        {
+          "name": "FilterType",
+          "type": "BookingRequestType",
+          "link": "https://www.developer.saxo/openapi/referencedocs/cr/v1/historicalreportdata-tradedetails/get__cr_reports_tradedetails_clientkey/schema-bookingrequesttype",
+          "origin": "Query-String",
+          "description": "Values which gets included in the request",
+          "children": [
+            {
+              "name": "BkAmountId",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Booking amount Id",
+              "children": []
+            },
+            {
+              "name": "CaMasterRecordId",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Corporate action Id",
+              "children": []
+            },
+            {
+              "name": "RelatedTradeId",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Related trade Id",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "FilterValue",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Id for the specified filter type.",
+          "children": []
+        },
+        {
+          "name": "TradeId",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Trade id",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": null
+    }
+  ]
+}

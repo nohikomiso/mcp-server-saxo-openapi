@@ -1,0 +1,91 @@
+{
+  "service": "ref",
+  "category": "currencies",
+  "url": "https://www.developer.saxo/openapi/referencedocs/ref/v1/currencies",
+  "endpoints": [
+    {
+      "name": "Get all supported currencies",
+      "method": "GET",
+      "path": "/ref/v1/currencies",
+      "url": "https://www.developer.saxo/openapi/referencedocs/ref/v1/currencies/get__ref",
+      "parameters": [
+        {
+          "name": "__count",
+          "type": "Number",
+          "link": null,
+          "origin": "Sub",
+          "description": "The total count of items in the feed.",
+          "children": []
+        },
+        {
+          "name": "__next",
+          "type": "String",
+          "link": null,
+          "origin": "Sub",
+          "description": "The link for the next page of items in the feed.",
+          "children": []
+        },
+        {
+          "name": "Data",
+          "type": "CurrencyDetails []",
+          "link": "https://www.developer.saxo/openapi/referencedocs/ref/v1/currencies/get__ref/schema-currencydetails",
+          "origin": "Sub",
+          "description": "The collection of entities for this feed.",
+          "children": [
+            {
+              "name": "CurrencyCode",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "The currency's ISO 3166-1 code.",
+              "children": []
+            },
+            {
+              "name": "Decimals",
+              "type": "Integer",
+              "link": null,
+              "origin": "Sub",
+              "description": "Number of decimals used in minor currency.",
+              "children": []
+            },
+            {
+              "name": "Name",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "Name of the currency.",
+              "children": []
+            },
+            {
+              "name": "Symbol",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "Symbol of the currency.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "MaxRows",
+          "type": "Number",
+          "link": null,
+          "origin": "Sub",
+          "description": "The maximum number of rows that can be returned (if applicable).",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "__next": "/openapi/....../?$top=1&$skip=1",
+        "Data": [
+          {
+            "CurrencyCode": "EUR",
+            "Decimals": 2,
+            "Name": "Euro"
+          }
+        ]
+      }
+    }
+  ]
+}

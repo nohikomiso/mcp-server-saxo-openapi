@@ -1,0 +1,1268 @@
+{
+  "service": "atr",
+  "category": "securitiestransfers",
+  "url": "https://www.developer.saxo/openapi/referencedocs/atr/v1/securitiestransfers",
+  "endpoints": [
+    {
+      "name": "Get list of brokers for the given ISO Country Code",
+      "method": "GET",
+      "path": "/atr/v1/securitiestransfers/brokers",
+      "url": "https://www.developer.saxo/openapi/referencedocs/atr/v1/securitiestransfers/get__atr__brokers",
+      "parameters": [
+        {
+          "name": "CountryCode",
+          "type": "CountryCode",
+          "link": null,
+          "origin": "Query-String",
+          "description": "ISO Country Code",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "Data": [
+          {
+            "BrokerType": "General",
+            "Contact": "Broker Contact 1",
+            "CountryCode": "DK",
+            "Email": "BrokerEmail1@email.com",
+            "Id": 1,
+            "Name": "ABC Investment Bank",
+            "Phone": "+45 12345678"
+          },
+          {
+            "BrokerType": "General",
+            "Contact": "Broker Contact 2",
+            "CountryCode": "DK",
+            "Email": "BrokerEmail2@email.com",
+            "Id": 2,
+            "Name": "Alps Investment Bank",
+            "Phone": "555 212-639-9675"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Get details of an Inter Account Security Transfer Request",
+      "method": "GET",
+      "path": "/atr/v1/securitiestransfers/interaccounttransfer",
+      "url": "https://www.developer.saxo/openapi/referencedocs/atr/v1/securitiestransfers/get__atr__interaccounttransfer",
+      "parameters": [
+        {
+          "name": "UniqueReference",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Unique Reference",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "AssetType": "Etn",
+        "BeneficialOwnershipChange": "CBO",
+        "CompleteTime": "2021-05-21T00:00:00Z",
+        "FromAccountKey": "dIm75edbgnW6aBK3CIc-sw==",
+        "Price": 10,
+        "Quantity": 10,
+        "Reason": "stringValue",
+        "RequestTime": "2021-05-21T00:00:00Z",
+        "ReversalReference": "stringValue",
+        "Status": "Accepted",
+        "ToAccountKey": "dIm75edbgnW6aBK3CIc-sw==",
+        "TransferType": "Reversal",
+        "Uic": 99,
+        "UniqueReference": "stringValue"
+      }
+    },
+    {
+      "name": "Submit Inter Account Security Transfer Request",
+      "method": "POST",
+      "path": "/atr/v1/securitiestransfers/interaccounttransfer",
+      "url": "https://www.developer.saxo/openapi/referencedocs/atr/v1/securitiestransfers/post__atr__interaccounttransfer",
+      "parameters": [
+        {
+          "name": "AssetType",
+          "type": "TransferableAssetType",
+          "link": "https://www.developer.saxo/openapi/referencedocs/atr/v1/securitiestransfers/post__atr__interaccounttransfer/schema-transferableassettype",
+          "origin": "Body",
+          "description": "AssetType of the security",
+          "children": [
+            {
+              "name": "Bond",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Bond",
+              "children": []
+            },
+            {
+              "name": "CertificateBonus",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "CertificateBonus",
+              "children": []
+            },
+            {
+              "name": "CertificateCappedBonus",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "CertificateCappedBonus",
+              "children": []
+            },
+            {
+              "name": "CertificateCappedCapitalProtected",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "CertificateCappedCapitalProtected",
+              "children": []
+            },
+            {
+              "name": "CertificateCappedOutperformance",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "CertificateCappedOutperformance",
+              "children": []
+            },
+            {
+              "name": "CertificateConstantLeverage",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "CertificateConstantLeverage",
+              "children": []
+            },
+            {
+              "name": "CertificateDiscount",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "CertificateDiscount",
+              "children": []
+            },
+            {
+              "name": "CertificateExpress",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "CertificateExpress",
+              "children": []
+            },
+            {
+              "name": "CertificateTracker",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "CertificateTracker",
+              "children": []
+            },
+            {
+              "name": "CertificateUncappedCapitalProtection",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "CertificateUncappedCapitalProtection",
+              "children": []
+            },
+            {
+              "name": "CertificateUncappedOutperformance",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "CertificateUncappedOutperformance",
+              "children": []
+            },
+            {
+              "name": "CompanyWarrant",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Unlisted warrant issued by a corporation, often physically settled.",
+              "children": []
+            },
+            {
+              "name": "Etc",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Etc",
+              "children": []
+            },
+            {
+              "name": "Etf",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Exchange traded fund.",
+              "children": []
+            },
+            {
+              "name": "Etn",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Etn",
+              "children": []
+            },
+            {
+              "name": "Fund",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Fund",
+              "children": []
+            },
+            {
+              "name": "MiniFuture",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "MiniFuture",
+              "children": []
+            },
+            {
+              "name": "MutualFund",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Mututal Funds",
+              "children": []
+            },
+            {
+              "name": "Rights",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Rights",
+              "children": []
+            },
+            {
+              "name": "Stock",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Stock",
+              "children": []
+            },
+            {
+              "name": "Warrant",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Warrant",
+              "children": []
+            },
+            {
+              "name": "WarrantDoubleKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "",
+              "children": []
+            },
+            {
+              "name": "WarrantKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "WarrantKnockOut",
+              "children": []
+            },
+            {
+              "name": "WarrantOpenEndKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "WarrantOpenEndKnockOut",
+              "children": []
+            },
+            {
+              "name": "WarrantSpread",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "BeneficialOwnershipChange",
+          "type": "BeneficialOwnershipChange",
+          "link": "https://www.developer.saxo/openapi/referencedocs/atr/v1/securitiestransfers/post__atr__interaccounttransfer/schema-beneficialownershipchange",
+          "origin": "Body",
+          "description": "Change in Beneficial Ownership.",
+          "children": [
+            {
+              "name": "CBO",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Change in Beneficial Ownership.",
+              "children": []
+            },
+            {
+              "name": "NCBO",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "No Change in Beneficial Ownership",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "FromAccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Body",
+          "description": "The from account identifier in key format from which securities transfer is executed",
+          "children": []
+        },
+        {
+          "name": "Price",
+          "type": "Number",
+          "link": null,
+          "origin": "Body",
+          "description": "The price per security",
+          "children": []
+        },
+        {
+          "name": "Quantity",
+          "type": "Number",
+          "link": null,
+          "origin": "Body",
+          "description": "Quantity of security to transfer",
+          "children": []
+        },
+        {
+          "name": "ReversalReference",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "Oriningal reference Reference Number for the reversal request.",
+          "children": []
+        },
+        {
+          "name": "ToAccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Body",
+          "description": "The to account identifier in key format to which securities transfer is executed",
+          "children": []
+        },
+        {
+          "name": "TransferType",
+          "type": "TransferType",
+          "link": "https://www.developer.saxo/openapi/referencedocs/atr/v1/securitiestransfers/post__atr__interaccounttransfer/schema-transfertype",
+          "origin": "Body",
+          "description": "Position Transfer Action New/Reversal.",
+          "children": [
+            {
+              "name": "New",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "New Transfer Request",
+              "children": []
+            },
+            {
+              "name": "Reversal",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Reversal of an existing transfer request.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Uic",
+          "type": "Integer",
+          "link": null,
+          "origin": "Body",
+          "description": "Uic of the security",
+          "children": []
+        },
+        {
+          "name": "UniqueReference",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "Unique reference Reference Number for the request.",
+          "children": []
+        }
+      ],
+      "request_sample": {
+        "AssetType": "Stock",
+        "BeneficialOwnershipChange": "NCBO",
+        "FromAccountKey": "dIm75edbgnW6aBK3CIc-sw==",
+        "Price": 12,
+        "Quantity": 100,
+        "ReversalReference": "78eca8e7-c0e6-4ba0-a9a6-3e23d70f957e",
+        "ToAccountKey": "dIm75edbgnW6aBK3CIc-sw==",
+        "TransferType": "Reversal",
+        "Uic": 43246,
+        "UniqueReference": "b1cbce88-8bee-42a0-b67c-d8cc09acd8f5"
+      },
+      "response_sample": {
+        "UniqueReference": "b1cbce88-8bee-42a0-b67c-d8cc09acd8f5"
+      }
+    },
+    {
+      "name": "Get list of Security Transfers executed by client based on list of comma separated transfer ids.",
+      "method": "GET",
+      "path": "/atr/v1/securitiestransfers/transfers",
+      "url": "https://www.developer.saxo/openapi/referencedocs/atr/v1/securitiestransfers/get__atr__transfers",
+      "parameters": [
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The client identifier in key format",
+          "children": []
+        },
+        {
+          "name": "TransferIds",
+          "type": "String []",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Comma separate list of Transfer IDs",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "__count": 1,
+        "Data": [
+          {
+            "AccountId": "3495867632",
+            "AccountManager": "ABC Investment Bank",
+            "AssetType": "Stock",
+            "Broker": {
+              "BrokerType": "General",
+              "Contact": "Broker Contact 1",
+              "CountryCode": "DK",
+              "Email": "BrokerEmail1@email.com",
+              "Id": 1,
+              "Name": "ABC Investment Bank",
+              "Phone": "+45 12345678"
+            },
+            "ClientAccountAtBroker": "0539633313",
+            "Securities": [
+              {
+                "Currency": "EUR",
+                "Description": "Apple Inc.",
+                "Exchange": "NASDAQ",
+                "InstrumentSymbolCode": "AAPL:xnas",
+                "IsinCode": "US0378331005",
+                "Price": 194.82,
+                "PurchaseDate": "2020-06-20T00:00:00Z",
+                "Quantity": 24,
+                "Uic": 211
+              },
+              {
+                "Currency": "GBP",
+                "Description": "ABB Ltd",
+                "Exchange": "SSE",
+                "InstrumentSymbolCode": "ABB:xome",
+                "IsinCode": "CH0012221716",
+                "Price": 32.82,
+                "PurchaseDate": "2020-09-10T00:00:00Z",
+                "Quantity": 7,
+                "Uic": 101
+              }
+            ],
+            "TradeDate": "2026-07-06T00:00:00Z",
+            "TransferDirection": "TransferIn",
+            "TransferId": "414"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Submit Securities Transfer Request",
+      "method": "POST",
+      "path": "/atr/v1/securitiestransfers/transfers",
+      "url": "https://www.developer.saxo/openapi/referencedocs/atr/v1/securitiestransfers/post__atr__transfers",
+      "parameters": [
+        {
+          "name": "AccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Body",
+          "description": "The account identifier in key format from which securities transfer is executed",
+          "children": []
+        },
+        {
+          "name": "AssetType",
+          "type": "TransferableAssetType",
+          "link": "https://www.developer.saxo/openapi/referencedocs/atr/v1/securitiestransfers/post__atr__transfers/schema-transferableassettype",
+          "origin": "Body",
+          "description": "The asset type to be transferred",
+          "children": [
+            {
+              "name": "Bond",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Bond",
+              "children": []
+            },
+            {
+              "name": "CertificateBonus",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "CertificateBonus",
+              "children": []
+            },
+            {
+              "name": "CertificateCappedBonus",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "CertificateCappedBonus",
+              "children": []
+            },
+            {
+              "name": "CertificateCappedCapitalProtected",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "CertificateCappedCapitalProtected",
+              "children": []
+            },
+            {
+              "name": "CertificateCappedOutperformance",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "CertificateCappedOutperformance",
+              "children": []
+            },
+            {
+              "name": "CertificateConstantLeverage",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "CertificateConstantLeverage",
+              "children": []
+            },
+            {
+              "name": "CertificateDiscount",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "CertificateDiscount",
+              "children": []
+            },
+            {
+              "name": "CertificateExpress",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "CertificateExpress",
+              "children": []
+            },
+            {
+              "name": "CertificateTracker",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "CertificateTracker",
+              "children": []
+            },
+            {
+              "name": "CertificateUncappedCapitalProtection",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "CertificateUncappedCapitalProtection",
+              "children": []
+            },
+            {
+              "name": "CertificateUncappedOutperformance",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "CertificateUncappedOutperformance",
+              "children": []
+            },
+            {
+              "name": "CompanyWarrant",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Unlisted warrant issued by a corporation, often physically settled.",
+              "children": []
+            },
+            {
+              "name": "Etc",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Etc",
+              "children": []
+            },
+            {
+              "name": "Etf",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Exchange traded fund.",
+              "children": []
+            },
+            {
+              "name": "Etn",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Etn",
+              "children": []
+            },
+            {
+              "name": "Fund",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Fund",
+              "children": []
+            },
+            {
+              "name": "MiniFuture",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "MiniFuture",
+              "children": []
+            },
+            {
+              "name": "MutualFund",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Mututal Funds",
+              "children": []
+            },
+            {
+              "name": "Rights",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Rights",
+              "children": []
+            },
+            {
+              "name": "Stock",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Stock",
+              "children": []
+            },
+            {
+              "name": "Warrant",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Warrant",
+              "children": []
+            },
+            {
+              "name": "WarrantDoubleKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "",
+              "children": []
+            },
+            {
+              "name": "WarrantKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "WarrantKnockOut",
+              "children": []
+            },
+            {
+              "name": "WarrantOpenEndKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "WarrantOpenEndKnockOut",
+              "children": []
+            },
+            {
+              "name": "WarrantSpread",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Broker",
+          "type": "Broker",
+          "link": "https://www.developer.saxo/openapi/referencedocs/atr/v1/securitiestransfers/post__atr__transfers/schema-broker",
+          "origin": "Body",
+          "description": "The client's broker details",
+          "children": [
+            {
+              "name": "BrokerType",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "BrokerType",
+              "children": []
+            },
+            {
+              "name": "Contact",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "Broker Contact",
+              "children": []
+            },
+            {
+              "name": "CountryCode",
+              "type": "CountryCode",
+              "link": null,
+              "origin": "Sub",
+              "description": "Broker's Country Id",
+              "children": []
+            },
+            {
+              "name": "Email",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "Broker Email",
+              "children": []
+            },
+            {
+              "name": "Id",
+              "type": "Integer",
+              "link": null,
+              "origin": "Sub",
+              "description": "Id",
+              "children": []
+            },
+            {
+              "name": "Name",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "Broker Name",
+              "children": []
+            },
+            {
+              "name": "Phone",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "Broker Phone Number",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "ClientAccountAtBroker",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "Identifier of the client's account at the broker",
+          "children": []
+        },
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Body",
+          "description": "The client identifier in key format for which system will execute securities transfer",
+          "children": []
+        },
+        {
+          "name": "Reason",
+          "type": "SecurityTransferReason",
+          "link": "https://www.developer.saxo/openapi/referencedocs/atr/v1/securitiestransfers/post__atr__transfers/schema-securitytransferreason",
+          "origin": "Body",
+          "description": "default constructor",
+          "children": [
+            {
+              "name": "OtherText",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "user comment in case reason code is other.",
+              "children": []
+            },
+            {
+              "name": "ReasonCode",
+              "type": "ReasonCode",
+              "link": "https://www.developer.saxo/openapi/referencedocs/atr/v1/securitiestransfers/post__atr__transfers/schema-reasoncode",
+              "origin": "Sub",
+              "description": "Reason code for security transfer.",
+              "children": [
+                {
+                  "name": "SecurityTransferReasonCodeOutAdministrationTooChallenging",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "",
+                  "children": []
+                },
+                {
+                  "name": "SecurityTransferReasonCodeOutConsolidatingInvestmentsWithAnotherProvider",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "",
+                  "children": []
+                },
+                {
+                  "name": "SecurityTransferReasonCodeOutDoNotEnjoyUsingSaxoPlatformOrApp",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "",
+                  "children": []
+                },
+                {
+                  "name": "SecurityTransferReasonCodeOutEducationalContentDoesNotMeetNeeds",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "",
+                  "children": []
+                },
+                {
+                  "name": "SecurityTransferReasonCodeOutInteractionsWithSaxoNotMetExpectations",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "",
+                  "children": []
+                },
+                {
+                  "name": "SecurityTransferReasonCodeOutMovingToAnotherCountry",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "",
+                  "children": []
+                },
+                {
+                  "name": "SecurityTransferReasonCodeOutNotSpecified",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "",
+                  "children": []
+                },
+                {
+                  "name": "SecurityTransferReasonCodeOutOther",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "",
+                  "children": []
+                },
+                {
+                  "name": "SecurityTransferReasonCodeOutPositionDelistedOrNotSupportedAtSaxo",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "",
+                  "children": []
+                },
+                {
+                  "name": "SecurityTransferReasonCodeOutPreferNotToSay",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "",
+                  "children": []
+                },
+                {
+                  "name": "SecurityTransferReasonCodeOutRegulatoryReasons",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "",
+                  "children": []
+                },
+                {
+                  "name": "SecurityTransferReasonCodeOutSatisfiedWithPricingFeesAtAnotherProvider",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "",
+                  "children": []
+                },
+                {
+                  "name": "SecurityTransferReasonCodeOutSaxoCommunications",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "",
+                  "children": []
+                },
+                {
+                  "name": "SecurityTransferReasonCodeOutUnableToTradeProductsIWant",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Securities",
+          "type": "Security []",
+          "link": "https://www.developer.saxo/openapi/referencedocs/atr/v1/securitiestransfers/post__atr__transfers/schema-security",
+          "origin": "Body",
+          "description": "The securities details",
+          "children": [
+            {
+              "name": "Currency",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "The Currency of the security to be transferred.",
+              "children": []
+            },
+            {
+              "name": "Description",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "The Description of the security",
+              "children": []
+            },
+            {
+              "name": "Exchange",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "The Exchange where the security gets transferred.",
+              "children": []
+            },
+            {
+              "name": "ExchangeText",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "ExchangeText of the security.",
+              "children": []
+            },
+            {
+              "name": "InstrumentSymbolCode",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "The InstrumentSymbolCode of the security.",
+              "children": []
+            },
+            {
+              "name": "IsinCode",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "IsinCode of the security.",
+              "children": []
+            },
+            {
+              "name": "Price",
+              "type": "Number",
+              "link": null,
+              "origin": "Sub",
+              "description": "The price per security",
+              "children": []
+            },
+            {
+              "name": "PurchaseDate",
+              "type": "Date",
+              "link": null,
+              "origin": "Sub",
+              "description": "Purchase date of instrument",
+              "children": []
+            },
+            {
+              "name": "Quantity",
+              "type": "Number",
+              "link": null,
+              "origin": "Sub",
+              "description": "Quantity of security to transfer",
+              "children": []
+            },
+            {
+              "name": "SpecialInstructions",
+              "type": "Integer []",
+              "link": null,
+              "origin": "Sub",
+              "description": "The Instruction set for the transfer request.",
+              "children": []
+            },
+            {
+              "name": "Uic",
+              "type": "Integer",
+              "link": null,
+              "origin": "Sub",
+              "description": "Uic of the security",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "SettlementDate",
+          "type": "Date",
+          "link": null,
+          "origin": "Body",
+          "description": "The settlement date",
+          "children": []
+        },
+        {
+          "name": "SettlementInstruction",
+          "type": "SettlementInstruction",
+          "link": "https://www.developer.saxo/openapi/referencedocs/atr/v1/securitiestransfers/post__atr__transfers/schema-settlementinstruction",
+          "origin": "Body",
+          "description": "Settlement Instruction",
+          "children": [
+            {
+              "name": "AccountAtClearingAgent",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "The safekeeping / Security account at the custody of the client",
+              "children": []
+            },
+            {
+              "name": "AgentLocalAccount",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "The agent local account",
+              "children": []
+            },
+            {
+              "name": "BuyerSellerCode",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "The buyer seller code",
+              "children": []
+            },
+            {
+              "name": "BuyerSellerCodeType",
+              "type": "BuyerSellerCodeType",
+              "link": "https://www.developer.saxo/openapi/referencedocs/atr/v1/securitiestransfers/post__atr__transfers/schema-buyersellercodetype",
+              "origin": "Sub",
+              "description": "The BIC Code / Local Code of the custody of the client with their counterpart",
+              "children": [
+                {
+                  "name": "Bic",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Bic",
+                  "children": []
+                },
+                {
+                  "name": "Cdident",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Cdident",
+                  "children": []
+                },
+                {
+                  "name": "Local",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Local",
+                  "children": []
+                },
+                {
+                  "name": "None",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "None",
+                  "children": []
+                },
+                {
+                  "name": "Text",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Text",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "ClearingAgentCode",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "The clearing agent code",
+              "children": []
+            },
+            {
+              "name": "ClearingAgentCodeType",
+              "type": "ClearingAgentCodeType",
+              "link": "https://www.developer.saxo/openapi/referencedocs/atr/v1/securitiestransfers/post__atr__transfers/schema-clearingagentcodetype",
+              "origin": "Sub",
+              "description": "The BIC / Local Code of the Exchange of the instrument. For example if client is trading in UK Share then the Clearing Agent would be the BIC / Local Code from UK",
+              "children": [
+                {
+                  "name": "Bic",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Bic",
+                  "children": []
+                },
+                {
+                  "name": "Local",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Local",
+                  "children": []
+                },
+                {
+                  "name": "None",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "None",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "FreeText",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "The information / remarks",
+              "children": []
+            },
+            {
+              "name": "SettlementAgentAccount",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "The settlement agent account",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "TradeDate",
+          "type": "Date",
+          "link": null,
+          "origin": "Body",
+          "description": "The agreed trade date",
+          "children": []
+        },
+        {
+          "name": "TransferDirection",
+          "type": "TransferDirection",
+          "link": "https://www.developer.saxo/openapi/referencedocs/atr/v1/securitiestransfers/post__atr__transfers/schema-transferdirection",
+          "origin": "Body",
+          "description": "Transfer type, in or out of Bank",
+          "children": [
+            {
+              "name": "TransferIn",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Transfer securities from external broker to Saxo Bank",
+              "children": []
+            },
+            {
+              "name": "TransferOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Transfer securities Saxo Bank to external broker",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "request_sample": {
+        "AccountKey": "dIm75edbgnW6aBK3CIc-sw==",
+        "AssetType": "Stock",
+        "Broker": {
+          "BrokerType": "General",
+          "Contact": "Broker Contact 1",
+          "CountryCode": "DK",
+          "Email": "BrokerEmail1@email.com",
+          "Id": 1,
+          "Name": "ABC Investment Bank",
+          "Phone": "+45 12345678"
+        },
+        "ClientAccountAtBroker": "0539633313",
+        "ClientKey": "zpSlGZ4F0cPIx59wR3HP1g==",
+        "Reason": {
+          "OtherText": "User Entered Reason",
+          "ReasonCode": "SecurityTransferReasonCodeOutAdministrationTooChallenging"
+        },
+        "Securities": [
+          {
+            "Currency": "EUR",
+            "Description": "Apple Inc.",
+            "Exchange": "NASDAQ",
+            "InstrumentSymbolCode": "AAPL:xnas",
+            "IsinCode": "US0378331005",
+            "Price": 194.82,
+            "PurchaseDate": "2020-06-20T00:00:00Z",
+            "Quantity": 24,
+            "Uic": 211
+          },
+          {
+            "Currency": "GBP",
+            "Description": "ABB Ltd",
+            "Exchange": "SSE",
+            "InstrumentSymbolCode": "ABB:xome",
+            "IsinCode": "CH0012221716",
+            "Price": 32.82,
+            "PurchaseDate": "2020-09-10T00:00:00Z",
+            "Quantity": 7,
+            "Uic": 101
+          }
+        ],
+        "SettlementInstruction": {
+          "AccountAtClearingAgent": "0539633313",
+          "AgentLocalAccount": "6300772196",
+          "BuyerSellerCode": "B",
+          "BuyerSellerCodeType": "Bic",
+          "ClearingAgentCode": "9200",
+          "ClearingAgentCodeType": "Bic",
+          "FreeText": "NOTLXNO",
+          "SettlementAgentAccount": "1011248400G"
+        },
+        "TradeDate": "2026-07-06T00:00:00Z",
+        "TransferDirection": "TransferIn"
+      },
+      "response_sample": {
+        "TransferId": "63HGCDS3E89DS"
+      }
+    }
+  ]
+}

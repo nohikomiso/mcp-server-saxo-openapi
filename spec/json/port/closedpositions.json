@@ -1,0 +1,612 @@
+{
+  "service": "port",
+  "category": "closedpositions",
+  "url": "https://www.developer.saxo/openapi/referencedocs/port/v1/closedpositions",
+  "endpoints": [
+    {
+      "name": "Get closed positions for a client, accountGroup or account",
+      "method": "GET",
+      "path": "/port/v1/closedpositions",
+      "url": "https://www.developer.saxo/openapi/referencedocs/port/v1/closedpositions/get__port",
+      "parameters": [
+        {
+          "name": "$skip",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to skip from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "$top",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to return from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "AccountGroupKey",
+          "type": "AccountGroupKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the account group to which the closed positions belongs.",
+          "children": []
+        },
+        {
+          "name": "AccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the account to which the closed positions belongs.",
+          "children": []
+        },
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the client to which the closesd positions belongs.",
+          "children": []
+        },
+        {
+          "name": "ClosedPositionId",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The id of the closed position to which the closedposition belongs",
+          "children": []
+        },
+        {
+          "name": "FieldGroups",
+          "type": "ClosedPositionFieldGroup []",
+          "link": "https://www.developer.saxo/openapi/referencedocs/port/v1/closedpositions/get__port/schema-closedpositionfieldgroup",
+          "origin": "Query-String",
+          "description": "Specifies which data to return. Default is [ClosedPosition]",
+          "children": [
+            {
+              "name": "ClosedPosition",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Closed position data which is calculated differently whether viewed at client or account level",
+              "children": []
+            },
+            {
+              "name": "ClosedPositionDetails",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Detailed information about a closed position. Applicable when ClosedPositionId is included in the request and not a subscription request.",
+              "children": []
+            },
+            {
+              "name": "DisplayAndFormat",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Information about the instrument of the net position and how to display it.",
+              "children": []
+            },
+            {
+              "name": "ExchangeInfo",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Adds information about the instrument's exchange. This includes Exchange name, exchange code and open status.",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "__next": "/openapi/port/....../?$top=1&$skip=1",
+        "Data": [
+          {
+            "ClosedPosition": {
+              "AccountId": "192134INET",
+              "Amount": 300000,
+              "AssetType": "FxSpot",
+              "BuyOrSell": "Buy",
+              "ClientId": "654321",
+              "ClosedProfitLoss": 9597,
+              "ClosedProfitLossInBaseCurrency": 9597,
+              "ClosingMarketValue": 0,
+              "ClosingMarketValueInBaseCurrency": 0,
+              "ClosingMethod": "Explicit",
+              "ClosingPositionId": "139694249",
+              "ClosingPrice": 1.09139,
+              "ConversionRateInstrumentToBaseSettledClosing": false,
+              "ConversionRateInstrumentToBaseSettledOpening": true,
+              "ExecutionTimeClose": "2017-05-02T00:00:00Z",
+              "ExecutionTimeOpen": "2017-04-12T00:00:00Z",
+              "OpeningPositionId": "139597294",
+              "OpenPrice": 1.0594,
+              "Uic": 21
+            },
+            "ClosedPositionUniqueId": "139597294-139694249",
+            "NetPositionId": "EURUSD_FxSpot"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Get a single position",
+      "method": "GET",
+      "path": "/port/v1/closedpositions/{ClosedPositionId}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/port/v1/closedpositions/get__port__closedpositionid",
+      "parameters": [
+        {
+          "name": "AccountGroupKey",
+          "type": "AccountGroupKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the account group to which the closed positions belongs.",
+          "children": []
+        },
+        {
+          "name": "AccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the account to which the closed positions belongs.",
+          "children": []
+        },
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the client to which the closesd positions belongs.",
+          "children": []
+        },
+        {
+          "name": "ClosedPositionId",
+          "type": "String",
+          "link": null,
+          "origin": "Route",
+          "description": "Unique id of the position.",
+          "children": []
+        },
+        {
+          "name": "FieldGroups",
+          "type": "ClosedPositionFieldGroup []",
+          "link": "https://www.developer.saxo/openapi/referencedocs/port/v1/closedpositions/get__port__closedpositionid/schema-closedpositionfieldgroup",
+          "origin": "Query-String",
+          "description": "Specifies which data to return. Default is [ClosedPosition]",
+          "children": [
+            {
+              "name": "ClosedPosition",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Closed position data which is calculated differently whether viewed at client or account level",
+              "children": []
+            },
+            {
+              "name": "ClosedPositionDetails",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Detailed information about a closed position. Applicable when ClosedPositionId is included in the request and not a subscription request.",
+              "children": []
+            },
+            {
+              "name": "DisplayAndFormat",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Information about the instrument of the net position and how to display it.",
+              "children": []
+            },
+            {
+              "name": "ExchangeInfo",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Adds information about the instrument's exchange. This includes Exchange name, exchange code and open status.",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "ClosedPosition": {
+          "AccountId": "192134INET",
+          "Amount": 300000,
+          "AssetType": "FxSpot",
+          "BuyOrSell": "Buy",
+          "ClientId": "654321",
+          "ClosedProfitLoss": 9597,
+          "ClosedProfitLossInBaseCurrency": 9597,
+          "ClosingMarketValue": 0,
+          "ClosingMarketValueInBaseCurrency": 0,
+          "ClosingMethod": "Explicit",
+          "ClosingPositionId": "139694249",
+          "ClosingPrice": 1.09139,
+          "ConversionRateInstrumentToBaseSettledClosing": false,
+          "ConversionRateInstrumentToBaseSettledOpening": true,
+          "ExecutionTimeClose": "2017-05-02T00:00:00Z",
+          "ExecutionTimeOpen": "2017-04-12T00:00:00Z",
+          "OpeningPositionId": "139597294",
+          "OpenPrice": 1.0594,
+          "Uic": 21
+        },
+        "ClosedPositionUniqueId": "139597294-139694249",
+        "NetPositionId": "EURUSD_FxSpot"
+      }
+    },
+    {
+      "name": "Get closed positions for a client, to which the logged in user belongs",
+      "method": "GET",
+      "path": "/port/v1/closedpositions/me",
+      "url": "https://www.developer.saxo/openapi/referencedocs/port/v1/closedpositions/get__port__me",
+      "parameters": [
+        {
+          "name": "$skip",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to skip from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "$top",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to return from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "FieldGroups",
+          "type": "ClosedPositionFieldGroup []",
+          "link": "https://www.developer.saxo/openapi/referencedocs/port/v1/closedpositions/get__port__me/schema-closedpositionfieldgroup",
+          "origin": "Query-String",
+          "description": "Specifies which data to return. Default is [ClosedPosition].",
+          "children": [
+            {
+              "name": "ClosedPosition",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Closed position data which is calculated differently whether viewed at client or account level",
+              "children": []
+            },
+            {
+              "name": "ClosedPositionDetails",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Detailed information about a closed position. Applicable when ClosedPositionId is included in the request and not a subscription request.",
+              "children": []
+            },
+            {
+              "name": "DisplayAndFormat",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Information about the instrument of the net position and how to display it.",
+              "children": []
+            },
+            {
+              "name": "ExchangeInfo",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Adds information about the instrument's exchange. This includes Exchange name, exchange code and open status.",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "__next": "/openapi/port/....../?$top=1&$skip=1",
+        "Data": [
+          {
+            "ClosedPosition": {
+              "AccountId": "192134INET",
+              "Amount": 300000,
+              "AssetType": "FxSpot",
+              "BuyOrSell": "Buy",
+              "ClientId": "654321",
+              "ClosedProfitLoss": 9597,
+              "ClosedProfitLossInBaseCurrency": 9597,
+              "ClosingMarketValue": 0,
+              "ClosingMarketValueInBaseCurrency": 0,
+              "ClosingMethod": "Explicit",
+              "ClosingPositionId": "139694249",
+              "ClosingPrice": 1.09139,
+              "ConversionRateInstrumentToBaseSettledClosing": false,
+              "ConversionRateInstrumentToBaseSettledOpening": true,
+              "ExecutionTimeClose": "2017-05-02T00:00:00Z",
+              "ExecutionTimeOpen": "2017-04-12T00:00:00Z",
+              "OpeningPositionId": "139597294",
+              "OpenPrice": 1.0594,
+              "Uic": 21
+            },
+            "ClosedPositionUniqueId": "139597294-139694249",
+            "NetPositionId": "EURUSD_FxSpot"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Create a subscription on a list of closed positions and make it active",
+      "method": "POST",
+      "path": "/port/v1/closedpositions/subscriptions",
+      "url": "https://www.developer.saxo/openapi/referencedocs/port/v1/closedpositions/post__port__subscriptions",
+      "parameters": [
+        {
+          "name": "$top",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to return from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "Arguments",
+          "type": "ClosedPositionRequest",
+          "link": "https://www.developer.saxo/openapi/referencedocs/port/v1/closedpositions/post__port__subscriptions/schema-closedpositionrequest",
+          "origin": "Body",
+          "description": "Arguments for the subscription request.",
+          "children": [
+            {
+              "name": "AccountGroupKey",
+              "type": "AccountGroupKey",
+              "link": null,
+              "origin": "Sub",
+              "description": "The key of the account group to which the closed positions belongs.",
+              "children": []
+            },
+            {
+              "name": "AccountKey",
+              "type": "AccountKey",
+              "link": null,
+              "origin": "Sub",
+              "description": "The key of the account to which the closed positions belongs.",
+              "children": []
+            },
+            {
+              "name": "ClientKey",
+              "type": "ClientKey",
+              "link": null,
+              "origin": "Sub",
+              "description": "The key of the client to which the closesd positions belongs.",
+              "children": []
+            },
+            {
+              "name": "ClosedPositionId",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "The id of the closed position to which the closedposition belongs",
+              "children": []
+            },
+            {
+              "name": "FieldGroups",
+              "type": "ClosedPositionFieldGroup []",
+              "link": "https://www.developer.saxo/openapi/referencedocs/port/v1/closedpositions/post__port__subscriptions/schema-closedpositionfieldgroup",
+              "origin": "Sub",
+              "description": "Specifies which data to return. Default is [ClosedPosition]",
+              "children": [
+                {
+                  "name": "ClosedPosition",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Closed position data which is calculated differently whether viewed at client or account level",
+                  "children": []
+                },
+                {
+                  "name": "ClosedPositionDetails",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Detailed information about a closed position. Applicable when ClosedPositionId is included in the request and not a subscription request.",
+                  "children": []
+                },
+                {
+                  "name": "DisplayAndFormat",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Information about the instrument of the net position and how to display it.",
+                  "children": []
+                },
+                {
+                  "name": "ExchangeInfo",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Adds information about the instrument's exchange. This includes Exchange name, exchange code and open status.",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "ContextId",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "The streaming context id that this request is associated with. This parameter must only contain letters (a-z) and numbers (0-9) as well as - (dash) and _ (underscore). It is case insensitive. Max length is 50 characters.",
+          "children": []
+        },
+        {
+          "name": "Format",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "Optional Media type (RFC 2046) of the serialized data updates that are streamed to the client. Currently only application/json and application/x-protobuf is supported. If an unrecognized format is specified, the subscription end point will return HTTP status code 400 - Bad format.",
+          "children": []
+        },
+        {
+          "name": "ReferenceId",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "Mandatory client specified reference id for the subscription. This parameter must only contain alphanumberic characters as well as - (dash) and _ (underscore). Cannot start with _. It is case insensitive. Max length is 50 characters.",
+          "children": []
+        },
+        {
+          "name": "RefreshRate",
+          "type": "Integer",
+          "link": null,
+          "origin": "Body",
+          "description": "Optional custom refresh rate, measured in milliseconds, between each data update. Note that it is not possible to get a refresh rate lower than the rate specified in the customer service level agreement (SLA).",
+          "children": []
+        },
+        {
+          "name": "ReplaceReferenceId",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "Reference id of the subscription that should be replaced.",
+          "children": []
+        },
+        {
+          "name": "Tag Obsolete",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": ": Optional client specified tag used for grouping subscriptions.",
+          "children": []
+        }
+      ],
+      "request_sample": {
+        "Arguments": {
+          "AccountGroupKey": "LZTc7DdejXODf-WSl2aCyQ==",
+          "AccountKey": "LZTc7DdejXODf-WSl2aCyQ==",
+          "ClientKey": "7m4I|vtYLUnEGg77o9uQhw==",
+          "ClosedPositionId": "139597294-139694249",
+          "FieldGroups": [
+            "ClosedPosition"
+          ]
+        },
+        "ContextId": "20260706021346684",
+        "Format": "application/json",
+        "ReferenceId": "CP30411",
+        "RefreshRate": 1000
+      },
+      "response_sample": {
+        "ClosedPosition": {
+          "AccountId": "192134INET",
+          "Amount": 300000,
+          "AssetType": "FxSpot",
+          "BuyOrSell": "Buy",
+          "ClientId": "654321",
+          "ClosedProfitLoss": 9597,
+          "ClosedProfitLossInBaseCurrency": 9597,
+          "ClosingMarketValue": 0,
+          "ClosingMarketValueInBaseCurrency": 0,
+          "ClosingMethod": "Explicit",
+          "ClosingPositionId": "139694249",
+          "ClosingPrice": 1.09139,
+          "ConversionRateInstrumentToBaseSettledClosing": false,
+          "ConversionRateInstrumentToBaseSettledOpening": true,
+          "ExecutionTimeClose": "2017-05-02T00:00:00+00:00",
+          "ExecutionTimeOpen": "2017-04-12T00:00:00+00:00",
+          "OpeningPositionId": "139597294",
+          "OpenPrice": 1.0594,
+          "Uic": 21
+        },
+        "ClosedPositionUniqueId": "139597294-139694249",
+        "NetPositionId": "EURUSD_FxSpot"
+      }
+    },
+    {
+      "name": "Remove multiple subscriptions",
+      "method": "DELETE",
+      "path": "/port/v1/closedpositions/subscriptions/{ContextId}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/port/v1/closedpositions/delete__port__subscriptions_contextid",
+      "parameters": [
+        {
+          "name": "ContextId",
+          "type": "String",
+          "link": null,
+          "origin": "Route",
+          "description": "The context id part of the streaming session (used to identify the subscription within a streaming session).",
+          "children": []
+        },
+        {
+          "name": "Tag",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Optional. Remove only subscriptions that are marked with specified tag.",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": null
+    },
+    {
+      "name": "Change the closed positions subscription page size",
+      "method": "PATCH",
+      "path": "/port/v1/closedpositions/subscriptions/{ContextId}/{ReferenceId}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/port/v1/closedpositions/patch__port__subscriptions_contextid_referenceid",
+      "parameters": [
+        {
+          "name": "ContextId",
+          "type": "String",
+          "link": null,
+          "origin": "Route",
+          "description": "The context id part of the streaming session.",
+          "children": []
+        },
+        {
+          "name": "NewPageSize",
+          "type": "Integer",
+          "link": null,
+          "origin": "Body",
+          "description": "Extends or reduces the page size, number of positions shown, on a running positions subscription.",
+          "children": []
+        },
+        {
+          "name": "ReferenceId",
+          "type": "String",
+          "link": null,
+          "origin": "Route",
+          "description": "Unique ID of the subscription",
+          "children": []
+        }
+      ],
+      "request_sample": {
+        "NewPageSize": 99
+      },
+      "response_sample": null
+    },
+    {
+      "name": "Remove subscription",
+      "method": "DELETE",
+      "path": "/port/v1/closedpositions/subscriptions/{ContextId}/{ReferenceId}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/port/v1/closedpositions/delete__port__subscriptions_contextid_referenceid",
+      "parameters": [
+        {
+          "name": "ContextId",
+          "type": "String",
+          "link": null,
+          "origin": "Route",
+          "description": "The context id part of the streaming session (used to identify the subscription within a streaming session).",
+          "children": []
+        },
+        {
+          "name": "ReferenceId",
+          "type": "String",
+          "link": null,
+          "origin": "Route",
+          "description": "Unique id of the subscription",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": null
+    }
+  ]
+}

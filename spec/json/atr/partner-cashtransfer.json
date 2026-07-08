@@ -1,0 +1,227 @@
+{
+  "service": "atr",
+  "category": "partner-cashtransfer",
+  "url": "https://www.developer.saxo/openapi/referencedocs/atr/v1/partner-cashtransfer",
+  "endpoints": [
+    {
+      "name": "Fetches a summary of transfers.",
+      "method": "GET",
+      "path": "/atr/v1/partner/cashtransfers",
+      "url": "https://www.developer.saxo/openapi/referencedocs/atr/v1/partner-cashtransfer/get__atr_partner_cashtransfers",
+      "parameters": [
+        {
+          "name": "AccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "If specified, will only return entries pertaining to the specified account.",
+          "children": []
+        },
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "If specified, will only return entries pertaining to the specified client.",
+          "children": []
+        },
+        {
+          "name": "ExternalReference",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Include entries with the specified ExternalReference.",
+          "children": []
+        },
+        {
+          "name": "FromDateTime",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Only include entries with a TransferRequestedOn value greater than or equal to FromDateTime.",
+          "children": []
+        },
+        {
+          "name": "SkipToken",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Id token of entity to start taking elements from.",
+          "children": []
+        },
+        {
+          "name": "ToDateTime",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Only include entries with a TransferRequestedOn value lower than or equal to ToDateTime.",
+          "children": []
+        },
+        {
+          "name": "Top",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Number of elements to retrieve. (Default is 50, Max is 1000.)",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "Data": [
+          {
+            "Amount": 10000,
+            "Comment": "Transferring from funding account 33000/FEUR",
+            "Currency": "EUR",
+            "ExternalReference": "789456",
+            "FromAccount": "-gh-xomNFSNUYdRL0KrPpg==",
+            "FromAccountPositionId": "1267",
+            "FundingCheck": "Enforce",
+            "ToAccount": "y3kFQWkqJYMgOgaxcoqshA==",
+            "ToAccountPositionId": "1268",
+            "TransactionId": "1269",
+            "TransferRequestedOn": "2026-07-06T04:43:55.411238Z",
+            "TransferStatus": "Successful",
+            "ValueDate": "0001-01-01T00:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Cash transfer initiated by partner.",
+      "method": "POST",
+      "path": "/atr/v1/partner/cashtransfers",
+      "url": "https://www.developer.saxo/openapi/referencedocs/atr/v1/partner-cashtransfer/post__atr_partner_cashtransfers",
+      "parameters": [
+        {
+          "name": "Amount",
+          "type": "Number",
+          "link": null,
+          "origin": "Body",
+          "description": "The value that will be transacted.",
+          "children": []
+        },
+        {
+          "name": "Comment",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "Comment to the transaction. The comment will be seen in the EOD files.",
+          "children": []
+        },
+        {
+          "name": "Currency",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "Currency in which the cash movement will be held in. This is essentially just an extra check! The currency entered here must be the same as that of the funding account and the clients trading account.",
+          "children": []
+        },
+        {
+          "name": "ExternalReference",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "Caller may add this to identify the request.",
+          "children": []
+        },
+        {
+          "name": "FromAccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Body",
+          "description": "Account from where the cash is moved from. For funding transactions, this field will hold the AccountKey of the funding account. For withdrawal transactions this field will hold the AccountKey of the clients trading account. Remember that the currency of the funding account and the clients trading account must be the same.",
+          "children": []
+        },
+        {
+          "name": "FundingCheck",
+          "type": "FundingCheck",
+          "link": "https://www.developer.saxo/openapi/referencedocs/atr/v1/partner-cashtransfer/post__atr_partner_cashtransfers/schema-fundingcheck",
+          "origin": "Body",
+          "description": "Specify this to specify if funding rules be checked and enforced. Default is \"Enforce\". Enforce: All margin and funding checks will be performed and enforced.The transaction will fail if margin and funding checks are not passed. Ignore: No margin or funding checks are performed.The operation will move the specified monies from the client account and you can ultimately place the clients accounts into negative. You can only specify FundingCheck:Ignore for a cash withdrawal from a clients trading account back to the WLC's funding account. If you specify FundingCheck:Ignore for a funding from the WLC's funding account to the clients trading account, the call will fail.",
+          "children": [
+            {
+              "name": "Enforce",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "",
+              "children": []
+            },
+            {
+              "name": "Ignore",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "ToAccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Body",
+          "description": "Account where the cash is moved to. For funding transactions, this field will hold the AccountKey of the clients trading account. For withdrawal transactions this field will hold the AccountKey of the WLCs funding account. Remember that the currency of the funding account and the clients trading account must be the same.",
+          "children": []
+        },
+        {
+          "name": "ValueDate",
+          "type": "UtcDateTime",
+          "link": null,
+          "origin": "Body",
+          "description": "Value Date of settlement of cash transfer. Must be within the range [-90;90] days of current date.",
+          "children": []
+        }
+      ],
+      "request_sample": {
+        "Amount": 10000,
+        "Comment": "Transferring from funding account 33000/FEUR",
+        "Currency": "EUR",
+        "ExternalReference": "789456",
+        "FromAccountKey": "-gh-xomNFSNUYdRL0KrPpg==",
+        "FundingCheck": "Enforce",
+        "ToAccountKey": "y3kFQWkqJYMgOgaxcoqshA==",
+        "ValueDate": "2026-07-06T04:43:55.240645Z"
+      },
+      "response_sample": {
+        "FromAccountPositionId": "1267",
+        "ToAccountPositionId": "1268",
+        "TransactionId": "1269"
+      }
+    },
+    {
+      "name": "Fetches the latest status of fund transfers.",
+      "method": "GET",
+      "path": "/atr/v1/partner/cashtransfers/{TransactionId}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/atr/v1/partner-cashtransfer/get__atr_partner_cashtransfers_transactionid",
+      "parameters": [
+        {
+          "name": "TransactionId",
+          "type": "String",
+          "link": null,
+          "origin": "Route",
+          "description": "",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "Amount": 10000,
+        "Comment": "Transferring from funding account 33000/FEUR",
+        "Currency": "EUR",
+        "ExternalReference": "789456",
+        "FromAccount": "-gh-xomNFSNUYdRL0KrPpg==",
+        "FromAccountPositionId": "1267",
+        "FundingCheck": "Enforce",
+        "ToAccount": "y3kFQWkqJYMgOgaxcoqshA==",
+        "ToAccountPositionId": "1268",
+        "TransactionId": "1269",
+        "TransferRequestedOn": "2026-07-06T04:43:55.409239Z",
+        "TransferStatus": "Successful",
+        "ValueDate": "0001-01-01T00:00:00Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,524 @@
+{
+  "service": "hist",
+  "category": "unsettledamounts",
+  "url": "https://www.developer.saxo/openapi/referencedocs/hist/v1/unsettledamounts",
+  "endpoints": [
+    {
+      "name": "Currency Breakdown: Owed by Currency and Amount Type",
+      "method": "GET",
+      "path": "/hist/v1/unsettledamounts",
+      "url": "https://www.developer.saxo/openapi/referencedocs/hist/v1/unsettledamounts/get__hist",
+      "parameters": [
+        {
+          "name": "AccountGroupKey",
+          "type": "AccountGroupKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the account group to which the resource belongs.",
+          "children": []
+        },
+        {
+          "name": "AccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The keys of the accounts to which the resource belongs.",
+          "children": []
+        },
+        {
+          "name": "AmountTypeSource",
+          "type": "AmountTypeSource",
+          "link": "https://www.developer.saxo/openapi/referencedocs/hist/v1/unsettledamounts/get__hist/schema-amounttypesource",
+          "origin": "Query-String",
+          "description": "Specifies the response data granularity, providing access to source of AmountType.",
+          "children": [
+            {
+              "name": "CorporateAction",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Accruals derived from corporate action bookings",
+              "children": []
+            },
+            {
+              "name": "Financing",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Accruals derived from financing and fee bookings",
+              "children": []
+            },
+            {
+              "name": "TransactionsNotBooked",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Intraday transactions that have not been booked",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the client to which the resource belongs.",
+          "children": []
+        },
+        {
+          "name": "CurrencyCode",
+          "type": "CurrencyCode",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Data will be filtered for account currency",
+          "children": []
+        },
+        {
+          "name": "Scope",
+          "type": "UnsettledAmountRequestType",
+          "link": "https://www.developer.saxo/openapi/referencedocs/hist/v1/unsettledamounts/get__hist/schema-unsettledamountrequesttype",
+          "origin": "Query-String",
+          "description": "Specifies the response data granularity, providing access to either Currencies(default) or AmountTypes.",
+          "children": [
+            {
+              "name": "AmountTypes",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Amount Types",
+              "children": []
+            },
+            {
+              "name": "Currencies",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Currencies",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "CashFlows": [
+          {
+            "Amount": -0.57,
+            "ValueDate": "2026-07-05T00:00:00Z"
+          },
+          {
+            "Amount": -15.40352205,
+            "ValueDate": "2026-07-15T00:00:00Z"
+          }
+        ],
+        "Currencies": [
+          {
+            "AmountTypes": [
+              {
+                "AmountType": "Unrealized CFD Finance",
+                "AmountTypeId": "65",
+                "AmountTypeSource": "Financing",
+                "CashFlows": [
+                  {
+                    "Amount": -0.57,
+                    "ValueDate": "2026-07-05T00:00:00Z"
+                  }
+                ],
+                "Total": -0.57
+              }
+            ],
+            "CashFlows": [
+              {
+                "Amount": -0.57,
+                "ValueDate": "2026-07-05T00:00:00Z"
+              }
+            ],
+            "Currency": "DKK",
+            "Total": -0.57
+          },
+          {
+            "AmountTypes": [
+              {
+                "AmountType": "Unr. Interest",
+                "AmountTypeId": "42",
+                "AmountTypeSource": "Financing",
+                "CashFlows": [
+                  {
+                    "Amount": -15.40352205,
+                    "ValueDate": "2026-07-15T00:00:00Z"
+                  }
+                ],
+                "Total": -2.07
+              }
+            ],
+            "CashFlows": [
+              {
+                "Amount": -15.40352205,
+                "ValueDate": "2026-07-15T00:00:00Z"
+              }
+            ],
+            "Currency": "EUR",
+            "Total": -2.07
+          }
+        ],
+        "Currency": "EUR",
+        "Total": -15.97352205
+      }
+    },
+    {
+      "name": "Currency Breakdown: Owed by Currency and Amount Type",
+      "method": "GET",
+      "path": "/hist/v1/unsettledamounts/{Date}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/hist/v1/unsettledamounts/get__hist__date",
+      "parameters": [
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the client to which the resource belongs.",
+          "children": []
+        },
+        {
+          "name": "Date",
+          "type": "Date",
+          "link": null,
+          "origin": "Route",
+          "description": "",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "CashFlows": [
+          {
+            "Amount": 10,
+            "ValueDate": "2021-05-21T00:00:00Z"
+          }
+        ],
+        "Currencies": [
+          {
+            "AmountTypes": [
+              {
+                "AmountType": "stringValue",
+                "AmountTypeId": "stringValue",
+                "AmountTypeSource": "stringValue",
+                "CashFlows": [
+                  {
+                    "Amount": 10,
+                    "ValueDate": "2021-05-21T00:00:00Z"
+                  }
+                ],
+                "Total": 10
+              }
+            ],
+            "CashFlows": [
+              {
+                "Amount": 10,
+                "ValueDate": "2021-05-21T00:00:00Z"
+              }
+            ],
+            "Currency": "stringValue",
+            "Date": "2021-05-21T00:00:00Z",
+            "Total": 10,
+            "TotalCashBalance": 10
+          }
+        ],
+        "Currency": "stringValue",
+        "Total": 10
+      }
+    },
+    {
+      "name": "Exchange Breakdown: Owed by Exchange and Currency",
+      "method": "GET",
+      "path": "/hist/v1/unsettledamounts/exchanges",
+      "url": "https://www.developer.saxo/openapi/referencedocs/hist/v1/unsettledamounts/get__hist__exchanges",
+      "parameters": [
+        {
+          "name": "AccountGroupKey",
+          "type": "AccountGroupKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the account group to which the resource belongs.",
+          "children": []
+        },
+        {
+          "name": "AccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The keys of the accounts to which the resource belongs.",
+          "children": []
+        },
+        {
+          "name": "AmountTypeSource",
+          "type": "AmountTypeSource",
+          "link": "https://www.developer.saxo/openapi/referencedocs/hist/v1/unsettledamounts/get__hist__exchanges/schema-amounttypesource",
+          "origin": "Query-String",
+          "description": "Specifies the response data granularity, providing access to source of AmountType.",
+          "children": [
+            {
+              "name": "CorporateAction",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Accruals derived from corporate action bookings",
+              "children": []
+            },
+            {
+              "name": "Financing",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Accruals derived from financing and fee bookings",
+              "children": []
+            },
+            {
+              "name": "TransactionsNotBooked",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Intraday transactions that have not been booked",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the client to which the resource belongs.",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "CashFlows": [
+          {
+            "Amount": -0.57,
+            "ValueDate": "2026-07-05T00:00:00Z"
+          },
+          {
+            "Amount": -15.40352205,
+            "ValueDate": "2026-07-15T00:00:00Z"
+          }
+        ],
+        "Currency": "DKK",
+        "Exchanges": [
+          {
+            "CashFlows": [
+              {
+                "Amount": -0.57,
+                "ValueDate": "2026-07-05T00:00:00Z"
+              }
+            ],
+            "Currencies": [
+              {
+                "CashFlows": [
+                  {
+                    "Amount": -0.57,
+                    "ValueDate": "2026-07-05T00:00:00Z"
+                  }
+                ],
+                "Currency": "DKK",
+                "Total": -0.57
+              }
+            ],
+            "Currency": "DKK",
+            "ExchangeId": "NYSE",
+            "Total": -0.57
+          },
+          {
+            "CashFlows": [
+              {
+                "Amount": -15.40352205,
+                "ValueDate": "2026-07-15T00:00:00Z"
+              }
+            ],
+            "Currencies": [
+              {
+                "CashFlows": [
+                  {
+                    "Amount": -15.40352205,
+                    "ValueDate": "2026-07-15T00:00:00Z"
+                  }
+                ],
+                "Currency": "EUR",
+                "Total": -2.07
+              }
+            ],
+            "Currency": "EUR",
+            "ExchangeId": "NoExchange",
+            "Total": -15.40352205
+          }
+        ],
+        "Total": -15.97352205
+      }
+    },
+    {
+      "name": "Exchange Breakdown: Owed by Currency and Amount Type",
+      "method": "GET",
+      "path": "/hist/v1/unsettledamounts/exchanges/{ExchangeId}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/hist/v1/unsettledamounts/get__hist__exchanges_exchangeid",
+      "parameters": [
+        {
+          "name": "AccountGroupKey",
+          "type": "AccountGroupKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the account group to which the resource belongs.",
+          "children": []
+        },
+        {
+          "name": "AccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The keys of the accounts to which the resource belongs.",
+          "children": []
+        },
+        {
+          "name": "AmountTypeSource",
+          "type": "AmountTypeSource",
+          "link": "https://www.developer.saxo/openapi/referencedocs/hist/v1/unsettledamounts/get__hist__exchanges_exchangeid/schema-amounttypesource",
+          "origin": "Query-String",
+          "description": "Specifies the response data granularity, providing access to source of AmountType.",
+          "children": [
+            {
+              "name": "CorporateAction",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Accruals derived from corporate action bookings",
+              "children": []
+            },
+            {
+              "name": "Financing",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Accruals derived from financing and fee bookings",
+              "children": []
+            },
+            {
+              "name": "TransactionsNotBooked",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Intraday transactions that have not been booked",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the client to which the resource belongs.",
+          "children": []
+        },
+        {
+          "name": "ExchangeId",
+          "type": "String",
+          "link": null,
+          "origin": "Route",
+          "description": "The exchange identifier for which value dated amounts is requested. If no exchange is associated to those amounts, use \"NoExchange\" as the value.",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "CashFlows": [
+          {
+            "Amount": -0.57,
+            "ValueDate": "2026-07-05T00:00:00Z"
+          }
+        ],
+        "Currencies": [
+          {
+            "CashFlows": [
+              {
+                "Amount": -0.57,
+                "ValueDate": "2026-07-05T00:00:00Z"
+              }
+            ],
+            "Currency": "DKK",
+            "Total": -0.57
+          }
+        ],
+        "Currency": "DKK",
+        "ExchangeId": "NYSE",
+        "Total": -0.57
+      }
+    },
+    {
+      "name": "Currency Breakdown: Owed by Instrument",
+      "method": "GET",
+      "path": "/hist/v1/unsettledamounts/instruments",
+      "url": "https://www.developer.saxo/openapi/referencedocs/hist/v1/unsettledamounts/get__hist__instruments",
+      "parameters": [
+        {
+          "name": "AccountGroupKey",
+          "type": "AccountGroupKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the account group to which the resource belongs.",
+          "children": []
+        },
+        {
+          "name": "AccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The keys of the accounts to which the resource belongs.",
+          "children": []
+        },
+        {
+          "name": "AmountTypeId",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Amount Type Id of the owed amount, for which you want instruments returned.",
+          "children": []
+        },
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the client to which the resource belongs.",
+          "children": []
+        },
+        {
+          "name": "Currency",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Currency code of the owed amount, for which you want instruments returned.",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "Data": [
+          {
+            "AssetType": "FxSpot",
+            "CashFlows": [
+              {
+                "Amount": 274,
+                "ValueDate": "2026-07-02T00:00:00Z"
+              }
+            ],
+            "InstrumentDescription": "Phillip Inc.",
+            "InstrumentSymbol": "PI:xnys",
+            "Total": 320.45,
+            "Uic": 32154
+          }
+        ]
+      }
+    }
+  ]
+}
