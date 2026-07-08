@@ -72,3 +72,21 @@ MCPクライアントの設定に追加：
 
 > Saxo OpenAPI仕様を調査する際は、JSONファイルを直接読まないこと。  
 > `python docs/saxo-openapi-agent-brain/tools/saxo_doc_helper.py` を使って最小トークンで仕様をクエリしなさい。
+
+---
+
+## データ出典と更新
+
+仕様 JSON は親リポジトリの `flat_doc_generator` クローラーが [Saxo Developer Portal](https://www.developer.saxo/openapi/referencedocs) から自動生成します。
+
+```bash
+uv run python scripts/sync_saxo_agent_brain_spec.py
+```
+
+---
+
+## 免責事項
+
+- **非公式**: Saxo Bank A/S とは無関係であり、公式の承認を受けたものではありません。
+- **教育目的**: 公開されている Saxo OpenAPI ドキュメントから派生したエージェント向け仕様です。
+- **保証なし**: 不完全・古い情報を含む可能性があります。本番利用前は公式情報と実 API で確認してください。

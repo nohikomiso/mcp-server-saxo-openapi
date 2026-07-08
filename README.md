@@ -106,4 +106,19 @@ Add this instruction to your agent rules (`.cursor/rules/`, `AGENTS.md`, etc.):
 
 ## Data Source & Updates
 
-Specs are auto-generated from the official [Saxo Developer Portal](https://www.developer.saxo/openapi/referencedocs) using the crawler in the parent repository. Updates are detected via MD5 hash of release notes pages.
+Specs are auto-generated from the official [Saxo Developer Portal](https://www.developer.saxo/openapi/referencedocs) using the crawler in the parent repository (`flat_doc_generator`). Updates are detected via MD5 hash of release notes pages.
+
+To refresh specs locally (from parent workspace):
+
+```bash
+uv run python scripts/sync_saxo_agent_brain_spec.py
+```
+
+---
+
+## Disclaimer
+
+- **Unofficial**: This project is not affiliated with or endorsed by Saxo Bank A/S.
+- **Educational use**: Spec JSON is derived from publicly available Saxo OpenAPI documentation for agent-assisted development.
+- **No warranty**: Data may be incomplete or outdated. Verify against Saxo official docs and live API before production use.
+- **Trademarks**: Saxo Bank and related marks are property of their respective owners.
