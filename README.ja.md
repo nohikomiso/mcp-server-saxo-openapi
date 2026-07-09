@@ -16,15 +16,7 @@
 
 追加のライブラリは不要です（Python 標準ライブラリのみ）。仕様データは JSON で、約 260 エンドポイント・17 サービスグループ分をパッケージに同梱しています。
 
----
-
-## Spec snapshot（仕様の時点）
-
-**Spec snapshot: 2026-07-08**（Saxo Release Notes の最新見出し: **2025/05/15**）
-
-エージェント向けに整理したスナップショットです。Saxo 側に「ドキュメント全体のバージョン番号」はないため、取得した日と、その時点でポータルに載っていた最新の Release Notes 見出しを記録しています。詳細は [SPEC_FRESHNESS.md](SPEC_FRESHNESS.md) を参照してください。
-
-欠けている項目・誤り・古そうな内容を見つけたら、[Issue](https://github.com/nohikomiso/mcp-server-saxo-openapi/issues) で教えてください。Pull Request は [CONTRIBUTING.md](CONTRIBUTING.md) を参照してください。
+**要件:** Python 3.10 以上
 
 ---
 
@@ -51,30 +43,13 @@
 
 ---
 
-## 機能
+## 使い方
 
-- **仕様 JSON** — パラメータ定義と Request / Response のサンプル
-- **CLI** — `search-endpoints` / `get-endpoint` / `get-schema`（表示の深さ指定・近い候補の提示）
-- **MCP サーバー** — 上記と同じ 3 ツールを Cursor などから呼べる
-- **トークン節約** — まず要約を返し、必要ならネストを段階的に開く
+いちばん簡単なのは [uv](https://docs.astral.sh/uv/) の `uvx` です（インストール不要でそのまま実行できます）。
 
-**要件:** Python 3.10 以上
+### Cursor / Claude Desktop（MCP）
 
----
-
-## はじめに（推奨: uvx）
-
-### 本番 PyPI
-
-```bash
-uvx mcp-server-saxo-openapi
-uvx --from mcp-server-saxo-openapi saxo-doc-helper search-endpoints orders
-uvx --from mcp-server-saxo-openapi saxo-doc-helper --version
-```
-
-CLI コマンド名（`saxo-doc-helper`）とパッケージ名が違うため、CLI では `--from mcp-server-saxo-openapi` を付けてください。
-
-MCP の設定例:
+設定例:
 
 ```json
 {
@@ -87,47 +62,43 @@ MCP の設定例:
 }
 ```
 
-### GitHub から
+### ターミナル（CLI）
 
 ```bash
-uvx --from git+https://github.com/nohikomiso/mcp-server-saxo-openapi.git saxo-doc-helper search-endpoints orders
+uvx --from mcp-server-saxo-openapi saxo-doc-helper search-endpoints orders
+uvx --from mcp-server-saxo-openapi saxo-doc-helper get-endpoint POST /trade/v2/orders
+uvx --from mcp-server-saxo-openapi saxo-doc-helper --version
 ```
 
-### TestPyPI（開発用）
+パッケージ名（`mcp-server-saxo-openapi`）と CLI コマンド名（`saxo-doc-helper`）が違うため、CLI では `--from mcp-server-saxo-openapi` を付けてください。
+
+MCP サーバーだけ起動する場合:
 
 ```bash
-uvx --index-url https://test.pypi.org/simple/ \
-    --index https://pypi.org/simple/ \
-    --from mcp-server-saxo-openapi \
-    saxo-doc-helper search-endpoints orders
-```
-
----
-
-## はじめに（ローカル clone）
-
-```bash
-git clone https://github.com/nohikomiso/mcp-server-saxo-openapi.git
-cd mcp-server-saxo-openapi
-python tools/saxo_doc_helper.py search-endpoints orders
-```
-
-または:
-
-```bash
-uv sync
-uv run saxo-doc-helper --version
+uvx mcp-server-saxo-openapi
 ```
 
 ---
 
-## 公開している MCP ツール
+## 使えるツール（MCP）
 
 | ツール | 説明 |
 |--------|------|
 | `search_saxo_endpoints(query)` | エンドポイントをキーワード検索 |
 | `get_saxo_endpoint_spec(method, path, depth?)` | パラメータとサンプル JSON |
 | `get_saxo_schema_spec(schema_name, depth?)` | ネストしたスキーマの詳細 |
+
+CLI でも同じ内容を扱えます（`search-endpoints` / `get-endpoint` / `get-schema`）。
+
+---
+
+## 仕様データの時点
+
+**取得日: 2026-07-08**（その時点の Saxo Release Notes 最新見出し: **2025/05/15**）
+
+Saxo 側に「ドキュメント全体のバージョン番号」はないため、取得した日と、ポータルに載っていた最新の Release Notes 見出しを記録しています。詳細は [SPEC_FRESHNESS.md](SPEC_FRESHNESS.md) を参照してください。
+
+欠けている項目・誤り・古そうな内容を見つけたら、[Issue](https://github.com/nohikomiso/mcp-server-saxo-openapi/issues) で教えてください。
 
 ---
 
@@ -143,10 +114,11 @@ uv run saxo-doc-helper --version
 
 ---
 
-## フィードバック
+## フィードバック・開発者向け
 
 - 不具合・古い仕様: [GitHub Issues](https://github.com/nohikomiso/mcp-server-saxo-openapi/issues)
-- メンテ手順: [docs/MAINTAINER.md](docs/MAINTAINER.md)
+- コントリビュート（clone・テストなど）: [CONTRIBUTING.md](CONTRIBUTING.md)
+- 仕様の再取得・リリース手順（メンテナー向け）: [docs/MAINTAINER.md](docs/MAINTAINER.md)
 
 ---
 
