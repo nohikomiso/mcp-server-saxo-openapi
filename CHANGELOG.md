@@ -1,27 +1,33 @@
 # Changelog
 
-## 0.2.0 — 2026-07-10
+## 0.3.0 — 2026-07-10
+
+### Fixed (regression from 0.2.0)
+
+- **Restore `spec/json` lookup engine** (`SaxoDocIndex`) instead of single `saxo_openapi.json`.
+- Nested parameters, schema drill-down, and request/response samples are back.
 
 ### Added
 
-- `saxo://docs/pitfalls.md` MCP resource (netting modes, Stop/StopIfTraded, IsForceOpen, UIC, Precheck).
-- Dynamic **CRITICAL WARNING** when querying `/orders` or `/positions` endpoints.
-- **Response schemas** in `get_saxo_endpoint_spec` output (missing in 0.1.1).
-- Bundled `saxo_openapi.json` inside the wheel for PyPI/`uvx` installs.
-- Path normalization (`/openapi/trade/...` → `/trade/...`).
+- `get_saxo_schema_spec` and `get_saxo_workflow_guide` tools restored.
+- `depth` parameter on endpoint and schema lookups.
+- `saxo-doc-helper` CLI entry point restored.
+- CRITICAL WARNING moved to **top** of endpoint output for `/orders` and `/positions`.
 
-### Changed
+### Maintained from 0.2.0
 
-- **Breaking:** Replaced stdlib MCP + `saxo-doc-helper` CLI stack with FastMCP-based server.
-- Entry point remains `mcp-server-saxo-openapi`; CLI subcommands from 0.1.1 are removed.
-- Added runtime dependency on `mcp` package (0.1.1 had zero dependencies).
+- `saxo://docs/pitfalls.md` resource.
+- FastMCP-based MCP server.
 
-### Known limitations
+### Removed
 
-- Warnings are advisory; agents may ignore them.
-- Schema drill-down and workflow guide tools not included yet.
+- `saxo_openapi.json` as primary lookup data (no longer bundled in wheel).
+
+## 0.2.0 — 2026-07-10
+
+- FastMCP server with pitfalls and warnings.
+- **Regression:** used shallow single-file OpenAPI lookup instead of `spec/json`.
 
 ## 0.1.1 — 2026-07-09
 
 - Initial PyPI release: stdlib MCP, `saxo-doc-helper` CLI, crawled spec JSON.
-- No pitfalls resource, no response parameters in endpoint output.

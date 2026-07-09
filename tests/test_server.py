@@ -1,24 +1,26 @@
 import unittest
 
+from mcp_server_saxo_openapi.commands import cmd_get_schema, cmd_get_workflow_guide
+from mcp_server_saxo_openapi.index import SaxoDocIndex, resolve_spec_dir
+from mcp_server_saxo_openapi.pitfalls import PITFALLS_MD
 from mcp_server_saxo_openapi.server import (
-    get_openapi_spec,
     get_pitfalls,
     get_saxo_endpoint_spec,
+    get_saxo_schema_spec,
+    get_saxo_workflow_guide,
     search_saxo_endpoints,
 )
-from mcp_server_saxo_openapi.spec_loader import normalize_path, resolve_openapi_json_path
 
 
-class TestSpecLoader(unittest.TestCase):
-    def test_bundled_json_resolves(self) -> None:
-        path = resolve_openapi_json_path()
-        self.assertIsNotNone(path)
-        assert path is not None
-        self.assertTrue(path.is_file())
+class TestIndex(unittest.TestCase):
+    def test_bundled_spec_dir_resolves(self) -> None:
+        spec_dir = resolve_spec_dir()
+        self.assertTrue(spec_dir.endswith("data/json") or spec_dir.endswith("spec/json"))
 
-    def test_normalize_path_strips_openapi_prefix(self) -> None:
-        self.assertEqual(normalize_path("/openapi/trade/v2/orders"), "/trade/v2/orders")
-        self.assertEqual(normalize_path("trade/v2/orders"), "/trade/v2/orders")
+    def test_index_loads_endpoints(self) -> None:
+        index = SaxoDocIndex()
+        self.assertGreater(len(index.endpoints), 0)
+        self.assertGreater(len(index.schemas), 0)
 
 
 class TestTools(unittest.TestCase):
@@ -26,26 +28,30 @@ class TestTools(unittest.TestCase):
         result = search_saxo_endpoints("orders")
         self.assertIn("POST /trade/v2/orders", result)
 
-    def test_get_endpoint_spec_includes_response_and_warning(self) -> None:
+    def test_get_endpoint_spec_samples_and_warning(self) -> None:
         result = get_saxo_endpoint_spec("POST", "/trade/v2/orders")
-        self.assertIn("## Responses", result)
         self.assertIn("CRITICAL WARNING", result)
         self.assertIn("pitfalls.md", result)
+        self.assertIn("Request Sample", result)
+        self.assertIn("Response Sample", result)
 
-    def test_get_endpoint_spec_accepts_openapi_prefix(self) -> None:
+    def test_get_endpoint_spec_openapi_prefix(self) -> None:
         result = get_saxo_endpoint_spec("POST", "/openapi/trade/v2/orders")
         self.assertNotIn("Error:", result)
-        self.assertIn("/trade/v2/orders", result)
 
-    def test_pitfalls_not_empty(self) -> None:
-        pitfalls = get_pitfalls()
-        self.assertIn("Netting", pitfalls)
-        self.assertIn("Precheck", pitfalls)
+    def test_get_schema_spec(self) -> None:
+        index = SaxoDocIndex()
+        sample_key = next(iter(index.schemas))
+        result = get_saxo_schema_spec(sample_key)
+        self.assertIn("Schema:", result)
 
-    def test_openapi_spec_loads(self) -> None:
-        spec = get_openapi_spec()
-        self.assertIn("paths", spec)
-        self.assertIn("/trade/v2/orders", spec["paths"])
+    def test_workflow_guide_close_position(self) -> None:
+        result = get_saxo_workflow_guide("close_position")
+        self.assertIn("Netting", result)
+
+    def test_pitfalls_resource(self) -> None:
+        self.assertEqual(get_pitfalls(), PITFALLS_MD)
+        self.assertIn("Precheck", get_pitfalls())
 
 
 if __name__ == "__main__":

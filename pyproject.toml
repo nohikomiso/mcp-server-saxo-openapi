@@ -1,6 +1,6 @@
 [project]
 name = "mcp-server-saxo-openapi"
-version = "0.2.0"
+version = "0.3.0"
 description = "MCP server for Saxo Bank OpenAPI spec lookup with pitfalls guide (offline; no trading)"
 readme = "README.md"
 license = "MIT"
@@ -41,6 +41,7 @@ Issues = "https://github.com/nohikomiso/mcp-server-saxo-openapi/issues"
 
 [project.scripts]
 mcp-server-saxo-openapi = "mcp_server_saxo_openapi.server:main"
+saxo-doc-helper = "mcp_server_saxo_openapi.cli:main"
 
 [build-system]
 requires = ["hatchling"]

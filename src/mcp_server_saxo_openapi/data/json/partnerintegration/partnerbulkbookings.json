@@ -1,0 +1,80 @@
+{
+  "service": "partnerintegration",
+  "category": "partnerbulkbookings",
+  "url": "https://www.developer.saxo/openapi/referencedocs/partnerintegration/v1/partnerbulkbookings",
+  "endpoints": [
+    {
+      "name": "CSV File Upload For BulkBookings",
+      "method": "POST",
+      "path": "/partnerintegration/v1/bulkbookings",
+      "url": "https://www.developer.saxo/openapi/referencedocs/partnerintegration/v1/partnerbulkbookings/post__partnerintegration_bulkbookings",
+      "parameters": [
+        {
+          "name": "BookingReference",
+          "type": "Integer",
+          "link": null,
+          "origin": "Sub",
+          "description": "Request reference id generated for the uploaded file to get the booking status.",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "BookingReference": 12345
+      }
+    },
+    {
+      "name": "Get the overall status of bookings uploaded via CSV file",
+      "method": "GET",
+      "path": "/partnerintegration/v1/bulkbookings/{RequestReferenceNumber}/status",
+      "url": "https://www.developer.saxo/openapi/referencedocs/partnerintegration/v1/partnerbulkbookings/get__partnerintegration_bulkbookings_requestreferencenumber_status",
+      "parameters": [
+        {
+          "name": "RequestReferenceNumber",
+          "type": "Integer",
+          "link": null,
+          "origin": "Route",
+          "description": "Booking request reference number.",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "Errors": [
+          "Error info"
+        ],
+        "RequestReferenceNumber": 123456,
+        "Status": "Pending"
+      }
+    },
+    {
+      "name": "Get details/validation status for booking using RequestReferenceNumber",
+      "method": "GET",
+      "path": "/partnerintegration/v1/bulkbookings/{RequestReferenceNumber}/validations",
+      "url": "https://www.developer.saxo/openapi/referencedocs/partnerintegration/v1/partnerbulkbookings/get__partnerintegration_bulkbookings_requestreferencenumber_validations",
+      "parameters": [
+        {
+          "name": "RequestReferenceNumber",
+          "type": "Integer",
+          "link": null,
+          "origin": "Route",
+          "description": "Booking request reference number.",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "Errors": [
+          {
+            "Errors": [
+              "Error info"
+            ],
+            "Id": 1
+          }
+        ],
+        "RequestReferenceNumber": 123456,
+        "Status": "Failed"
+      }
+    }
+  ]
+}

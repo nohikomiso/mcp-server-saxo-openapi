@@ -2,41 +2,32 @@
 
 A specialized [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server acting as a **reference manual and knowledge base** for the Saxo Bank OpenAPI.
 
-**Version:** 0.2.0 · **Spec snapshot:** 2026-07-08
+**Version:** 0.3.0 · **Spec snapshot:** 2026-07-08
 
 ## Purpose
 
 This server is **not an execution client**. It does NOT execute trades, place orders, or modify portfolios.
 
-Instead, it serves as an interactive **dictionary and strategy guide** for AI agents tasked with generating Saxo Bank API code.
+It helps AI agents generate Saxo Bank API code by combining:
 
-Saxo's OpenAPI is complex: account netting modes, asset-class restrictions, and hedging workflows are easy to hallucinate. This MCP server helps by:
-
-1. Providing accurate OpenAPI endpoint schemas on demand (request **and response** structure).
-2. Injecting **critical warnings** when dangerous endpoints (like `/orders` or `/positions`) are queried.
-3. Exposing `saxo://docs/pitfalls.md` — a survival guide for Saxo-specific quirks.
+1. **Rich endpoint specs** from crawled `spec/json` (nested parameters, request/response samples).
+2. **Critical warnings** on dangerous endpoints (`/orders`, `/positions`).
+3. **`saxo://docs/pitfalls.md`** — survival guide for Saxo-specific quirks.
 
 ## Tools
 
 | Tool | Description |
 |------|-------------|
-| `search_saxo_endpoints(keyword)` | Discover endpoints by keyword (path, summary, operationId). |
-| `get_saxo_endpoint_spec(method, path)` | Parameters, request body, **responses**, and dynamic warnings. |
+| `search_saxo_endpoints(query)` | Discover endpoints by keyword. |
+| `get_saxo_endpoint_spec(method, path, depth?)` | Parameters, samples, warnings. |
+| `get_saxo_schema_spec(schema_name, depth?)` | Drill into nested schemas. |
+| `get_saxo_workflow_guide(use_case)` | `close_position` or `if_done_oco` workflows. |
 
 ## Resources
 
 | URI | Description |
 |-----|-------------|
-| `saxo://docs/pitfalls.md` | Netting modes, Stop vs StopIfTraded, IsForceOpen, UIC dedup, Precheck. |
-
-## Usage (AI agents)
-
-When writing Saxo Bank integration code:
-
-1. Call `search_saxo_endpoints` to find the endpoint.
-2. Call `get_saxo_endpoint_spec` to understand parameters and responses.
-3. If warned, read `saxo://docs/pitfalls.md` before writing execution code.
-4. Implement using your language's HTTP client or Saxo SDK — not via this MCP.
+| `saxo://docs/pitfalls.md` | Netting, Stop/StopIfTraded, IsForceOpen, UIC, Precheck. |
 
 ## Installation
 
@@ -53,44 +44,24 @@ When writing Saxo Bank integration code:
 }
 ```
 
-### uvx (one-shot)
+### CLI fallback
 
 ```bash
-uvx mcp-server-saxo-openapi
+uvx --from mcp-server-saxo-openapi saxo-doc-helper search-endpoints orders
+uvx --from mcp-server-saxo-openapi saxo-doc-helper get-endpoint POST /trade/v2/orders --depth 1
 ```
 
-### Local development
+## What changed in 0.3.0
 
-```bash
-cd tools/mcp-server-saxo-openapi
-uv sync
-uv run mcp-server-saxo-openapi
-```
+0.2.0 mistakenly used a single `saxo_openapi.json` for lookup (shallow schemas). **0.3.0 restores the rich `spec/json` index** while keeping pitfalls and warnings from 0.2.0.
 
-Override spec file (optional):
+See [CHANGELOG.md](CHANGELOG.md).
 
-```bash
-export SAXO_OPENAPI_JSON_PATH=/path/to/saxo_openapi.json
-```
+## Known limitations
 
-## What it does / does not do
-
-| Does | Does not |
-|------|----------|
-| Offline OpenAPI lookup | Call live Saxo APIs |
-| Pitfalls & workflow warnings | OAuth / token management |
-| Request + response schemas | Place or modify orders |
-
-## Known limitations (0.2.0)
-
-- Warnings are soft hints; agents may still skip `pitfalls.md`.
-- No `get_saxo_schema_spec` or `get_saxo_workflow_guide` tools yet (feedback welcome via Issues).
+- Warnings are advisory; agents may skip `pitfalls.md`.
+- `response_parameters` trees are sparse in some crawled specs; `response_sample` JSON is more reliable.
 - Pitfalls reflect practical experience; not a substitute for Saxo's official docs.
-- Spec snapshot may lag Saxo Release Notes; see `SPEC_FRESHNESS.md`.
-
-## Changes from 0.1.1
-
-See [CHANGELOG.md](CHANGELOG.md). **0.2.0 replaces the stdlib implementation** with a FastMCP-based server that adds pitfalls, warnings, and response schemas.
 
 ## License
 

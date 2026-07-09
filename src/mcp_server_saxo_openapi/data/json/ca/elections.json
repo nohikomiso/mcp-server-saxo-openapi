@@ -1,0 +1,156 @@
+{
+  "service": "ca",
+  "category": "elections",
+  "url": "https://www.developer.saxo/openapi/referencedocs/ca/v2/elections",
+  "endpoints": [
+    {
+      "name": "Send election instruction",
+      "method": "PUT",
+      "path": "/ca/v2/elections",
+      "url": "https://www.developer.saxo/openapi/referencedocs/ca/v2/elections/put__ca",
+      "parameters": [
+        {
+          "name": "AccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Body",
+          "description": "Account on which elections are to be made",
+          "children": []
+        },
+        {
+          "name": "EventId",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "Event on which election is to be made",
+          "children": []
+        },
+        {
+          "name": "Options",
+          "type": "OptionInstruction []",
+          "link": "https://www.developer.saxo/openapi/referencedocs/ca/v2/elections/put__ca/schema-optioninstruction",
+          "origin": "Body",
+          "description": "Instruction per option",
+          "children": [
+            {
+              "name": "Amount",
+              "type": "Number",
+              "link": null,
+              "origin": "Sub",
+              "description": "Quantity to be elected",
+              "children": []
+            },
+            {
+              "name": "OptionId",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "Option on which election is to be made",
+              "children": []
+            },
+            {
+              "name": "Remarks",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "Remarks by client",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "request_sample": {
+        "AccountKey": "2y0tX0m9ZH7MH8HK38qM9g==",
+        "EventId": "9652429",
+        "Options": [
+          {
+            "Amount": 100,
+            "OptionId": "1",
+            "Remarks": "Electing on 100 holdings for option 1."
+          }
+        ]
+      },
+      "response_sample": null
+    },
+    {
+      "name": "Send bulk election instructions",
+      "method": "PUT",
+      "path": "/ca/v2/elections/bulk",
+      "url": "https://www.developer.saxo/openapi/referencedocs/ca/v2/elections/put__ca__bulk",
+      "parameters": [
+        {
+          "name": "Accounts",
+          "type": "Account []",
+          "link": "https://www.developer.saxo/openapi/referencedocs/ca/v2/elections/put__ca__bulk/schema-account",
+          "origin": "Body",
+          "description": "Accounts on which elections are to be made",
+          "children": [
+            {
+              "name": "AccountKey",
+              "type": "AccountKey",
+              "link": null,
+              "origin": "Sub",
+              "description": "Account key",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "EventId",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "Event on which election is to be made",
+          "children": []
+        },
+        {
+          "name": "Options",
+          "type": "BulkOptionInstruction []",
+          "link": "https://www.developer.saxo/openapi/referencedocs/ca/v2/elections/put__ca__bulk/schema-bulkoptioninstruction",
+          "origin": "Body",
+          "description": "Instruction per option for bulk election",
+          "children": [
+            {
+              "name": "AmountPct",
+              "type": "Number",
+              "link": null,
+              "origin": "Sub",
+              "description": "Quantity to be elected, in percentage",
+              "children": []
+            },
+            {
+              "name": "OptionId",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "Option on which election is to be made",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "request_sample": {
+        "Accounts": [
+          {
+            "AccountKey": "2y0tX0m9ZH7MH8HK38qM9g=="
+          }
+        ],
+        "EventId": "9652429",
+        "Options": [
+          {
+            "AmountPct": 75,
+            "OptionId": "1"
+          }
+        ]
+      },
+      "response_sample": {
+        "Data": [
+          {
+            "AccountId": "845935",
+            "Status": "Accepted"
+          }
+        ]
+      }
+    }
+  ]
+}

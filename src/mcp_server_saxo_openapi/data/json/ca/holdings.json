@@ -1,0 +1,281 @@
+{
+  "service": "ca",
+  "category": "holdings",
+  "url": "https://www.developer.saxo/openapi/referencedocs/ca/v2/holdings",
+  "endpoints": [
+    {
+      "name": "Get client holdings",
+      "method": "GET",
+      "path": "/ca/v2/holdings",
+      "url": "https://www.developer.saxo/openapi/referencedocs/ca/v2/holdings/get__ca",
+      "parameters": [
+        {
+          "name": "$skip",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to skip from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "$top",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to return from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "AccountGroupKey",
+          "type": "AccountGroupKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Account group identifier",
+          "children": []
+        },
+        {
+          "name": "AccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Account identifier",
+          "children": []
+        },
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Client identifier",
+          "children": []
+        },
+        {
+          "name": "EventId",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Event id",
+          "children": []
+        },
+        {
+          "name": "IncludeSubAccounts",
+          "type": "Boolean",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Indicate whether to include events from sub-clients.",
+          "children": []
+        },
+        {
+          "name": "ManagementTypes",
+          "type": "ManagementType []",
+          "link": "https://www.developer.saxo/openapi/referencedocs/ca/v2/holdings/get__ca/schema-managementtype",
+          "origin": "Query-String",
+          "description": "SaxoInternal - Management type filter for holdings.",
+          "children": [
+            {
+              "name": "Client",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "The account is managed by the client. (Default).",
+              "children": []
+            },
+            {
+              "name": "ExternallyManaged",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "The account is managed externally (not in a saxo bank system). Client cannot trade on the account, but authorized dealers can.",
+              "children": []
+            },
+            {
+              "name": "ModelAdvisory",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "The account is managed by a model, but client has to accept changes to the model.",
+              "children": []
+            },
+            {
+              "name": "ModelManaged",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "The account is managed by a model. Client cannot trade on the account.",
+              "children": []
+            },
+            {
+              "name": "SelfPeriodicInvestment",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Client can schedule periodic investments on one or multiple Instruments",
+              "children": []
+            },
+            {
+              "name": "TradeAdvisory",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Advisors can call clients with trade suggestions across products, but trades are accepted by the client.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "ModelIds",
+          "type": "String []",
+          "link": null,
+          "origin": "Query-String",
+          "description": "SaxoInternal - Model filter for holdings. Accepts comma separated model ids for filtering.",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "__count": 1,
+        "Data": [
+          {
+            "AccountId": "123INET",
+            "Amount": 100,
+            "CashReserved": {
+              "Currency": "USD",
+              "Value": 2583.62
+            },
+            "ClientId": "906869",
+            "ClientName": "John",
+            "ElectedAmount": 20,
+            "EventId": "9652429",
+            "Options": [
+              {
+                "ElectedAmount": 20,
+                "ElectedBy": "John",
+                "ElectionType": "Manual",
+                "Instruction": {
+                  "Status": "Accepted"
+                },
+                "OptionId": "1",
+                "Remarks": "Remarks by client..."
+              }
+            ],
+            "OwnerId": "532"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Get client holdings",
+      "method": "POST",
+      "path": "/ca/v2/holdings",
+      "url": "https://www.developer.saxo/openapi/referencedocs/ca/v2/holdings/post__ca",
+      "parameters": [
+        {
+          "name": "$skip",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to skip from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "$top",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to return from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "AccountGroupKey",
+          "type": "AccountGroupKey",
+          "link": null,
+          "origin": "Body",
+          "description": "Account group identifier.",
+          "children": []
+        },
+        {
+          "name": "Accounts",
+          "type": "Account []",
+          "link": "https://www.developer.saxo/openapi/referencedocs/ca/v2/holdings/post__ca/schema-account",
+          "origin": "Body",
+          "description": "Account identifiers.",
+          "children": [
+            {
+              "name": "AccountKey",
+              "type": "AccountKey",
+              "link": null,
+              "origin": "Sub",
+              "description": "Account key",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Body",
+          "description": "Client identifier.",
+          "children": []
+        },
+        {
+          "name": "EventId",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "Event id.",
+          "children": []
+        },
+        {
+          "name": "IncludeSubAccounts",
+          "type": "Boolean",
+          "link": null,
+          "origin": "Body",
+          "description": "Indicate whether to include events from sub-clients.",
+          "children": []
+        }
+      ],
+      "request_sample": {
+        "AccountGroupKey": "BxS0VWLta8lJ3SBpjGBQjw==",
+        "Accounts": [
+          {
+            "AccountKey": "2y0tX0m9ZH7MH8HK38qM9g=="
+          }
+        ],
+        "ClientKey": "7m4I|vtYLUnEGg77o9uQhw==",
+        "EventId": "956358",
+        "IncludeSubAccounts": true
+      },
+      "response_sample": {
+        "__count": 1,
+        "Data": [
+          {
+            "AccountId": "123INET",
+            "Amount": 100,
+            "CashReserved": {
+              "Currency": "USD",
+              "Value": 2583.62
+            },
+            "ClientId": "906869",
+            "ClientName": "John",
+            "ElectedAmount": 20,
+            "EventId": "9652429",
+            "Options": [
+              {
+                "ElectedAmount": 20,
+                "ElectedBy": "John",
+                "ElectionType": "Manual",
+                "Instruction": {
+                  "Status": "Accepted"
+                },
+                "OptionId": "1",
+                "Remarks": "Remarks by client..."
+              }
+            ],
+            "OwnerId": "532"
+          }
+        ]
+      }
+    }
+  ]
+}

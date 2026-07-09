@@ -1,0 +1,111 @@
+{
+  "service": "cs",
+  "category": "historicalreportdata-closedpositions",
+  "url": "https://www.developer.saxo/openapi/referencedocs/cs/v1/historicalreportdata-closedpositions",
+  "endpoints": [
+    {
+      "name": "Get all closed positions between two dates",
+      "method": "GET",
+      "path": "/cs/v1/reports/closedPositions/{ClientKey}/{FromDate}/{ToDate}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/cs/v1/historicalreportdata-closedpositions/get__cs_reports_closedpositions_clientkey_fromdate_todate",
+      "parameters": [
+        {
+          "name": "$skip",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to skip from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "$top",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to return from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "AccountGroupKey",
+          "type": "AccountGroupKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the account group to which the resource belongs.",
+          "children": []
+        },
+        {
+          "name": "AccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the account to which the resource belongs.",
+          "children": []
+        },
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Route",
+          "description": "The key of the client to which the resource belongs.",
+          "children": []
+        },
+        {
+          "name": "FromDate",
+          "type": "Date",
+          "link": null,
+          "origin": "Route",
+          "description": "From date",
+          "children": []
+        },
+        {
+          "name": "ToDate",
+          "type": "Date",
+          "link": null,
+          "origin": "Route",
+          "description": "To date",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "__next": "/openapi/....../?$top=1&$skip=1",
+        "Data": [
+          {
+            "AccountCurrency": "USD",
+            "AccountCurrencyDecimals": 2,
+            "AccountId": "169236INET2",
+            "Amount": 400,
+            "AmountClose": -700,
+            "AmountOpen": 400,
+            "AssetType": "Stock",
+            "ClosePositionId": "112428055",
+            "ClosePrice": 3.1,
+            "ExchangeDescription": "NASDAQ",
+            "InstrumentDescription": "Central European Media Enterprise Ltd",
+            "InstrumentSectorName": "Broadcasting & Entertainment",
+            "InstrumentSectorTypeId": 640,
+            "InstrumentSymbol": "CETV:xnas",
+            "OpenPositionId": "642405794",
+            "OpenPrice": 3.6126,
+            "PnLAccountCurrency": 228.64,
+            "PnLClientCurrency": 2614.90455108964,
+            "PnLUSD": -228.64,
+            "RootInstrumentSectorName": "Consumer Service",
+            "RootInstrumentSectorTypeId": 506,
+            "TotalBookedOnClosingLegAccountCurrency": 2154.95,
+            "TotalBookedOnClosingLegClientCurrency": 54083.2750759607,
+            "TotalBookedOnClosingLegUSD": 2154.95,
+            "TotalBookedOnOpeningLegAccountCurrency": -1460.04,
+            "TotalBookedOnOpeningLegClientCurrency": -28289.824063745,
+            "TotalBookedOnOpeningLegUSD": -1406.04,
+            "TradeDate": "2017-04-07T00:00:00Z",
+            "TradeDateClose": "2017-04-07T00:00:00Z",
+            "TradeDateOpen": "2013-08-19T00:00:00Z",
+            "UnderlyingInstrumentDescription": "Central European Media Enterprise Ltd",
+            "UnderlyingInstrumentSymbol": "CETV:xnas"
+          }
+        ]
+      }
+    }
+  ]
+}

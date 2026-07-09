@@ -1,0 +1,149 @@
+{
+  "service": "cs",
+  "category": "historicalreportdata-aggregatedamounts",
+  "url": "https://www.developer.saxo/openapi/referencedocs/cs/v1/historicalreportdata-aggregatedamounts",
+  "endpoints": [
+    {
+      "name": "Get all aggregated amounts between two dates",
+      "method": "GET",
+      "path": "/cs/v1/reports/aggregatedAmounts/{ClientKey}/{FromDate}/{ToDate}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/cs/v1/historicalreportdata-aggregatedamounts/get__cs_reports_aggregatedamounts_clientkey_fromdate_todate",
+      "parameters": [
+        {
+          "name": "$skip",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to skip from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "$skiptoken",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Specifies an entity id to start retrieving entries from. This is normally only used in generated nextlinks.",
+          "children": []
+        },
+        {
+          "name": "$top",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to return from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "AccountGroupKey",
+          "type": "AccountGroupKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the account group to which the resource belongs.",
+          "children": []
+        },
+        {
+          "name": "AccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the account to which the resource belongs.",
+          "children": []
+        },
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Route",
+          "description": "The key of the client to which the resource belongs.",
+          "children": []
+        },
+        {
+          "name": "FromDate",
+          "type": "Date",
+          "link": null,
+          "origin": "Route",
+          "description": "From date",
+          "children": []
+        },
+        {
+          "name": "MockDataId",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Optional Mock Data Parameter",
+          "children": []
+        },
+        {
+          "name": "ToDate",
+          "type": "Date",
+          "link": null,
+          "origin": "Route",
+          "description": "To date",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "__next": "/openapi/....../?$top=1&$skip=1",
+        "Data": [
+          {
+            "AccountCurrency": "DKK",
+            "AffectsBalance": false,
+            "Amount": 255.71,
+            "AmountAccountCurrency": 255.71,
+            "AmountClass": "NotAssigned",
+            "AmountClientCurrency": 255.71,
+            "AmountSubClass": "NotAssigned",
+            "AmountTypeId": -3,
+            "AmountTypeName": "Cash Balances",
+            "AmountUSD": 41.2259276277075,
+            "BookingAccountId": "179643INET",
+            "ClientCurrency": "DKK",
+            "Date": "2015-01-02T00:00:00Z",
+            "InstrumentSectorName": "",
+            "InstrumentSectorTypeId": 0,
+            "InstrumentSubType": "None",
+            "InstrumentSubTypeId": 0,
+            "IsManual": false,
+            "RootInstrumentSectorName": "",
+            "RootInstrumentSectorTypeId": 0,
+            "Uic": 0,
+            "UnderlyingInstrumentSubType": "None",
+            "UnderlyingInstrumentUic": 0
+          },
+          {
+            "AccountCurrency": "DKK",
+            "AffectsBalance": false,
+            "Amount": 660,
+            "AmountAccountCurrency": 4073.280255,
+            "AmountClass": "NotAssigned",
+            "AmountClientCurrency": 4073.280255,
+            "AmountSubClass": "NotAssigned",
+            "AmountTypeId": -6,
+            "AmountTypeName": "Exposure",
+            "AmountUSD": 660,
+            "AssetType": "StockIndexOption",
+            "BookingAccountId": "179643INET",
+            "ClientCurrency": "DKK",
+            "Date": "2015-01-02T00:00:00Z",
+            "InstrumentDescription": "Volatility Index (VIX) Jan2015 15.000 C",
+            "InstrumentSectorName": "",
+            "InstrumentSectorTypeId": 0,
+            "InstrumentSubType": "None",
+            "InstrumentSubTypeId": 0,
+            "InstrumentSymbol": "VIX/F15C15=xcbf",
+            "IsManual": false,
+            "RootInstrumentSectorName": "",
+            "RootInstrumentSectorTypeId": 0,
+            "Uic": 1012706,
+            "UnderlyingInstrumentAssetType": "StockIndex",
+            "UnderlyingInstrumentDescription": "CBOE Volatility Index",
+            "UnderlyingInstrumentSubType": "None",
+            "UnderlyingInstrumentSymbol": "VIX.I",
+            "UnderlyingInstrumentUic": 10606
+          }
+        ]
+      }
+    }
+  ]
+}

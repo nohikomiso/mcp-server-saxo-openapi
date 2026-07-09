@@ -1,0 +1,828 @@
+{
+  "service": "port",
+  "category": "accountgroups",
+  "url": "https://www.developer.saxo/openapi/referencedocs/port/v1/accountgroups",
+  "endpoints": [
+    {
+      "name": "Get a list of all accounts groups used by the specified client",
+      "method": "GET",
+      "path": "/port/v1/accountgroups",
+      "url": "https://www.developer.saxo/openapi/referencedocs/port/v1/accountgroups/get__port",
+      "parameters": [
+        {
+          "name": "$inlinecount",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Specifies that the response to the request should include a count of the number of entries in the collection",
+          "children": []
+        },
+        {
+          "name": "$skip",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to skip from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "$top",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to return from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The client to which the account groups belong.",
+          "children": []
+        }
+      ],
+      "response_parameters": [
+        {
+          "name": "__count",
+          "type": "Number",
+          "link": null,
+          "origin": "Sub",
+          "description": "The total count of items in the feed.",
+          "children": []
+        },
+        {
+          "name": "__next",
+          "type": "String",
+          "link": null,
+          "origin": "Sub",
+          "description": "The link for the next page of items in the feed.",
+          "children": []
+        },
+        {
+          "name": "Data",
+          "type": "AccountGroupResponse []",
+          "link": "https://www.developer.saxo/openapi/referencedocs/port/v1/accountgroups/get__port/schema-accountgroupresponse",
+          "origin": "Sub",
+          "description": "The collection of entities for this feed.",
+          "children": [
+            {
+              "name": "AccountGroupId",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "Unique ID of the account group",
+              "children": []
+            },
+            {
+              "name": "AccountGroupKey",
+              "type": "AccountGroupKey",
+              "link": null,
+              "origin": "Sub",
+              "description": "Unique ID of the account group used for selection",
+              "children": []
+            },
+            {
+              "name": "AccountGroupName",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "Name of the account group, displayed to the user",
+              "children": []
+            },
+            {
+              "name": "AccountValueProtectionLimit",
+              "type": "Number",
+              "link": null,
+              "origin": "Sub",
+              "description": "If set, this value shields the account value from going below the given limit by automatically triggering closing of positions should the limit be exceeded. A limit of zero means there is no limit.",
+              "children": []
+            },
+            {
+              "name": "ClientKey",
+              "type": "ClientKey",
+              "link": null,
+              "origin": "Sub",
+              "description": "Unique ID of the client.",
+              "children": []
+            },
+            {
+              "name": "CollateralMonitoringMode",
+              "type": "CollateralMonitoringMode",
+              "link": "https://www.developer.saxo/openapi/referencedocs/port/v1/accountgroups/get__port/schema-collateralmonitoringmode",
+              "origin": "Sub",
+              "description": "Collateral Monitoring Mode. Null when entity is not monitored on collateral.",
+              "children": [
+                {
+                  "name": "CollateralCreditValue",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Monitoring (stop-out's) are based on collateral credit value",
+                  "children": []
+                },
+                {
+                  "name": "MaxOfCollateralCreditValueAndCollateralCreditLine",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Monitoring (stop-out's) are based on collateral credit value and collateral credit line.",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "MarginCalculationMethod",
+              "type": "PortfolioMarginMethod",
+              "link": "https://www.developer.saxo/openapi/referencedocs/port/v1/accountgroups/get__port/schema-portfoliomarginmethod",
+              "origin": "Sub",
+              "description": "Calculation method for assessing margin utilization.",
+              "children": [
+                {
+                  "name": "Default",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Uses Saxo exposure based margin.",
+                  "children": []
+                },
+                {
+                  "name": "JanusMarginReplication",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Uses rules-based the Janus methodology to calculate margin.",
+                  "children": []
+                },
+                {
+                  "name": "SpanForFutures",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Uses rules-based SPAN methods to calculate margin on futures alone.",
+                  "children": []
+                },
+                {
+                  "name": "SpanForFuturesAndOptions",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Uses rules-based SPAN methods to calculate margin on futures and options.",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "MarginLendingEnabled",
+              "type": "MarginLendingEnabled",
+              "link": "https://www.developer.saxo/openapi/referencedocs/port/v1/accountgroups/get__port/schema-marginlendingenabled",
+              "origin": "Sub",
+              "description": "Margin Lending Enabled",
+              "children": [
+                {
+                  "name": "No",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Margin Lending is disabled.",
+                  "children": []
+                },
+                {
+                  "name": "None",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Default. Margin Lending is not applicable.",
+                  "children": []
+                },
+                {
+                  "name": "Yes",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Margin Lending is enabled.",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "MarginMonitoringMode",
+              "type": "MarginMonitoringMode",
+              "link": "https://www.developer.saxo/openapi/referencedocs/port/v1/accountgroups/get__port/schema-marginmonitoringmode",
+              "origin": "Sub",
+              "description": "Margin Monitoring Mode. Null when entity is not monitored on margin.",
+              "children": [
+                {
+                  "name": "Equity",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Monitoring is based on standard equity utilization, pre-check's are done against standard equity utilization.",
+                  "children": []
+                },
+                {
+                  "name": "Lines",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Monitoring (stop-out's) are based on credit line utilization, pre-check's are done against trading and credit line utilization.",
+                  "children": []
+                },
+                {
+                  "name": "Margin",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Monitoring (stop-out's) are based on standard margin utilization, pre-check's are done against standard margin utilization.",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "PortfolioBasedMarginEnabled",
+              "type": "Boolean",
+              "link": null,
+              "origin": "Sub",
+              "description": "Portfolio Based Margin (PBM) is a method for mapping the risk of an investment portfolio. True if enabled else false.",
+              "children": []
+            },
+            {
+              "name": "SupportsAccountValueProtectionLimit",
+              "type": "Boolean",
+              "link": null,
+              "origin": "Sub",
+              "description": "If true, an AccountValueProtectionLimit may be set on this account. If it is false, the AccountValueProtectionLimit can be set on client or account group.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "MaxRows",
+          "type": "Number",
+          "link": null,
+          "origin": "Sub",
+          "description": "The maximum number of rows that can be returned (if applicable).",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "Data": [
+          {
+            "AccountGroupId": "stringValue",
+            "AccountGroupKey": "stringValue",
+            "AccountGroupName": "stringValue",
+            "AccountValueProtectionLimit": 10,
+            "ClientKey": "493b43a5-fe85-4d1f-9071-dd4a9d4e42a4",
+            "CollateralMonitoringMode": "MaxOfCollateralCreditValueAndCollateralCreditLine",
+            "MarginCalculationMethod": "SpanForFuturesAndOptions",
+            "MarginLendingEnabled": "None",
+            "MarginMonitoringMode": "Margin",
+            "PortfolioBasedMarginEnabled": true,
+            "SupportsAccountValueProtectionLimit": true
+          }
+        ],
+        "MaxRows": 99
+      }
+    },
+    {
+      "name": "Get details about a single account group",
+      "method": "GET",
+      "path": "/port/v1/accountgroups/{AccountGroupKey}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/port/v1/accountgroups/get__port__accountgroupkey",
+      "parameters": [
+        {
+          "name": "AccountGroupKey",
+          "type": "AccountGroupKey",
+          "link": null,
+          "origin": "Route",
+          "description": "Unique key for the account group.",
+          "children": []
+        },
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the client to which the account group belong.",
+          "children": []
+        }
+      ],
+      "response_parameters": [
+        {
+          "name": "AccountGroupId",
+          "type": "String",
+          "link": null,
+          "origin": "Sub",
+          "description": "Unique ID of the account group",
+          "children": []
+        },
+        {
+          "name": "AccountGroupKey",
+          "type": "AccountGroupKey",
+          "link": null,
+          "origin": "Sub",
+          "description": "Unique ID of the account group used for selection",
+          "children": []
+        },
+        {
+          "name": "AccountGroupName",
+          "type": "String",
+          "link": null,
+          "origin": "Sub",
+          "description": "Name of the account group, displayed to the user",
+          "children": []
+        },
+        {
+          "name": "AccountValueProtectionLimit",
+          "type": "Number",
+          "link": null,
+          "origin": "Sub",
+          "description": "If set, this value shields the account value from going below the given limit by automatically triggering closing of positions should the limit be exceeded. A limit of zero means there is no limit.",
+          "children": []
+        },
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Sub",
+          "description": "Unique ID of the client.",
+          "children": []
+        },
+        {
+          "name": "CollateralMonitoringMode",
+          "type": "CollateralMonitoringMode",
+          "link": "https://www.developer.saxo/openapi/referencedocs/port/v1/accountgroups/get__port__accountgroupkey/schema-collateralmonitoringmode",
+          "origin": "Sub",
+          "description": "Collateral Monitoring Mode. Null when entity is not monitored on collateral.",
+          "children": [
+            {
+              "name": "CollateralCreditValue",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Monitoring (stop-out's) are based on collateral credit value",
+              "children": []
+            },
+            {
+              "name": "MaxOfCollateralCreditValueAndCollateralCreditLine",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Monitoring (stop-out's) are based on collateral credit value and collateral credit line.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "MarginCalculationMethod",
+          "type": "PortfolioMarginMethod",
+          "link": "https://www.developer.saxo/openapi/referencedocs/port/v1/accountgroups/get__port__accountgroupkey/schema-portfoliomarginmethod",
+          "origin": "Sub",
+          "description": "Calculation method for assessing margin utilization.",
+          "children": [
+            {
+              "name": "Default",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Uses Saxo exposure based margin.",
+              "children": []
+            },
+            {
+              "name": "JanusMarginReplication",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Uses rules-based the Janus methodology to calculate margin.",
+              "children": []
+            },
+            {
+              "name": "SpanForFutures",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Uses rules-based SPAN methods to calculate margin on futures alone.",
+              "children": []
+            },
+            {
+              "name": "SpanForFuturesAndOptions",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Uses rules-based SPAN methods to calculate margin on futures and options.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "MarginLendingEnabled",
+          "type": "MarginLendingEnabled",
+          "link": "https://www.developer.saxo/openapi/referencedocs/port/v1/accountgroups/get__port__accountgroupkey/schema-marginlendingenabled",
+          "origin": "Sub",
+          "description": "Margin Lending Enabled",
+          "children": [
+            {
+              "name": "No",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Margin Lending is disabled.",
+              "children": []
+            },
+            {
+              "name": "None",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Default. Margin Lending is not applicable.",
+              "children": []
+            },
+            {
+              "name": "Yes",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Margin Lending is enabled.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "MarginMonitoringMode",
+          "type": "MarginMonitoringMode",
+          "link": "https://www.developer.saxo/openapi/referencedocs/port/v1/accountgroups/get__port__accountgroupkey/schema-marginmonitoringmode",
+          "origin": "Sub",
+          "description": "Margin Monitoring Mode. Null when entity is not monitored on margin.",
+          "children": [
+            {
+              "name": "Equity",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Monitoring is based on standard equity utilization, pre-check's are done against standard equity utilization.",
+              "children": []
+            },
+            {
+              "name": "Lines",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Monitoring (stop-out's) are based on credit line utilization, pre-check's are done against trading and credit line utilization.",
+              "children": []
+            },
+            {
+              "name": "Margin",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Monitoring (stop-out's) are based on standard margin utilization, pre-check's are done against standard margin utilization.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "PortfolioBasedMarginEnabled",
+          "type": "Boolean",
+          "link": null,
+          "origin": "Sub",
+          "description": "Portfolio Based Margin (PBM) is a method for mapping the risk of an investment portfolio. True if enabled else false.",
+          "children": []
+        },
+        {
+          "name": "SupportsAccountValueProtectionLimit",
+          "type": "Boolean",
+          "link": null,
+          "origin": "Sub",
+          "description": "If true, an AccountValueProtectionLimit may be set on this account. If it is false, the AccountValueProtectionLimit can be set on client or account group.",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "AccountGroupId": "stringValue",
+        "AccountGroupKey": "stringValue",
+        "AccountGroupName": "stringValue",
+        "AccountValueProtectionLimit": 10,
+        "ClientKey": "493b43a5-fe85-4d1f-9071-dd4a9d4e42a4",
+        "CollateralMonitoringMode": "MaxOfCollateralCreditValueAndCollateralCreditLine",
+        "MarginCalculationMethod": "SpanForFuturesAndOptions",
+        "MarginLendingEnabled": "No",
+        "MarginMonitoringMode": "Equity",
+        "PortfolioBasedMarginEnabled": false,
+        "SupportsAccountValueProtectionLimit": true
+      }
+    },
+    {
+      "name": "Update account group information",
+      "method": "PATCH",
+      "path": "/port/v1/accountgroups/{AccountGroupKey}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/port/v1/accountgroups/patch__port__accountgroupkey",
+      "parameters": [
+        {
+          "name": "AccountGroupKey",
+          "type": "AccountGroupKey",
+          "link": null,
+          "origin": "Route",
+          "description": "Unique key of the account group to change.",
+          "children": []
+        },
+        {
+          "name": "AccountValueProtectionLimit",
+          "type": "Number",
+          "link": null,
+          "origin": "Body",
+          "description": "If set, this value shields the account value from going below the given limit by automatically triggering closing of positions should the limit be exceeded. A limit of zero means there is no limit.",
+          "children": []
+        },
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the client to which the account group belong.",
+          "children": []
+        }
+      ],
+      "response_parameters": [],
+      "request_sample": {
+        "AccountValueProtectionLimit": 10
+      },
+      "response_sample": null
+    },
+    {
+      "name": "Get all accounts groups under a particular client to which the logged in user belongs",
+      "method": "GET",
+      "path": "/port/v1/accountgroups/me",
+      "url": "https://www.developer.saxo/openapi/referencedocs/port/v1/accountgroups/get__port__me",
+      "parameters": [
+        {
+          "name": "$inlinecount",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Specifies that the response to the request should include a count of the number of entries in the collection",
+          "children": []
+        },
+        {
+          "name": "$skip",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to skip from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "$top",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to return from the beginning of the collection",
+          "children": []
+        }
+      ],
+      "response_parameters": [
+        {
+          "name": "__count",
+          "type": "Number",
+          "link": null,
+          "origin": "Sub",
+          "description": "The total count of items in the feed.",
+          "children": []
+        },
+        {
+          "name": "__next",
+          "type": "String",
+          "link": null,
+          "origin": "Sub",
+          "description": "The link for the next page of items in the feed.",
+          "children": []
+        },
+        {
+          "name": "Data",
+          "type": "AccountGroupResponse []",
+          "link": "https://www.developer.saxo/openapi/referencedocs/port/v1/accountgroups/get__port__me/schema-accountgroupresponse",
+          "origin": "Sub",
+          "description": "The collection of entities for this feed.",
+          "children": [
+            {
+              "name": "AccountGroupId",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "Unique ID of the account group",
+              "children": []
+            },
+            {
+              "name": "AccountGroupKey",
+              "type": "AccountGroupKey",
+              "link": null,
+              "origin": "Sub",
+              "description": "Unique ID of the account group used for selection",
+              "children": []
+            },
+            {
+              "name": "AccountGroupName",
+              "type": "String",
+              "link": null,
+              "origin": "Sub",
+              "description": "Name of the account group, displayed to the user",
+              "children": []
+            },
+            {
+              "name": "AccountValueProtectionLimit",
+              "type": "Number",
+              "link": null,
+              "origin": "Sub",
+              "description": "If set, this value shields the account value from going below the given limit by automatically triggering closing of positions should the limit be exceeded. A limit of zero means there is no limit.",
+              "children": []
+            },
+            {
+              "name": "ClientKey",
+              "type": "ClientKey",
+              "link": null,
+              "origin": "Sub",
+              "description": "Unique ID of the client.",
+              "children": []
+            },
+            {
+              "name": "CollateralMonitoringMode",
+              "type": "CollateralMonitoringMode",
+              "link": "https://www.developer.saxo/openapi/referencedocs/port/v1/accountgroups/get__port/schema-collateralmonitoringmode",
+              "origin": "Sub",
+              "description": "Collateral Monitoring Mode. Null when entity is not monitored on collateral.",
+              "children": [
+                {
+                  "name": "CollateralCreditValue",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Monitoring (stop-out's) are based on collateral credit value",
+                  "children": []
+                },
+                {
+                  "name": "MaxOfCollateralCreditValueAndCollateralCreditLine",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Monitoring (stop-out's) are based on collateral credit value and collateral credit line.",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "MarginCalculationMethod",
+              "type": "PortfolioMarginMethod",
+              "link": "https://www.developer.saxo/openapi/referencedocs/port/v1/accountgroups/get__port/schema-portfoliomarginmethod",
+              "origin": "Sub",
+              "description": "Calculation method for assessing margin utilization.",
+              "children": [
+                {
+                  "name": "Default",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Uses Saxo exposure based margin.",
+                  "children": []
+                },
+                {
+                  "name": "JanusMarginReplication",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Uses rules-based the Janus methodology to calculate margin.",
+                  "children": []
+                },
+                {
+                  "name": "SpanForFutures",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Uses rules-based SPAN methods to calculate margin on futures alone.",
+                  "children": []
+                },
+                {
+                  "name": "SpanForFuturesAndOptions",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Uses rules-based SPAN methods to calculate margin on futures and options.",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "MarginLendingEnabled",
+              "type": "MarginLendingEnabled",
+              "link": "https://www.developer.saxo/openapi/referencedocs/port/v1/accountgroups/get__port/schema-marginlendingenabled",
+              "origin": "Sub",
+              "description": "Margin Lending Enabled",
+              "children": [
+                {
+                  "name": "No",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Margin Lending is disabled.",
+                  "children": []
+                },
+                {
+                  "name": "None",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Default. Margin Lending is not applicable.",
+                  "children": []
+                },
+                {
+                  "name": "Yes",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Margin Lending is enabled.",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "MarginMonitoringMode",
+              "type": "MarginMonitoringMode",
+              "link": "https://www.developer.saxo/openapi/referencedocs/port/v1/accountgroups/get__port/schema-marginmonitoringmode",
+              "origin": "Sub",
+              "description": "Margin Monitoring Mode. Null when entity is not monitored on margin.",
+              "children": [
+                {
+                  "name": "Equity",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Monitoring is based on standard equity utilization, pre-check's are done against standard equity utilization.",
+                  "children": []
+                },
+                {
+                  "name": "Lines",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Monitoring (stop-out's) are based on credit line utilization, pre-check's are done against trading and credit line utilization.",
+                  "children": []
+                },
+                {
+                  "name": "Margin",
+                  "type": "",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Monitoring (stop-out's) are based on standard margin utilization, pre-check's are done against standard margin utilization.",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "PortfolioBasedMarginEnabled",
+              "type": "Boolean",
+              "link": null,
+              "origin": "Sub",
+              "description": "Portfolio Based Margin (PBM) is a method for mapping the risk of an investment portfolio. True if enabled else false.",
+              "children": []
+            },
+            {
+              "name": "SupportsAccountValueProtectionLimit",
+              "type": "Boolean",
+              "link": null,
+              "origin": "Sub",
+              "description": "If true, an AccountValueProtectionLimit may be set on this account. If it is false, the AccountValueProtectionLimit can be set on client or account group.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "MaxRows",
+          "type": "Number",
+          "link": null,
+          "origin": "Sub",
+          "description": "The maximum number of rows that can be returned (if applicable).",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "Data": [
+          {
+            "AccountGroupId": "stringValue",
+            "AccountGroupKey": "stringValue",
+            "AccountGroupName": "stringValue",
+            "AccountValueProtectionLimit": 10,
+            "ClientKey": "493b43a5-fe85-4d1f-9071-dd4a9d4e42a4",
+            "CollateralMonitoringMode": "MaxOfCollateralCreditValueAndCollateralCreditLine",
+            "MarginCalculationMethod": "SpanForFuturesAndOptions",
+            "MarginLendingEnabled": "None",
+            "MarginMonitoringMode": "Margin",
+            "PortfolioBasedMarginEnabled": true,
+            "SupportsAccountValueProtectionLimit": true
+          }
+        ],
+        "MaxRows": 99
+      }
+    }
+  ]
+}

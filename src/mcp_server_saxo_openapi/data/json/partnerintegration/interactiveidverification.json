@@ -1,0 +1,185 @@
+{
+  "service": "partnerintegration",
+  "category": "interactiveidverification",
+  "url": "https://www.developer.saxo/openapi/referencedocs/partnerintegration/v1/interactiveidverification",
+  "endpoints": [
+    {
+      "name": "Webhook to update verification status, it will get called by AutoIdent once verification/E-signing is completed.",
+      "method": "POST",
+      "path": "/partnerintegration/v1/InteractiveIdVerification/idnow/autoident/complete",
+      "url": "https://www.developer.saxo/openapi/referencedocs/partnerintegration/v1/interactiveidverification/post__partnerintegration_interactiveidverification_idnow_autoident_complete",
+      "parameters": [],
+      "request_sample": null,
+      "response_sample": null
+    },
+    {
+      "name": "Webhook to update verification status, it will get called by IdNow once interactive id-verification get completed.",
+      "method": "POST",
+      "path": "/partnerintegration/v1/InteractiveIdVerification/idnow/complete",
+      "url": "https://www.developer.saxo/openapi/referencedocs/partnerintegration/v1/interactiveidverification/post__partnerintegration_interactiveidverification_idnow_complete",
+      "parameters": [],
+      "request_sample": null,
+      "response_sample": null
+    },
+    {
+      "name": "Webhook to get response from DoubleStandard after verification completed.",
+      "method": "POST",
+      "path": "/partnerintegration/v1/InteractiveIdVerification/idnow/doublestandard/complete",
+      "url": "https://www.developer.saxo/openapi/referencedocs/partnerintegration/v1/interactiveidverification/post__partnerintegration_interactiveidverification_idnow_doublestandard_complete",
+      "parameters": [],
+      "request_sample": null,
+      "response_sample": null
+    },
+    {
+      "name": "MyInfo redirect endpoint to update verification status. MyInfo redirects on this endpoint once the interactive verification is complete.",
+      "method": "GET",
+      "path": "/partnerintegration/v1/InteractiveIdVerification/myinfo/ib/complete",
+      "url": "https://www.developer.saxo/openapi/referencedocs/partnerintegration/v1/interactiveidverification/get__partnerintegration_interactiveidverification_myinfo_ib_complete",
+      "parameters": [
+        {
+          "name": "Code",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Verification code that will be used to fetch result from MyInfo",
+          "children": []
+        },
+        {
+          "name": "State",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "State returned by MyInfo. It is the same state which was sent in the start verification request to MyInfo",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": null
+    },
+    {
+      "name": "Webhook to update verification status, it will get called by secureMe once interactive poi-verification get completed.",
+      "method": "POST",
+      "path": "/partnerintegration/v1/InteractiveIdVerification/secureme/verification",
+      "url": "https://www.developer.saxo/openapi/referencedocs/partnerintegration/v1/interactiveidverification/post__partnerintegration_interactiveidverification_secureme_verification",
+      "parameters": [],
+      "request_sample": null,
+      "response_sample": null
+    },
+    {
+      "name": "Webhook to get response from TrustDock after verification completed.",
+      "method": "POST",
+      "path": "/partnerintegration/v1/InteractiveIdVerification/trustdock/complete",
+      "url": "https://www.developer.saxo/openapi/referencedocs/partnerintegration/v1/interactiveidverification/post__partnerintegration_interactiveidverification_trustdock_complete",
+      "parameters": [],
+      "request_sample": null,
+      "response_sample": null
+    },
+    {
+      "name": "Webhook to get response from Veriff after interactive poi verification completed.",
+      "method": "POST",
+      "path": "/partnerintegration/v1/InteractiveIdVerification/veriff/complete",
+      "url": "https://www.developer.saxo/openapi/referencedocs/partnerintegration/v1/interactiveidverification/post__partnerintegration_interactiveidverification_veriff_complete",
+      "parameters": [],
+      "request_sample": null,
+      "response_sample": null
+    },
+    {
+      "name": "Webhook to get event from Veriff during interactive poi verification process.",
+      "method": "POST",
+      "path": "/partnerintegration/v1/InteractiveIdVerification/veriff/event",
+      "url": "https://www.developer.saxo/openapi/referencedocs/partnerintegration/v1/interactiveidverification/post__partnerintegration_interactiveidverification_veriff_event",
+      "parameters": [],
+      "request_sample": null,
+      "response_sample": null
+    },
+    {
+      "name": "Callback endpoint to update verification status, signcat redirects on this endpoint once interactive verification get completed.",
+      "method": "POST",
+      "path": "/partnerintegration/v1/InteractiveIdVerification/verify/{Correlationid}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/partnerintegration/v1/interactiveidverification/post__partnerintegration_interactiveidverification_verify_correlationid",
+      "parameters": [
+        {
+          "name": "Correlationid",
+          "type": "String",
+          "link": null,
+          "origin": "Route",
+          "description": "",
+          "children": []
+        },
+        {
+          "name": "Key",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "",
+          "children": []
+        },
+        {
+          "name": "Value",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "",
+          "children": []
+        }
+      ],
+      "request_sample": [
+        {
+          "Key": "stringValue",
+          "Value": "stringValue"
+        }
+      ],
+      "response_sample": null
+    },
+    {
+      "name": "Redirect endpoint to update verification status, signcat redirects on this endpoint once Oidc interactive verification get completed.\n            This will be used for verification via MITID",
+      "method": "GET",
+      "path": "/partnerintegration/v1/InteractiveIdVerification/verify/{Method}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/partnerintegration/v1/interactiveidverification/get__partnerintegration_interactiveidverification_verify_method",
+      "parameters": [
+        {
+          "name": "Code",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "This is OIDC authorisation code send after verification is completed. This will be used to get auth token to fetch client information",
+          "children": []
+        },
+        {
+          "name": "Error",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Error code returned from Signicat",
+          "children": []
+        },
+        {
+          "name": "Error_Description",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Error description returned from Signicat",
+          "children": []
+        },
+        {
+          "name": "Method",
+          "type": "String",
+          "link": null,
+          "origin": "Route",
+          "description": "",
+          "children": []
+        },
+        {
+          "name": "State",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "State sent in redirect URL. This will be used to validate authenticity of redirecton",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": null
+    }
+  ]
+}

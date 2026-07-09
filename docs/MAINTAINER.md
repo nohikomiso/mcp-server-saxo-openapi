@@ -1,56 +1,51 @@
-# Maintainer guide (0.2.0+)
-
-For releasing **mcp-server-saxo-openapi** from this repository.
+# Maintainer guide (0.3.0+)
 
 ## Layout
 
 | Path | Role |
 |------|------|
-| `src/mcp_server_saxo_openapi/server.py` | FastMCP server (tools + pitfalls resource) |
-| `src/mcp_server_saxo_openapi/data/saxo_openapi.json` | Bundled OpenAPI spec (shipped in wheel) |
-| `SPEC_FRESHNESS.md` | Snapshot date markers |
-
-Spec JSON is generated in the parent monorepo via `tools/saxo_openapi_generator` and copied into `data/` before release.
+| `src/mcp_server_saxo_openapi/server.py` | FastMCP (4 tools + pitfalls resource) |
+| `src/mcp_server_saxo_openapi/index.py` | `SaxoDocIndex` over `data/json` |
+| `src/mcp_server_saxo_openapi/data/json/` | Bundled crawled spec (shipped in wheel) |
 
 ## Before every release
 
-1. Refresh `src/mcp_server_saxo_openapi/data/saxo_openapi.json` if specs changed.
-2. Update `SPEC_FRESHNESS.md` and `src/mcp_server_saxo_openapi/__init__.py` (`SPEC_SNAPSHOT_DATE`).
-3. Bump `version` in `pyproject.toml`.
-4. Update `CHANGELOG.md`.
+1. Sync spec from parent monorepo: `uv run python scripts/sync_saxo_agent_brain_spec.py`
+2. Update `SPEC_FRESHNESS.md` and `__init__.py` snapshot constants.
+3. Bump `version` in `pyproject.toml` and `CHANGELOG.md`.
 
 ## Tests
 
 ```bash
+cd tools/mcp-server-saxo-openapi
 uv sync
 uv run python -m unittest discover -s tests -v
-```
-
-## Build
-
-```bash
-rm -rf dist
 uv build
 ```
 
-## Publish
+## Publish gate (TestPyPI first)
 
-### TestPyPI (optional)
+### 1. TestPyPI
 
 ```bash
-uv publish --publish-url https://test.pypi.org/legacy/
+uvx twine upload --repository testpypi dist/*
 ```
 
-### PyPI
+### 2. Verify from TestPyPI
 
 ```bash
-uv publish
+uvx --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ \
+  --from mcp-server-saxo-openapi==0.3.0 saxo-doc-helper --version
+uvx --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ \
+  --from mcp-server-saxo-openapi==0.3.0 saxo-doc-helper search-endpoints orders
 ```
 
-Then tag and create a GitHub Release matching the version.
+GO checklist: search non-empty, samples + CRITICAL WARNING on orders, schema/workflow tools work.
+
+### 3. Production PyPI (GO only)
 
 ```bash
-git tag v0.2.0
-git push origin v0.2.0
-gh release create v0.2.0 --title "v0.2.0" --notes-file CHANGELOG.md
+uvx twine upload dist/*
+git tag v0.3.0 && git push origin v0.3.0
+gh release create v0.3.0 --title "v0.3.0" --notes-file CHANGELOG.md
 ```

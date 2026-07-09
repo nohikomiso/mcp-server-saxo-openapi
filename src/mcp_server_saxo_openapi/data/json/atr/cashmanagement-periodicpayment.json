@@ -1,0 +1,389 @@
+{
+  "service": "atr",
+  "category": "cashmanagement-periodicpayment",
+  "url": "https://www.developer.saxo/openapi/referencedocs/atr/v1/cashmanagement-periodicpayment",
+  "endpoints": [
+    {
+      "name": "Fetches all the Scheduled Periodic Payments",
+      "method": "GET",
+      "path": "/atr/v1/cashmanagement/periodicpayment",
+      "url": "https://www.developer.saxo/openapi/referencedocs/atr/v1/cashmanagement-periodicpayment/get__atr_cashmanagement_periodicpayment",
+      "parameters": [
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Client Id",
+          "children": []
+        },
+        {
+          "name": "SkipToken",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Id token of entity to start taking elements from.",
+          "children": []
+        },
+        {
+          "name": "Top",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Number of elements to retrieve.",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "Data": [
+          {
+            "AccountCurrency": "stringValue",
+            "AccountId": "stringValue",
+            "AccountKey": "dIm75edbgnW6aBK3CIc-sw==",
+            "Amount": 10,
+            "AmountInAccountCurrency": 10,
+            "ClientId": 99,
+            "ClientKey": "zpSlGZ4F0cPIx59wR3HP1g==",
+            "ClientName": "stringValue",
+            "CreatedDate": "2025-11-22T00:42:41.705642Z",
+            "Currency": "stringValue",
+            "EndByDate": "2026-09-26T15:17:46.490881Z",
+            "ExternalAccountId": "stringValue",
+            "Frequency": "Weekly",
+            "FxRate": 10,
+            "MessageToBeneficiary": "stringValue",
+            "NextPaymentDate": "2026-02-22T02:55:35.134399Z",
+            "PeriodicPaymentId": 99,
+            "StartDate": "2024-08-08T21:12:19.594778Z"
+          }
+        ],
+        "MaxRows": 99
+      }
+    },
+    {
+      "name": "Create a new periodic spayment schedule.",
+      "method": "POST",
+      "path": "/atr/v1/cashmanagement/periodicpayment",
+      "url": "https://www.developer.saxo/openapi/referencedocs/atr/v1/cashmanagement-periodicpayment/post__atr_cashmanagement_periodicpayment",
+      "parameters": [
+        {
+          "name": "AccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Body",
+          "description": "The account identifier in key format from which to transfer money.",
+          "children": []
+        },
+        {
+          "name": "Amount",
+          "type": "Number",
+          "link": null,
+          "origin": "Body",
+          "description": "The amount to be withdrawn.",
+          "children": []
+        },
+        {
+          "name": "BeneficiaryInstructionId",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "Id of the beneficiary instruction to be used for the withdrawal",
+          "children": []
+        },
+        {
+          "name": "Currency",
+          "type": "CurrencyCode",
+          "link": null,
+          "origin": "Body",
+          "description": "The currency of amount.",
+          "children": []
+        },
+        {
+          "name": "EndByDate",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "Determines when the recurring payments would be stopped, when left blank, the recurring payment would be marked never ending.",
+          "children": []
+        },
+        {
+          "name": "MessageToBeneficiary",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "For MT103 type messages this is a free text field information to one of the parties involved in the transaction in a structured format.",
+          "children": []
+        },
+        {
+          "name": "PayeeVerificationId",
+          "type": "Integer",
+          "link": null,
+          "origin": "Body",
+          "description": "The identifier of the verification of payee request.",
+          "children": []
+        },
+        {
+          "name": "RecurrenceType",
+          "type": "PeriodicScheduleTypes",
+          "link": "https://www.developer.saxo/openapi/referencedocs/atr/v1/cashmanagement-periodicpayment/post__atr_cashmanagement_periodicpayment/schema-periodicscheduletypes",
+          "origin": "Body",
+          "description": "Specifies the frequency of recurring payment.",
+          "children": [
+            {
+              "name": "Daily",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "",
+              "children": []
+            },
+            {
+              "name": "HalfYearly",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "",
+              "children": []
+            },
+            {
+              "name": "Monthly",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "",
+              "children": []
+            },
+            {
+              "name": "None",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "",
+              "children": []
+            },
+            {
+              "name": "Quarterly",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "",
+              "children": []
+            },
+            {
+              "name": "Weekly",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "",
+              "children": []
+            },
+            {
+              "name": "Yearly",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "StartDate",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "Specifies when the actual payment should be started. It also detemines which day would be used for different frequencies i.e. Daily, Weekly etc.",
+          "children": []
+        }
+      ],
+      "request_sample": {
+        "AccountKey": "dIm75edbgnW6aBK3CIc-sw==",
+        "Amount": 10,
+        "BeneficiaryInstructionId": "stringValue",
+        "Currency": "GBP",
+        "EndByDate": "2024-10-22T18:21:17.289934Z",
+        "MessageToBeneficiary": "stringValue",
+        "PayeeVerificationId": 149,
+        "RecurrenceType": "None",
+        "StartDate": "2028-04-06T00:47:20.032211Z"
+      },
+      "response_sample": null
+    },
+    {
+      "name": "Update an existing periodic payment schedule.",
+      "method": "PUT",
+      "path": "/atr/v1/cashmanagement/periodicpayment/{PeriodicPaymentId}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/atr/v1/cashmanagement-periodicpayment/put__atr_cashmanagement_periodicpayment_periodicpaymentid",
+      "parameters": [
+        {
+          "name": "AccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Body",
+          "description": "The account identifier in key format from which to transfer money.",
+          "children": []
+        },
+        {
+          "name": "Amount",
+          "type": "Number",
+          "link": null,
+          "origin": "Body",
+          "description": "The amount to be withdrawn.",
+          "children": []
+        },
+        {
+          "name": "BeneficiaryInstructionId",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "Id of the beneficiary instruction to be used for the withdrawal",
+          "children": []
+        },
+        {
+          "name": "Currency",
+          "type": "CurrencyCode",
+          "link": null,
+          "origin": "Body",
+          "description": "The currency of amount.",
+          "children": []
+        },
+        {
+          "name": "EndByDate",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "Determines when the recurring payments would be stopped, when left blank, the recurring payment would be marked never ending.",
+          "children": []
+        },
+        {
+          "name": "MessageToBeneficiary",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "For MT103 type messages this is a free text field information to one of the parties involved in the transaction in a structured format.",
+          "children": []
+        },
+        {
+          "name": "PayeeVerificationId",
+          "type": "Integer",
+          "link": null,
+          "origin": "Body",
+          "description": "The identifier of the verification of payee request.",
+          "children": []
+        },
+        {
+          "name": "PeriodicPaymentId",
+          "type": "Integer",
+          "link": null,
+          "origin": "Route",
+          "description": "",
+          "children": []
+        },
+        {
+          "name": "RecurrenceType",
+          "type": "PeriodicScheduleTypes",
+          "link": "https://www.developer.saxo/openapi/referencedocs/atr/v1/cashmanagement-periodicpayment/put__atr_cashmanagement_periodicpayment_periodicpaymentid/schema-periodicscheduletypes",
+          "origin": "Body",
+          "description": "Specifies the frequency of recurring payment.",
+          "children": [
+            {
+              "name": "Daily",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "",
+              "children": []
+            },
+            {
+              "name": "HalfYearly",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "",
+              "children": []
+            },
+            {
+              "name": "Monthly",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "",
+              "children": []
+            },
+            {
+              "name": "None",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "",
+              "children": []
+            },
+            {
+              "name": "Quarterly",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "",
+              "children": []
+            },
+            {
+              "name": "Weekly",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "",
+              "children": []
+            },
+            {
+              "name": "Yearly",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "StartDate",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "Specifies when the actual payment should be started. It also detemines which day would be used for different frequencies i.e. Daily, Weekly etc.",
+          "children": []
+        }
+      ],
+      "request_sample": {
+        "AccountKey": "dIm75edbgnW6aBK3CIc-sw==",
+        "Amount": 10,
+        "BeneficiaryInstructionId": "stringValue",
+        "Currency": "GBP",
+        "EndByDate": "2024-10-22T18:21:17.289934Z",
+        "MessageToBeneficiary": "stringValue",
+        "PayeeVerificationId": 149,
+        "RecurrenceType": "None",
+        "StartDate": "2028-04-06T00:47:20.032211Z"
+      },
+      "response_sample": null
+    },
+    {
+      "name": "Deactivates the periodic payment.",
+      "method": "DELETE",
+      "path": "/atr/v1/cashmanagement/periodicpayment/{PeriodicPaymentId}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/atr/v1/cashmanagement-periodicpayment/delete__atr_cashmanagement_periodicpayment_periodicpaymentid",
+      "parameters": [
+        {
+          "name": "PeriodicPaymentId",
+          "type": "Integer",
+          "link": null,
+          "origin": "Route",
+          "description": "PeriodicPaymentId to be terminated.",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": null
+    }
+  ]
+}
