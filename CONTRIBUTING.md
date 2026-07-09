@@ -14,9 +14,10 @@ Thank you for your interest in **mcp-server-saxo-openapi**.
 
 ## Updating the spec database
 
-If you maintain a full development workspace with the crawler pipeline, see [docs/MAINTAINER.md](docs/MAINTAINER.md).
+Specs under `spec/json/` are generated from the Saxo Developer Portal by maintainers (toolchain is not in this repository).
 
-Otherwise, open an issue describing which Saxo endpoint or schema looks stale, with a link to the official Saxo reference page.
+- Stale or missing endpoint? Open an [Issue](https://github.com/nohikomiso/mcp-server-saxo-openapi/issues) with a link to the official Saxo reference page.
+- Release packaging steps (for maintainers of this repo): [docs/MAINTAINER.md](docs/MAINTAINER.md)
 
 ## Development setup
 
