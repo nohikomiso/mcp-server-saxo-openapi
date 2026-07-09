@@ -2,7 +2,7 @@
 
 A specialized [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server acting as a **reference manual and knowledge base** for the Saxo Bank OpenAPI.
 
-**Version:** 0.3.0 · **Spec snapshot:** 2026-07-08
+**Version:** 0.3.1 · **Spec snapshot:** 2026-07-08
 
 ## Purpose
 
@@ -55,7 +55,7 @@ uvx --from mcp-server-saxo-openapi saxo-doc-helper get-endpoint POST /trade/v2/o
 
 0.2.0 mistakenly used a single `saxo_openapi.json` for lookup (shallow schemas). **0.3.0 restores the rich `spec/json` index** while keeping pitfalls and warnings from 0.2.0.
 
-See [CHANGELOG.md](CHANGELOG.md).
+See [CHANGELOG.md](https://github.com/nohikomiso/mcp-server-saxo-openapi/blob/main/CHANGELOG.md).
 
 ## Known limitations
 
@@ -65,4 +65,4 @@ See [CHANGELOG.md](CHANGELOG.md).
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT — see [LICENSE](https://github.com/nohikomiso/mcp-server-saxo-openapi/blob/main/LICENSE).

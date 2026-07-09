@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.1 — 2026-07-10
+
+### Fixed
+
+- **PyPI README links:** `CHANGELOG.md` and `LICENSE` now use absolute GitHub URLs (PyPI does not host relative link targets).
+
+### Added
+
+- `Changelog` entry in `[project.urls]` on PyPI.
+
 ## 0.3.0 — 2026-07-10
 
 ### Fixed (regression from 0.2.0)

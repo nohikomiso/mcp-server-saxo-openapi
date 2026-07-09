@@ -2,7 +2,7 @@
 
 **Saxo Bank / サクソバンク証券 OpenAPI 仕様ルックアップ — CLI と MCP サーバー**
 
-[English](README.md) | 日本語
+[English](https://github.com/nohikomiso/mcp-server-saxo-openapi/blob/main/README.md) | 日本語
 
 ---
 
@@ -12,7 +12,7 @@
 ![MCP](https://img.shields.io/badge/MCP-FastMCP-orange.svg)
 ![Spec updated](https://img.shields.io/github/last-commit/nohikomiso/mcp-server-saxo-openapi/main?label=spec%20updated)
 
-**版 0.3.0** · 仕様スナップショット: 2026-07-08
+**版 0.3.1** · 仕様スナップショット: 2026-07-08
 
 ターミナル、または Cursor / Claude Desktop などの MCP クライアントから、**サクソバンク証券（Saxo Bank）** OpenAPI のエンドポイント仕様を参照できます。AI エージェントがコードを書く前に、パラメータ・サンプル JSON・Saxo 特有の罠（pitfalls）を学ぶための**辞書サーバー**です（取引の実行はしません）。
 
@@ -87,7 +87,7 @@ uvx --from mcp-server-saxo-openapi saxo-doc-helper --version
 
 0.2.0 は単一の `saxo_openapi.json` で lookup しており、仕様が浅くなっていました。**0.3.0 で rich な `spec/json` 方式に復帰**しつつ、0.2.0 の pitfalls と警告は維持しています。
 
-詳細は [CHANGELOG.md](CHANGELOG.md)。
+詳細は [CHANGELOG.md](https://github.com/nohikomiso/mcp-server-saxo-openapi/blob/main/CHANGELOG.md)。
 
 ---
 
@@ -103,7 +103,7 @@ uvx --from mcp-server-saxo-openapi saxo-doc-helper --version
 
 **取得日: 2026-07-08**（Saxo Release Notes 最新見出し: **2025/05/15**）
 
-詳細は [SPEC_FRESHNESS.md](SPEC_FRESHNESS.md)。誤り・古さは [Issue](https://github.com/nohikomiso/mcp-server-saxo-openapi/issues) で報告歓迎。
+詳細は [SPEC_FRESHNESS.md](https://github.com/nohikomiso/mcp-server-saxo-openapi/blob/main/SPEC_FRESHNESS.md)。誤り・古さは [Issue](https://github.com/nohikomiso/mcp-server-saxo-openapi/issues) で報告歓迎。
 
 ---
 
@@ -118,12 +118,11 @@ uvx --from mcp-server-saxo-openapi saxo-doc-helper --version
 
 ## フィードバック・開発者向け
 
-- 不具合・古い仕様: [GitHub Issues](https://github.com/nohikomiso/mcp-server-saxo-openapi/issues)
-- コントリビュート: [CONTRIBUTING.md](CONTRIBUTING.md)
-- リリース手順: [docs/MAINTAINER.md](docs/MAINTAINER.md)
+- 不具合・古い仕様・コントリビュート: [GitHub Issues](https://github.com/nohikomiso/mcp-server-saxo-openapi/issues)
+- リリース手順: [docs/MAINTAINER.md](https://github.com/nohikomiso/mcp-server-saxo-openapi/blob/main/docs/MAINTAINER.md)
 
 ---
 
 ## License
 
-[MIT License](LICENSE)
+[MIT License](https://github.com/nohikomiso/mcp-server-saxo-openapi/blob/main/LICENSE)

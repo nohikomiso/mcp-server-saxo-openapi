@@ -65,7 +65,7 @@ def resolve_spec_dir() -> str:
     here = Path(__file__).resolve()
     candidates = [
         here.parent / "data" / "json",
-        here.parents[4] / "docs" / "mcp-server-saxo-openapi" / "spec" / "json",
+        here.parents[2] / "src" / "mcp_server_saxo_openapi" / "data" / "json",
         Path.cwd() / "spec" / "json",
     ]
     for cand in candidates:
