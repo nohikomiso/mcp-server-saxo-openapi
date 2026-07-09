@@ -30,13 +30,22 @@
 
 ## これは何か / 何かではないか
 
-| 本パッケージ | 対象外 |
-|--------------|--------|
-| オフラインの **仕様ルックアップ**（CLI + MCP） | ライブの取引・ポートフォリオ API |
-| Saxo の認証情報は不要 | OAuth・発注・残高照会 |
-| 必要な分だけ段階的に返す | 本格的な OpenAPI クライアントの代替 |
+**目的:** AI エージェント（や開発者）が、「この API はどう使うのか」を理解するためのものです。公式リファレンスから取り出したパラメータ定義と JSON サンプルを、CLI / MCP から参照できます。
 
-**ライブ** API を MCP から使う場合は、コミュニティの [`@borgels/mcp-server-saxo`](https://www.npmjs.com/package/@borgels/mcp-server-saxo)（npm・非公式・別プロジェクト）などを参照してください。
+**できること**
+
+- エンドポイントをキーワードで探す
+- メソッド・パスを指定して、パラメータとサンプル JSON を見る
+- ネストした型（スキーマ）を段階的に開いて読む
+- Saxo のログインや API キーは不要（ネット経由で Saxo に問い合わせない）
+
+**できないこと（このパッケージの範囲外）**
+
+- Saxo の API を実際に呼び出すこと（発注・残高照会・ポジション取得など）
+- OAuth 認証やトークン管理
+- 取引クライアントそのものの代替
+
+実際に API を叩く必要がある場合は、別のライブラリやツールを使ってください。MCP 経由でライブ API を扱うコミュニティ製の例として、[`@borgels/mcp-server-saxo`](https://www.npmjs.com/package/@borgels/mcp-server-saxo)（npm・非公式・別プロジェクト）があります。本リポジトリとは無関係です。
 
 **非公式**です。Saxo Bank A/S との提携・推奨はありません。
 
@@ -44,10 +53,10 @@
 
 ## 機能
 
-- **構造化された仕様 JSON** — ネストしたパラメータと Request / Response サンプル
-- **CLI** — `search-endpoints` / `get-endpoint` / `get-schema`（深さの制御・Did you mean?）
-- **MCP サーバー** — stdio の JSON-RPC。上記と同じ 3 ツール
-- **トークン節約** — まず要約、必要ならドリルダウン
+- **仕様 JSON** — パラメータ定義と Request / Response のサンプル
+- **CLI** — `search-endpoints` / `get-endpoint` / `get-schema`（表示の深さ指定・近い候補の提示）
+- **MCP サーバー** — 上記と同じ 3 ツールを Cursor などから呼べる
+- **トークン節約** — まず要約を返し、必要ならネストを段階的に開く
 
 **要件:** Python 3.10 以上
 
@@ -124,13 +133,13 @@ uv run saxo-doc-helper --version
 
 ## 関連プロジェクト
 
-| プロジェクト | 役割 |
-|--------------|------|
-| [saxo-apy](https://github.com/nohikomiso/saxo-apy) | OAuth / セッション |
-| [saxo-openapi](https://github.com/nohikomiso/saxo-openapi) | REST / WebSocket クライアント |
-| [@borgels/mcp-server-saxo](https://www.npmjs.com/package/@borgels/mcp-server-saxo) | ライブ Saxo OpenAPI MCP（npm・非公式） |
+本リポジトリは「仕様を読む」ためのものです。実際に API を呼ぶときは、次のような別プロジェクトを使います。
 
-本リポジトリは **仕様のルックアップ** 用です。実際の API 呼び出しは別レイヤーです。
+| プロジェクト | 何をするか |
+|--------------|------------|
+| [saxo-apy](https://github.com/nohikomiso/saxo-apy) | OAuth / セッション（作者の別リポ） |
+| [saxo-openapi](https://github.com/nohikomiso/saxo-openapi) | REST / WebSocket クライアント（作者の別リポ） |
+| [@borgels/mcp-server-saxo](https://www.npmjs.com/package/@borgels/mcp-server-saxo) | MCP からライブ API を叩く例（コミュニティ・非公式・別作者） |
 
 ---
 
