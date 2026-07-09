@@ -1,10 +1,10 @@
 # Contributing
 
-Thank you for your interest in **saxo-openapi-agent-brain**.
+Thank you for your interest in **mcp-server-saxo-openapi**.
 
 ## What we welcome
 
-- Bug reports and reproducible examples for `tools/saxo_doc_helper.py`
+- Bug reports and reproducible examples for `saxo-doc-helper` / MCP
 - Improvements to CLI/MCP ergonomics (normalization, error messages, tests)
 - Documentation fixes in `README.md` / `README.ja.md`
 
@@ -21,17 +21,25 @@ Otherwise, open an issue describing which Saxo endpoint or schema looks stale, w
 ## Development setup
 
 ```bash
-git clone <this-repository>
-cd saxo-openapi-agent-brain
-python tools/test_saxo_doc_helper.py -v
+git clone https://github.com/nohikomiso/mcp-server-saxo-openapi.git
+cd mcp-server-saxo-openapi
+uv sync
+uv run python -m unittest discover -s tests -v
 ```
 
-No pip dependencies are required for the helper tool (Python standard library only).
+No third-party runtime dependencies (Python standard library only).
+
+Before a release, sync packaged data from the maintainer source of truth:
+
+```bash
+rm -rf src/saxo_doc_helper/data/json
+cp -a spec/json src/saxo_doc_helper/data/json
+```
 
 ## Pull requests
 
 1. Fork and create a branch from `main`
-2. Run `python tools/test_saxo_doc_helper.py -v`
+2. Run `uv run python -m unittest discover -s tests -v`
 3. Keep README changes in sync across English and Japanese when both are affected
 4. Open a PR with a short summary and test evidence
 

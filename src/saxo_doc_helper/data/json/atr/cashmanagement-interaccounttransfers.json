@@ -1,0 +1,48 @@
+{
+  "service": "atr",
+  "category": "cashmanagement-interaccounttransfers",
+  "url": "https://www.developer.saxo/openapi/referencedocs/atr/v1/cashmanagement-interaccounttransfers",
+  "endpoints": [
+    {
+      "name": "EndPoint which will be used to provide the list of all interaccounts in processing state for the provided Account and Client Key",
+      "method": "GET",
+      "path": "/atr/v1/cashmanagement/interaccounttransfers/paymentsinprocessing",
+      "url": "https://www.developer.saxo/openapi/referencedocs/atr/v1/cashmanagement-interaccounttransfers/get__atr_cashmanagement_interaccounttransfers_paymentsinprocessing",
+      "parameters": [
+        {
+          "name": "AccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "",
+          "children": []
+        },
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "Data": [
+          {
+            "Amount": 10,
+            "Currency": "stringValue",
+            "FromAccountKey": "dIm75edbgnW6aBK3CIc-sw==",
+            "FromClientKey": "zpSlGZ4F0cPIx59wR3HP1g==",
+            "PaymentId": 99,
+            "ToAccountAmount": 10,
+            "ToAccountCurrency": "stringValue",
+            "ToAccountKey": "dIm75edbgnW6aBK3CIc-sw==",
+            "ToClientKey": "zpSlGZ4F0cPIx59wR3HP1g=="
+          }
+        ],
+        "MaxRows": 99
+      }
+    }
+  ]
+}

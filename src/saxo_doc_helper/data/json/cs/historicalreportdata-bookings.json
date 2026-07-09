@@ -1,0 +1,257 @@
+{
+  "service": "cs",
+  "category": "historicalreportdata-bookings",
+  "url": "https://www.developer.saxo/openapi/referencedocs/cs/v1/historicalreportdata-bookings",
+  "endpoints": [
+    {
+      "name": "Get all bookings for ClientKey between two dates or by specifying a combination of FilterType and FilterValue.",
+      "method": "GET",
+      "path": "/cs/v1/reports/bookings/{ClientKey}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/cs/v1/historicalreportdata-bookings/get__cs_reports_bookings_clientkey",
+      "parameters": [
+        {
+          "name": "$skip",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to skip from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "$skiptoken",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Specifies an entity id to start retrieving entries from. This is normally only used in generated nextlinks.",
+          "children": []
+        },
+        {
+          "name": "$top",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to return from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "AccountGroupKey",
+          "type": "AccountGroupKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the account group to which the resource belongs.",
+          "children": []
+        },
+        {
+          "name": "AccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The key of the account to which the resource belongs.",
+          "children": []
+        },
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Route",
+          "description": "The key of the client to which the resource belongs.",
+          "children": []
+        },
+        {
+          "name": "FilterType",
+          "type": "BookingRequestType",
+          "link": "https://www.developer.saxo/openapi/referencedocs/cs/v1/historicalreportdata-bookings/get__cs_reports_bookings_clientkey/schema-bookingrequesttype",
+          "origin": "Query-String",
+          "description": "Type, basis on which bookings are reterived. If specified you must also specify a FilterValue",
+          "children": [
+            {
+              "name": "BkAmountId",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Booking amount Id",
+              "children": []
+            },
+            {
+              "name": "BkAmountTypeId",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "SaxoInternal- Booking Amount type Id",
+              "children": []
+            },
+            {
+              "name": "CaMasterRecordId",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Corporate action Id",
+              "children": []
+            },
+            {
+              "name": "RelatedTradeId",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Related trade Id",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "FilterValue",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Id for the specified filter type.",
+          "children": []
+        },
+        {
+          "name": "FromDate",
+          "type": "Date",
+          "link": null,
+          "origin": "Query-String",
+          "description": "From date, ignored when filterType and filterValue are not null",
+          "children": []
+        },
+        {
+          "name": "MockDataId",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Optional Mock Data Parameter",
+          "children": []
+        },
+        {
+          "name": "ToDate",
+          "type": "Date",
+          "link": null,
+          "origin": "Query-String",
+          "description": "To date, ignored when filterType and filterValue are not null",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "__next": "/openapi/....../?$top=1&$skip=1",
+        "Data": [
+          {
+            "AccountCurrency": "DKK",
+            "AccountId": "179643INET",
+            "Amount": -0.31,
+            "AmountAccountCurrency": -2.31,
+            "AmountClass": "NotAssigned",
+            "AmountClientCurrency": -2.31,
+            "AmountSubClass": "NotAssigned",
+            "AmountUSD": -0.340033414539004,
+            "AssetType": "CfdOnStock",
+            "BkAmountId": "3420454836",
+            "BkAmountType": "CFD Finance",
+            "BkAmountTypeId": "10",
+            "CaMasterRecordId": "0",
+            "ClientCurrency": "DKK",
+            "ConversionRate": 0,
+            "ConversionRateAccountCurrency": 0,
+            "ConversionRateClientCurrency": 0,
+            "ConversionRateUSD": 0,
+            "CostClass": "NotAssigned",
+            "CostSubClass": "NotAssigned",
+            "Currency": "EUR",
+            "Date": "2015-07-31T00:00:00Z",
+            "InstrumentDescription": "National Bank of Greece SA",
+            "InstrumentSectorName": "Banks",
+            "InstrumentSectorTypeId": 656,
+            "InstrumentSubType": "None",
+            "InstrumentSymbol": "ETE=xath",
+            "RelatedPositionId": "0",
+            "RelatedTradeId": "0",
+            "RootInstrumentSectorName": "Financials",
+            "RootInstrumentSectorTypeId": 509,
+            "Uic": 20690,
+            "UnderlyingInstrumentAssetType": "CfdOnStock",
+            "UnderlyingInstrumentDescription": "National Bank of Greece SA",
+            "UnderlyingInstrumentSectorName": "Banks",
+            "UnderlyingInstrumentSubType": "None",
+            "UnderlyingInstrumentSymbol": "ETE=xath",
+            "UnderlyingInstrumentUic": 20690,
+            "ValueDate": "2015-08-03T00:00:00Z"
+          },
+          {
+            "AccountCurrency": "DKK",
+            "AccountId": "179643INET",
+            "Amount": -4.6,
+            "AmountAccountCurrency": -4.6,
+            "AmountClass": "NotAssigned",
+            "AmountClientCurrency": -4.6,
+            "AmountSubClass": "NotAssigned",
+            "AmountUSD": -0.675050995700219,
+            "BkAmountId": "3420990244",
+            "BkAmountType": "Interest",
+            "BkAmountTypeId": "45",
+            "CaMasterRecordId": "0",
+            "ClientCurrency": "DKK",
+            "ConversionRate": 0,
+            "ConversionRateAccountCurrency": 0,
+            "ConversionRateClientCurrency": 0,
+            "ConversionRateUSD": 0,
+            "CostClass": "NotAssigned",
+            "CostSubClass": "NotAssigned",
+            "Currency": "DKK",
+            "Date": "2015-08-03T00:00:00Z",
+            "InstrumentSectorName": "",
+            "InstrumentSectorTypeId": 0,
+            "InstrumentSubType": "None",
+            "RelatedPositionId": "0",
+            "RelatedTradeId": "0",
+            "RootInstrumentSectorName": "",
+            "RootInstrumentSectorTypeId": 0,
+            "Uic": 0,
+            "UnderlyingInstrumentSubType": "None",
+            "UnderlyingInstrumentUic": 0,
+            "ValueDate": "2015-08-03T00:00:00Z"
+          },
+          {
+            "AccountCurrency": "DKK",
+            "AccountId": "179643INET",
+            "Amount": -1.03999996185303,
+            "AmountAccountCurrency": -6.96,
+            "AmountClass": "NotAssigned",
+            "AmountClientCurrency": -6.96,
+            "AmountSubClass": "NotAssigned",
+            "AmountUSD": -1.04063873687988,
+            "AssetType": "StockIndexOption",
+            "BkAmountId": "3440445011",
+            "BkAmountType": "Exchange Fee",
+            "BkAmountTypeId": "30",
+            "CaMasterRecordId": "0",
+            "ClientCurrency": "DKK",
+            "ConversionRate": 0,
+            "ConversionRateAccountCurrency": 0,
+            "ConversionRateClientCurrency": 0,
+            "ConversionRateUSD": 0,
+            "CostClass": "NotAssigned",
+            "CostSubClass": "NotAssigned",
+            "Currency": "USD",
+            "Date": "2015-08-12T00:00:00Z",
+            "InstrumentDescription": "Volatility Index (VIX) Aug2015 16 P",
+            "InstrumentSectorName": "",
+            "InstrumentSectorTypeId": 0,
+            "InstrumentSubType": "None",
+            "InstrumentSymbol": "VIX/Q15P16=xcbf",
+            "RelatedPositionId": "840305316",
+            "RelatedTradeId": "840305316",
+            "RootInstrumentSectorName": "",
+            "RootInstrumentSectorTypeId": 0,
+            "Uic": 1561245,
+            "UnderlyingInstrumentDescription": "CBOE Volatility Index",
+            "UnderlyingInstrumentSectorName": "",
+            "UnderlyingInstrumentSubType": "None",
+            "UnderlyingInstrumentSymbol": "VIX.I",
+            "UnderlyingInstrumentUic": 10606,
+            "ValueDate": "2015-08-12T00:00:00Z"
+          }
+        ]
+      }
+    }
+  ]
+}

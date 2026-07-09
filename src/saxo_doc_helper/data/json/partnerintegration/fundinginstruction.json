@@ -1,0 +1,266 @@
+{
+  "service": "partnerintegration",
+  "category": "fundinginstruction",
+  "url": "https://www.developer.saxo/openapi/referencedocs/partnerintegration/v1/fundinginstruction",
+  "endpoints": [
+    {
+      "name": "Get all funding Instruction info for specified client.",
+      "method": "GET",
+      "path": "/partnerintegration/v1/fundinginstructions/{ClientKey}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/partnerintegration/v1/fundinginstruction/get__partnerintegration_s_clientkey",
+      "parameters": [
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Route",
+          "description": "",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "Instructions": [
+          {
+            "AccountKey": "-TGN6RMFpRj4YKsR5JsB2A==",
+            "PeriodicTransfers": [
+              {
+                "Amount": 10,
+                "Currency": "USD",
+                "EndDate": "2024-12-01T00:00:00Z",
+                "FromAccount": "TEST_ACC_1",
+                "FromAccountName": "Test Account 1",
+                "FromAccountType": "TEST_TYPE",
+                "Interval": "E1Y_EOM",
+                "ReferenceId": "123REF",
+                "StartDate": "2024-01-01T00:00:00Z"
+              },
+              {
+                "Amount": 100,
+                "Currency": "DKK",
+                "EndDate": "2025-12-01T00:00:00Z",
+                "FromAccount": "TEST_ACC_2",
+                "FromAccountName": "Test Account 2",
+                "FromAccountType": "TEST_TYPE",
+                "Interval": "E1M_EOM",
+                "ReferenceId": "456REF",
+                "StartDate": "2024-01-01T00:00:00Z"
+              }
+            ],
+            "SubAccountAllocation": [
+              {
+                "AccountKey": "fDuBSI7De78mg1nnONi4ag==",
+                "Allocation": 50,
+                "AllocationUnit": "Amount"
+              },
+              {
+                "AccountKey": "s7SOpbxiM0nCMWMBxwU1RA==",
+                "Allocation": 50,
+                "AllocationUnit": "Amount"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Create or Update existing funding Instruction for client.",
+      "method": "PUT",
+      "path": "/partnerintegration/v1/fundinginstructions/{ClientKey}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/partnerintegration/v1/fundinginstruction/put__partnerintegration_s_clientkey",
+      "parameters": [
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Route",
+          "description": "",
+          "children": []
+        },
+        {
+          "name": "Instructions",
+          "type": "FundingInstructionRequest []",
+          "link": "https://www.developer.saxo/openapi/referencedocs/partnerintegration/v1/fundinginstruction/put__partnerintegration_s_clientkey/schema-fundinginstructionrequest",
+          "origin": "Body",
+          "description": "Collection of Funding Instruction request type",
+          "children": [
+            {
+              "name": "AccountKey",
+              "type": "AccountKey",
+              "link": null,
+              "origin": "Sub",
+              "description": "Account Key",
+              "children": []
+            },
+            {
+              "name": "PeriodicFundingAmount",
+              "type": "Number",
+              "link": null,
+              "origin": "Sub",
+              "description": "Periodic Funding Amount",
+              "children": []
+            },
+            {
+              "name": "PeriodicTransfers",
+              "type": "FundingInstructionPeriodicTransfer []",
+              "link": "https://www.developer.saxo/openapi/referencedocs/partnerintegration/v1/fundinginstruction/put__partnerintegration_s_clientkey/schema-request.fundinginstructionperiodictransfer",
+              "origin": "Sub",
+              "description": "Funding Allocation - Periodic Transfer info",
+              "children": [
+                {
+                  "name": "Amount",
+                  "type": "Number",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Value of periodic transfer",
+                  "children": []
+                },
+                {
+                  "name": "Currency",
+                  "type": "String",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Currency of periodic transfer",
+                  "children": []
+                },
+                {
+                  "name": "EndDate",
+                  "type": "String",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "(Optional) EndDate of periodic transfer",
+                  "children": []
+                },
+                {
+                  "name": "FromAccount",
+                  "type": "String",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Account for periodic transfer sender",
+                  "children": []
+                },
+                {
+                  "name": "FromAccountName",
+                  "type": "String",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Name of account for periodic transfer sender",
+                  "children": []
+                },
+                {
+                  "name": "FromAccountType",
+                  "type": "String",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Type of account for periodic transfer sender",
+                  "children": []
+                },
+                {
+                  "name": "Interval",
+                  "type": "String",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Interval for periodic transfer",
+                  "children": []
+                },
+                {
+                  "name": "ReferenceId",
+                  "type": "String",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "ReferenceId for periodic transfer",
+                  "children": []
+                },
+                {
+                  "name": "StartDate",
+                  "type": "String",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "StartDate of periodic transfer",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "SubAccountAllocation",
+              "type": "SubAccountAllocation []",
+              "link": "https://www.developer.saxo/openapi/referencedocs/partnerintegration/v1/fundinginstruction/put__partnerintegration_s_clientkey/schema-request.subaccountallocation",
+              "origin": "Sub",
+              "description": "Sub account allocation details",
+              "children": [
+                {
+                  "name": "AccountKey",
+                  "type": "AccountKey",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Represent sub account info",
+                  "children": []
+                },
+                {
+                  "name": "Allocation",
+                  "type": "Number",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "Value allocated to sub account",
+                  "children": []
+                },
+                {
+                  "name": "AllocationUnit",
+                  "type": "String",
+                  "link": null,
+                  "origin": "Sub",
+                  "description": "AllocationUnit",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "request_sample": {
+        "Instructions": [
+          {
+            "AccountKey": "-TGN6RMFpRj4YKsR5JsB2A==",
+            "PeriodicTransfers": [
+              {
+                "Amount": 10,
+                "Currency": "USD",
+                "EndDate": "2024-12-01T00:00:00Z",
+                "FromAccount": "TEST_ACC_1",
+                "FromAccountName": "Test Account 1",
+                "FromAccountType": "TEST_TYPE",
+                "Interval": "E1Y_EOM",
+                "ReferenceId": "123REF",
+                "StartDate": "2024-01-01T00:00:00Z"
+              },
+              {
+                "Amount": 100,
+                "Currency": "DKK",
+                "EndDate": "2025-12-01T00:00:00Z",
+                "FromAccount": "TEST_ACC_2",
+                "FromAccountName": "Test Account 2",
+                "FromAccountType": "TEST_TYPE",
+                "Interval": "E1M_EOM",
+                "ReferenceId": "456REF",
+                "StartDate": "2024-01-01T00:00:00Z"
+              }
+            ],
+            "SubAccountAllocation": [
+              {
+                "AccountKey": "fDuBSI7De78mg1nnONi4ag==",
+                "Allocation": 50,
+                "AllocationUnit": "Amount"
+              },
+              {
+                "AccountKey": "s7SOpbxiM0nCMWMBxwU1RA==",
+                "Allocation": 50,
+                "AllocationUnit": "Amount"
+              }
+            ]
+          }
+        ]
+      },
+      "response_sample": null
+    }
+  ]
+}

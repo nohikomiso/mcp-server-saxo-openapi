@@ -1,0 +1,83 @@
+{
+  "service": "atr",
+  "category": "cashmanagement-beneficiaryinstructions",
+  "url": "https://www.developer.saxo/openapi/referencedocs/atr/v1/cashmanagement-beneficiaryinstructions",
+  "endpoints": [
+    {
+      "name": "Get Beneficiary Instructions",
+      "method": "GET",
+      "path": "/atr/v1/cashmanagement/beneficiaryinstructions",
+      "url": "https://www.developer.saxo/openapi/referencedocs/atr/v1/cashmanagement-beneficiaryinstructions/get__atr_cashmanagement_beneficiaryinstructions",
+      "parameters": [
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Client Key",
+          "children": []
+        },
+        {
+          "name": "Currency",
+          "type": "CurrencyCode",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Currency code",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "__count": 2,
+        "Data": [
+          {
+            "BeneficiaryDetails": {
+              "AccountNumber": "SSI#97935",
+              "Bic": "DBSSSGSGXXX",
+              "ClearingCode": "AU016338",
+              "CountryCode": "DKK"
+            },
+            "BeneficiaryInstructionId": "97935",
+            "ClientId": "9319113",
+            "Currency": "DKK",
+            "IntermediaryBank": {
+              "AccountNumber": "S672538819",
+              "Bic": "CITIUS33"
+            },
+            "IsMoneyServiceInstitution": false,
+            "IsMoneyServiceInstitutionFirstFundingEnabled": false,
+            "MessageType": "MT202",
+            "Name": "SSI#97935",
+            "RegulatedBroker": {
+              "AccountNumber": "ZYA6312001",
+              "Name": "EXT LTD CLIENTS ACCOUNT"
+            }
+          },
+          {
+            "BeneficiaryDetails": {
+              "AccountNumber": "SSI#97936",
+              "Bic": "CITIUS33XXX",
+              "ClearingCode": "FW022000046",
+              "CountryCode": "UK"
+            },
+            "BeneficiaryInstructionId": "43006",
+            "ClientId": "6283036",
+            "Currency": "USD",
+            "IntermediaryBank": {
+              "AccountNumber": "S972538819",
+              "Bic": "CHASUS33XXX"
+            },
+            "IsMoneyServiceInstitution": false,
+            "IsMoneyServiceInstitutionFirstFundingEnabled": false,
+            "MessageType": "MT202",
+            "Name": "SSI#43006",
+            "RegulatedBroker": {
+              "AccountNumber": "U2294557",
+              "Name": "INTERACTIVE BROKERS UK LIMITED"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

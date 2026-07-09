@@ -1,0 +1,102 @@
+{
+  "service": "ref",
+  "category": "algostrategies",
+  "url": "https://www.developer.saxo/openapi/referencedocs/ref/v1/algostrategies",
+  "endpoints": [
+    {
+      "name": "Get all strategies supported by Saxo Bank.",
+      "method": "GET",
+      "path": "/ref/v1/algostrategies",
+      "url": "https://www.developer.saxo/openapi/referencedocs/ref/v1/algostrategies/get__ref",
+      "parameters": [
+        {
+          "name": "$skip",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to skip from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "$top",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to return from the beginning of the collection",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "Data": [
+          {
+            "Description": "stringValue",
+            "MinAmountUSD": 10,
+            "Name": "stringValue",
+            "Parameters": [
+              {
+                "DataType": 0,
+                "IsEditable": false,
+                "IsMandatory": false,
+                "UiDefaultValue": "stringValue",
+                "UiOrderingIndex": 0,
+                "UiStepSize": 1.3
+              }
+            ],
+            "SupportedDurationTypes": [
+              "ImmediateOrCancel"
+            ],
+            "SupportedOrderTypes": [
+              "LimitTrigger"
+            ],
+            "TradableInstrumentTypes": [
+              "CertificateOutperformanceBonus"
+            ]
+          }
+        ],
+        "MaxRows": 99
+      }
+    },
+    {
+      "name": "Get details about a specific strategy.",
+      "method": "GET",
+      "path": "/ref/v1/algostrategies/{Name}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/ref/v1/algostrategies/get__ref__name",
+      "parameters": [
+        {
+          "name": "Name",
+          "type": "String",
+          "link": null,
+          "origin": "Route",
+          "description": "The name of the Strategy.",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "Description": "stringValue",
+        "MinAmountUSD": 10,
+        "Name": "stringValue",
+        "Parameters": [
+          {
+            "DataType": 0,
+            "IsEditable": false,
+            "IsMandatory": false,
+            "UiDefaultValue": "stringValue",
+            "UiOrderingIndex": 0,
+            "UiStepSize": 1.3
+          }
+        ],
+        "SupportedDurationTypes": [
+          "GoodTillCancel"
+        ],
+        "SupportedOrderTypes": [
+          "TraspasoIn"
+        ],
+        "TradableInstrumentTypes": [
+          "CertificateBarrierReverseConvertibles"
+        ]
+      }
+    }
+  ]
+}

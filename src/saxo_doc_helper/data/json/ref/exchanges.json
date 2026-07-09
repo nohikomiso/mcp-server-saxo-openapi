@@ -1,0 +1,76 @@
+{
+  "service": "ref",
+  "category": "exchanges",
+  "url": "https://www.developer.saxo/openapi/referencedocs/ref/v1/exchanges",
+  "endpoints": [
+    {
+      "name": "Get all exchanges",
+      "method": "GET",
+      "path": "/ref/v1/exchanges",
+      "url": "https://www.developer.saxo/openapi/referencedocs/ref/v1/exchanges/get__ref",
+      "parameters": [
+        {
+          "name": "$skip",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to skip from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "$top",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to return from the beginning of the collection",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "__next": "/openapi/....../?$top=1&$skip=1",
+        "Data": [
+          {
+            "CountryCode": "ES",
+            "Currency": "EUR",
+            "ExchangeId": "SIBE",
+            "IsoMic": "XMAD",
+            "Mic": "XMCE",
+            "Name": "BME Spanish Exchanges",
+            "OperatingMic": "BMEX",
+            "TimeZone": 4,
+            "TimeZoneOffset": "2026-07-04T00:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Get details about a specific exchange",
+      "method": "GET",
+      "path": "/ref/v1/exchanges/{ExchangeId}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/ref/v1/exchanges/get__ref__exchangeid",
+      "parameters": [
+        {
+          "name": "ExchangeId",
+          "type": "String",
+          "link": null,
+          "origin": "Route",
+          "description": "The ID of the exchange.",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "CountryCode": "ES",
+        "Currency": "EUR",
+        "ExchangeId": "SIBE",
+        "IsoMic": "XMAD",
+        "Mic": "XMCE",
+        "Name": "BME Spanish Exchanges",
+        "OperatingMic": "BMEX",
+        "TimeZone": 4,
+        "TimeZoneOffset": "2026-07-04T00:00:00Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,3475 @@
+{
+  "service": "ref",
+  "category": "instruments",
+  "url": "https://www.developer.saxo/openapi/referencedocs/ref/v1/instruments",
+  "endpoints": [
+    {
+      "name": "Search for instruments or contract option roots",
+      "method": "GET",
+      "path": "/ref/v1/instruments",
+      "url": "https://www.developer.saxo/openapi/referencedocs/ref/v1/instruments/get__ref",
+      "parameters": [
+        {
+          "name": "$skip",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to skip from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "$top",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to return from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "AccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "If specified, access permissions to instruments for the specified account will be evaluated. Optional.",
+          "children": []
+        },
+        {
+          "name": "AssetTypes",
+          "type": "AssetType []",
+          "link": "https://www.developer.saxo/openapi/referencedocs/ref/v1/instruments/get__ref/schema-assettype",
+          "origin": "Query-String",
+          "description": "Comma separated list of one or more asset types to search for. E.g. AssetTypes=FxSpot,Stock",
+          "children": [
+            {
+              "name": "Bond",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Bond.",
+              "children": []
+            },
+            {
+              "name": "Cash",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cash. Not tradeable!",
+              "children": []
+            },
+            {
+              "name": "CBBCCategoryN",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Callable Bull/Bear Contract Category N. Call price or level is equal to its strike price or level, under which you will not receive any cash payment after the occurrence of a mandatory call event, and will lose your entire investment.",
+              "children": []
+            },
+            {
+              "name": "CBBCCategoryR",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Callable Bull/Bear Contract Category R. Call price or level is different from its strike price or level, and you may receive a residual cash payment (called \"residual value\") upon the occurrence of a mandatory call event. However, in the worst case, you will not receive any residual value and will lose your entire investment.",
+              "children": []
+            },
+            {
+              "name": "CertificateBarrierDiscount",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "A Discount Certificate with Barrier allows investors with moderate to high risk tolerance to buy a selected underlying asset at a discount. The more favorable entry price gives a yield advantage, so that an attractive return is possible even in a sideways market.",
+              "children": []
+            },
+            {
+              "name": "CertificateBarrierReverseConvertibles",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "With Barrier Reverse Convertibles investors with a moderate-to-high risk tolerance in sideways moving markets can optimize their opportunities to earn yields thanks to a coupon. As in the Reverse Convertibles, the coupon is always paid out. The type and amount of the repayment of the nominal amount on expiry is aligned to the price of the underlying asset (e.g. individual equity, share index, equity basket, currency pair or commodity).",
+              "children": []
+            },
+            {
+              "name": "CertificateBonus",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Mirrors the price movement of the underlying only if and when the underlying price exceeds the defined barrier. If the certificate expires below the barrier, it offers partial protection/return of investment.",
+              "children": []
+            },
+            {
+              "name": "CertificateCapitalProtectionWithCoupon",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Capital protection certificates with coupon, also known as Coupon CPNs, are capital protected at maturity. This means that at the end of the usually multi-year term, you will always receive at least 90% of the nominal amount back. Depending on the features, the capital protection is usually between 90% and 100% of the nominal value.",
+              "children": []
+            },
+            {
+              "name": "CertificateCapitalProtectionWithKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Capital Protection Certificates with Barrier, also known as Barrier CPNs or Dolphin CPNs, are capital protected at maturity. The capital protection usually amounts to 90 - 100 percent of the nominal value, so that at maturity you will be paid back at least 90% of the capital invested at issue - regardless of the underlying asset.",
+              "children": []
+            },
+            {
+              "name": "CertificateCappedBonus",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Certificate Capped Bonus.",
+              "children": []
+            },
+            {
+              "name": "CertificateCappedCapitalProtected",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Guarantees a capped percentage increase of the underlying asset's value above the issue price at expiry/maturity. Max loss is the amount invested multiplied by the CapitalProtection percentage.",
+              "children": []
+            },
+            {
+              "name": "CertificateCappedOutperformance",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Capped Outperformance Certificate.",
+              "children": []
+            },
+            {
+              "name": "CertificateConstantLeverage",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Certificate Constant Leverage.",
+              "children": []
+            },
+            {
+              "name": "CertificateDiscount",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Yields a capped return if the underlying asset's value is above the specified cap level at expiry. If the underlying's value is below the strike at expiry, the investor received the underlying or equivalent value. Offers direct exposure in underlying at a lower price (discount) with a capped potential profit and limited loss.",
+              "children": []
+            },
+            {
+              "name": "CertificateExpress",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Certificate Express kick out.",
+              "children": []
+            },
+            {
+              "name": "CertificateOtherCapitalProtection",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Capital protection products are the most defensive form of Investment Products and are therefore suitable for investors with a low to moderate risk tolerance.",
+              "children": []
+            },
+            {
+              "name": "CertificateOtherConstantLeverage",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Constant Leverage Certificates, aka Factor Certificates, enable investors who are willing to take risks to participate disproportionately in the price performance of an underlying asset (e.g. equities, indices, commodities or currency pairs)",
+              "children": []
+            },
+            {
+              "name": "CertificateOtherParticipation",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Participation products are covered by Tracker Certificates. These Certificates are suitable for investors with a medium to high risk preference who want to participate cost efficiently and unlimitedly in the price development of a single stock, a market or a market segment.",
+              "children": []
+            },
+            {
+              "name": "CertificateOtherYieldEnhancement",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Investment Products aimed at optimizing yields offer partial protection. This can provide attractive returns even when the price of the respective underlying asset just remains stationary up to maturity.",
+              "children": []
+            },
+            {
+              "name": "CertificateOutperformanceBonus",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "With Bonus-Outperformance Certificates, you can apply leverage, since Bonus-Outperformance Certificates offer you the chance to participate disproportionately and without restriction in rising prices of the underlying asset (e.g. an equity, an index or a currency pair). This means that as of a predefined price level (the so-called strike level) participation in a potentially rising price performance is higher than 100%. The exact performance rate varies depending on the product features and is fixed per issue.",
+              "children": []
+            },
+            {
+              "name": "CertificateReverseConvertibles",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "With Reverse Convertibles investors with a moderate-to-high risk tolerance in sideways moving markets can optimize their opportunities to earn yields thanks to a coupon. While the coupon is always paid out, the type and amount of the repayment of the nominal amount on expiration is aligned to the price of the underlying asset (e.g. individual equity, share index, equity basket, currency pair or commodity).",
+              "children": []
+            },
+            {
+              "name": "CertificateTracker",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "A certificate that mirrors the price movement of the underlying instrument. Often used to trade movements in indicies. Movements can be a fixed ratio of the underlying and can be inverted for bearish/short speculation. Risk is equivalent to owning the underlying.",
+              "children": []
+            },
+            {
+              "name": "CertificateTwinWin",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "With Twin-Win Certificates, you can pull off a remarkable balancing act on the markets, i.e. whether the underlying asset (e.g. equity or index) rises or falls, you can profit in both cases. In doing so, you participate 1:1 in price gains of the underlying asset over and above the strike price without restriction (taking into account the subscription ratio). Price losses below the strike price are, on the other hand, converted accordingly on the due date if the price of the underlying asset has never fallen to or below a specific barrier (Knock-Out Level) during the term. However, after a barrier has been broken the conversion of prices losses of the underlying asset into gains ceases to apply. Instead, in this case Twin-Win Certificates behave like conventional Tracker Certificates, so that price losses of the underlying asset (under the strike price) lead to corresponding losses in the certificate.",
+              "children": []
+            },
+            {
+              "name": "CertificateUncappedCapitalProtection",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Guarantees a percentage increase of the underlying asset's value above the issue price at expiry/maturity. Max loss is the amount invested multiplied by the CapitalProtection percentage.",
+              "children": []
+            },
+            {
+              "name": "CertificateUncappedOutperformance",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Provides leveraged returns when the underlying price exceeds the threshold strike price. The amount leverage is defined by the Participation %. When the underlying is below the strike price, the certificate mirrors the underlying price 1:1.",
+              "children": []
+            },
+            {
+              "name": "CfdIndexOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd Index Option.",
+              "children": []
+            },
+            {
+              "name": "CfdOnCompanyWarrant",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on unlisted warrant issued by a corporation.",
+              "children": []
+            },
+            {
+              "name": "CfdOnEtc",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Etc",
+              "children": []
+            },
+            {
+              "name": "CfdOnEtf",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Etf",
+              "children": []
+            },
+            {
+              "name": "CfdOnEtn",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Etn",
+              "children": []
+            },
+            {
+              "name": "CfdOnFund",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Fund",
+              "children": []
+            },
+            {
+              "name": "CfdOnFutures",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Futures.",
+              "children": []
+            },
+            {
+              "name": "CfdOnIndex",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Stock Index.",
+              "children": []
+            },
+            {
+              "name": "CfdOnRights",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Rights",
+              "children": []
+            },
+            {
+              "name": "CfdOnStock",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Stock.",
+              "children": []
+            },
+            {
+              "name": "CompanyWarrant",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Unlisted warrant issued by a corporation, often physically settled.",
+              "children": []
+            },
+            {
+              "name": "ContractFutures",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Contract Futures.",
+              "children": []
+            },
+            {
+              "name": "Etc",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Etc",
+              "children": []
+            },
+            {
+              "name": "Etf",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Exchange traded fund.",
+              "children": []
+            },
+            {
+              "name": "Etn",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Etn",
+              "children": []
+            },
+            {
+              "name": "Fund",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Fund",
+              "children": []
+            },
+            {
+              "name": "FuturesOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Futures Option.",
+              "children": []
+            },
+            {
+              "name": "FuturesStrategy",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Futures Strategy.",
+              "children": []
+            },
+            {
+              "name": "FxBinaryOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Binary Option.",
+              "children": []
+            },
+            {
+              "name": "FxCrypto",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Crypto Currency.",
+              "children": []
+            },
+            {
+              "name": "FxForwards",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Forward.",
+              "children": []
+            },
+            {
+              "name": "FxKnockInOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Knock In Option.",
+              "children": []
+            },
+            {
+              "name": "FxKnockOutOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Knock Out Option.",
+              "children": []
+            },
+            {
+              "name": "FxNoTouchOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex No Touch Option.",
+              "children": []
+            },
+            {
+              "name": "FxOneTouchOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex One Touch Option.",
+              "children": []
+            },
+            {
+              "name": "FxSpot",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Spot.",
+              "children": []
+            },
+            {
+              "name": "FxSwap",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Swap.",
+              "children": []
+            },
+            {
+              "name": "FxVanillaOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Vanilla Option.",
+              "children": []
+            },
+            {
+              "name": "GuaranteeNote",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Danish investment scheme (“Grantbevis”). Not online tradeable.",
+              "children": []
+            },
+            {
+              "name": "InlineWarrant",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Inline Warrants. Holders receive a pre-determined amount that depends on whether an underlying asset falls at, or within or outside the upper and lower strikes at expiry.",
+              "children": []
+            },
+            {
+              "name": "IpoOnStock",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "IPO on Stock",
+              "children": []
+            },
+            {
+              "name": "ManagedFund Obsolete",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": ": Managed Fund.",
+              "children": []
+            },
+            {
+              "name": "MiniFuture",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "MiniFuture.",
+              "children": []
+            },
+            {
+              "name": "MutualFund",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Mutual Fund.",
+              "children": []
+            },
+            {
+              "name": "PortfolioNote",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Danish pooled investment scheme (“Pulje”). Not online tradeable.",
+              "children": []
+            },
+            {
+              "name": "Rights",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Rights",
+              "children": []
+            },
+            {
+              "name": "SrdOnEtf",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "SRD. (Service de Règlement Différé) on Etf.",
+              "children": []
+            },
+            {
+              "name": "SrdOnStock",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "SRD. (Service de Règlement Différé) on Stock.",
+              "children": []
+            },
+            {
+              "name": "Stock",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Stock.",
+              "children": []
+            },
+            {
+              "name": "StockIndex",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Stock Index.",
+              "children": []
+            },
+            {
+              "name": "StockIndexOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Stock Index Option.",
+              "children": []
+            },
+            {
+              "name": "StockOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Stock Option.",
+              "children": []
+            },
+            {
+              "name": "SubscriptionOnCertificate",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Used for IPO/Subscription.",
+              "children": []
+            },
+            {
+              "name": "Warrant",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Warrant",
+              "children": []
+            },
+            {
+              "name": "WarrantDoubleKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Warrant with two knock-out barriers.",
+              "children": []
+            },
+            {
+              "name": "WarrantKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Warrant with a knock-out barrier.",
+              "children": []
+            },
+            {
+              "name": "WarrantOpenEndKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Knock-out Warrant with no expiry.",
+              "children": []
+            },
+            {
+              "name": "WarrantOtherLeverageWithKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "In the case of Warrants with Knock-Out, aka Turbos, the name says it all. With these investment instruments, investors who are willing to take risks can shift into turbo and considerably increase their yield potential.",
+              "children": []
+            },
+            {
+              "name": "WarrantOtherLeverageWithoutKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Warrants allow investors who are willing to take risks can choose between Call and Put Warrants. Call Warrants benefit from rising prices of the underlying asset whereas. Put Warrants rely on falling prices of the underlying asset.",
+              "children": []
+            },
+            {
+              "name": "WarrantSpread",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Warrant with built-in spread.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "CanParticipateInMultiLegOrder",
+          "type": "Boolean",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Should the result only include option roots that allow/disallow exchange traded option strategies, also know as multi-leg or combination orders. All roots are returned regardless if omitted.",
+          "children": []
+        },
+        {
+          "name": "Class",
+          "type": "Class []",
+          "link": "https://www.developer.saxo/openapi/referencedocs/ref/v1/instruments/get__ref/schema-class",
+          "origin": "Query-String",
+          "description": "The class of the instruments to include in the search.",
+          "children": [
+            {
+              "name": "Complex",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Complex",
+              "children": []
+            },
+            {
+              "name": "NonComplex",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Non-complex",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "ExchangeId",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "ID of the exchange that the instruments must match.",
+          "children": []
+        },
+        {
+          "name": "IncludeNonTradable",
+          "type": "Boolean",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Should the search include instruments, which are not online client tradable?",
+          "children": []
+        },
+        {
+          "name": "Keywords",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Search for matching keywords in the instruments. Separate keywords with spaces.",
+          "children": []
+        },
+        {
+          "name": "OneMonthTotalValueChangesFrom",
+          "type": "Number",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Subject to data license agreements. Upper filter boundary for one month total value changes that the instruments must match.",
+          "children": []
+        },
+        {
+          "name": "OneMonthTotalValueChangesTo",
+          "type": "Number",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Subject to data license agreements. Lower filter boundary for one month total value changes that the instruments must match.",
+          "children": []
+        },
+        {
+          "name": "OneWeekTotalValueChangesFrom",
+          "type": "Number",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Subject to data license agreements. Upper filter boundary for one week total value changes that the instruments must match.",
+          "children": []
+        },
+        {
+          "name": "OneWeekTotalValueChangesTo",
+          "type": "Number",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Subject to data license agreements. Lower filter boundary for one week total value changes that the instruments must match.",
+          "children": []
+        },
+        {
+          "name": "OneYearTotalValueChangesFrom",
+          "type": "Number",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Subject to data license agreements. Upper filter boundary for one year total value changes that the instruments must match.",
+          "children": []
+        },
+        {
+          "name": "OneYearTotalValueChangesTo",
+          "type": "Number",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Subject to data license agreements. Lower filter boundary for one year total value changes that the instruments must match.",
+          "children": []
+        },
+        {
+          "name": "Tags",
+          "type": "String []",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Allows filtering by display hint, on Stocks, ETFs and ETCs are currently supported. Use null to indicate Tag should not be included in search criteria. Currently only one tag is supported.",
+          "children": []
+        },
+        {
+          "name": "Uics",
+          "type": "Integer []",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Limit list to return information for the following Uics",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "__next": "/openapi/....../?$top=1&$skip=1",
+        "Data": [
+          {
+            "AssetType": "CfdOnFutures",
+            "Description": "US Crude June 2017",
+            "ExchangeId": "",
+            "GroupId": 0,
+            "Identifier": 6456061,
+            "IsKeywordMatch": true,
+            "PrimaryListing": 6456061,
+            "SummaryType": "Instrument",
+            "Symbol": "OILUSJUN17",
+            "TradableAs": [
+              "CfdOnFutures"
+            ]
+          },
+          {
+            "AssetType": "CfdOnFutures",
+            "Description": "US Crude July 2017",
+            "ExchangeId": "",
+            "GroupId": 0,
+            "Identifier": 6665418,
+            "IsKeywordMatch": true,
+            "PrimaryListing": 6456061,
+            "SummaryType": "Instrument",
+            "Symbol": "OILUSJUL17",
+            "TradableAs": [
+              "CfdOnFutures"
+            ]
+          },
+          {
+            "AssetType": "CfdOnFutures",
+            "Description": "Heating Oil June 2017",
+            "ExchangeId": "",
+            "GroupId": 0,
+            "Identifier": 6559778,
+            "IsKeywordMatch": true,
+            "PrimaryListing": 6559778,
+            "SummaryType": "Instrument",
+            "Symbol": "HEATINGOILJUN17",
+            "TradableAs": [
+              "CfdOnFutures"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Get option details and options space for specified option root",
+      "method": "GET",
+      "path": "/ref/v1/instruments/contractoptionspaces/{OptionRootId}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/ref/v1/instruments/get__ref__contractoptionspaces_optionrootid",
+      "parameters": [
+        {
+          "name": "CanParticipateInMultiLegOrder",
+          "type": "Boolean",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Should the result only include option roots that allow/disallow exchange traded option strategies, also know as multi-leg or combination orders. This is an optional parameter, all roots are returned regardless if omitted.",
+          "children": []
+        },
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "",
+          "children": []
+        },
+        {
+          "name": "ExpiryDates",
+          "type": "String []",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Return specific information for the ExpiryDates in this array (if OptionSpaceSegment is set to 'SpecificDates').",
+          "children": []
+        },
+        {
+          "name": "OptionRootId",
+          "type": "Integer",
+          "link": null,
+          "origin": "Route",
+          "description": "ID of the contract option root.",
+          "children": []
+        },
+        {
+          "name": "OptionSpaceSegment",
+          "type": "OptionSpaceSegment",
+          "link": "https://www.developer.saxo/openapi/referencedocs/ref/v1/instruments/get__ref__contractoptionspaces_optionrootid/schema-optionspacesegment",
+          "origin": "Query-String",
+          "description": "How large a segment of the option space should return full contract option details (in the OptionsSpace[].SpecificOptions property). Default is None.",
+          "children": [
+            {
+              "name": "AllDates",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Return complete option space.",
+              "children": []
+            },
+            {
+              "name": "DefaultDates",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Return all options for the \"default\" days.",
+              "children": []
+            },
+            {
+              "name": "None",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Do not include the option space.",
+              "children": []
+            },
+            {
+              "name": "SpecificDates",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Return all options for specified strike days.",
+              "children": []
+            },
+            {
+              "name": "UnderlyingUic",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Used to specify filter to return all options for with specified underlying Uic.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "TradingStatus",
+          "type": "TradingStatus",
+          "link": "https://www.developer.saxo/openapi/referencedocs/ref/v1/instruments/get__ref__contractoptionspaces_optionrootid/schema-tradingstatus",
+          "origin": "Query-String",
+          "description": "",
+          "children": [
+            {
+              "name": "NonTradable",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Instrument is non tradable",
+              "children": []
+            },
+            {
+              "name": "NotDefined",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Not Defined",
+              "children": []
+            },
+            {
+              "name": "ReduceOnly",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Instrument is Reduce only, which means client can only reduce the exposure by closing existing open position(s) and cannot open new position(s).",
+              "children": []
+            },
+            {
+              "name": "Tradable",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Instrument is tradable",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "UnderlyingUic",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The uic of the underlying instrument. This is an optional parameter (if OptionSpaceSegment is set to 'UnderlyingUic').",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "AmountDecimals": 0,
+        "AssetType": "StockIndexOption",
+        "CanParticipateInMultiLegOrder": true,
+        "ContractSize": 5,
+        "CurrencyCode": "EUR",
+        "DefaultAmount": 1,
+        "Description": "DAX Index",
+        "Exchange": {
+          "CountryCode": "DE",
+          "ExchangeId": "EUREX",
+          "Name": "Eurex",
+          "PriceSourceName": "Eurex"
+        },
+        "ExerciseStyle": "European",
+        "Format": {
+          "Decimals": 2,
+          "OrderDecimals": 2,
+          "StrikeDecimals": 2
+        },
+        "GroupId": 0,
+        "IncrementSize": 1,
+        "IsTradable": true,
+        "LotSize": 1,
+        "LotSizeType": "OddLotsNotAllowed",
+        "OptionRootId": 6,
+        "OptionSpace": [
+          {
+            "DisplayDaysToExpiry": 3,
+            "DisplayDaysToLastTradeDate": 0,
+            "DisplayExpiry": "2017-05-01T00:00:00Z",
+            "Expiry": "2017-05-19T00:00:00Z",
+            "LastTradeDate": "0001-01-01T00:00:00Z"
+          },
+          {
+            "DisplayDaysToExpiry": 34,
+            "DisplayDaysToLastTradeDate": 0,
+            "DisplayExpiry": "2017-06-01T00:00:00Z",
+            "Expiry": "2017-06-16T00:00:00Z",
+            "LastTradeDate": "0001-01-01T00:00:00Z",
+            "SpecificOptions": [
+              {
+                "PutCall": "Call",
+                "StrikePrice": 13500,
+                "TradingStatus": "NotDefined",
+                "Uic": 6608098,
+                "UnderlyingUic": 1907570
+              },
+              {
+                "PutCall": "Put",
+                "StrikePrice": 13500,
+                "TradingStatus": "NotDefined",
+                "Uic": 6608101,
+                "UnderlyingUic": 1907570
+              },
+              {
+                "PutCall": "Call",
+                "StrikePrice": 12750,
+                "TradingStatus": "NotDefined",
+                "Uic": 6507156,
+                "UnderlyingUic": 1907570
+              },
+              {
+                "PutCall": "Call",
+                "StrikePrice": 12900,
+                "TradingStatus": "NotDefined",
+                "Uic": 6507157,
+                "UnderlyingUic": 1907570
+              },
+              {
+                "PutCall": "Call",
+                "StrikePrice": 12950,
+                "TradingStatus": "NotDefined",
+                "Uic": 6507158,
+                "UnderlyingUic": 1907570
+              }
+            ]
+          },
+          {
+            "DisplayDaysToExpiry": 126,
+            "DisplayDaysToLastTradeDate": 0,
+            "DisplayExpiry": "2017-09-01T00:00:00Z",
+            "Expiry": "2017-09-15T00:00:00Z",
+            "LastTradeDate": "0001-01-01T00:00:00Z"
+          },
+          {
+            "DisplayDaysToExpiry": 217,
+            "DisplayDaysToLastTradeDate": 0,
+            "DisplayExpiry": "2017-12-01T00:00:00Z",
+            "Expiry": "2017-12-15T00:00:00Z",
+            "LastTradeDate": "0001-01-01T00:00:00Z"
+          },
+          {
+            "DisplayDaysToExpiry": 307,
+            "DisplayDaysToLastTradeDate": 0,
+            "DisplayExpiry": "2018-03-01T00:00:00Z",
+            "Expiry": "2018-03-16T00:00:00Z",
+            "LastTradeDate": "0001-01-01T00:00:00Z"
+          },
+          {
+            "DisplayDaysToExpiry": 399,
+            "DisplayDaysToLastTradeDate": 0,
+            "DisplayExpiry": "2018-06-01T00:00:00Z",
+            "Expiry": "2018-06-15T00:00:00Z",
+            "LastTradeDate": "0001-01-01T00:00:00Z"
+          },
+          {
+            "DisplayDaysToExpiry": 582,
+            "DisplayDaysToLastTradeDate": 0,
+            "DisplayExpiry": "2018-12-01T00:00:00Z",
+            "Expiry": "2018-12-21T00:00:00Z",
+            "LastTradeDate": "0001-01-01T00:00:00Z"
+          },
+          {
+            "DisplayDaysToExpiry": 764,
+            "DisplayDaysToLastTradeDate": 0,
+            "DisplayExpiry": "2019-06-01T00:00:00Z",
+            "Expiry": "2019-06-21T00:00:00Z",
+            "LastTradeDate": "0001-01-01T00:00:00Z"
+          },
+          {
+            "DisplayDaysToExpiry": 947,
+            "DisplayDaysToLastTradeDate": 0,
+            "DisplayExpiry": "2019-12-01T00:00:00Z",
+            "Expiry": "2019-12-20T00:00:00Z",
+            "LastTradeDate": "0001-01-01T00:00:00Z"
+          },
+          {
+            "DisplayDaysToExpiry": 1313,
+            "DisplayDaysToLastTradeDate": 0,
+            "DisplayExpiry": "2020-12-01T00:00:00Z",
+            "Expiry": "2020-12-18T00:00:00Z",
+            "LastTradeDate": "0001-01-01T00:00:00Z"
+          },
+          {
+            "DisplayDaysToExpiry": 1678,
+            "DisplayDaysToLastTradeDate": 0,
+            "DisplayExpiry": "2021-12-01T00:00:00Z",
+            "Expiry": "2021-12-17T00:00:00Z",
+            "LastTradeDate": "0001-01-01T00:00:00Z"
+          }
+        ],
+        "OrderDistances": {
+          "EntryDefaultDistance": 0,
+          "EntryDefaultDistanceType": "Percentage",
+          "LimitDefaultDistance": 0,
+          "LimitDefaultDistanceType": "Percentage",
+          "StopLimitDefaultDistance": 5,
+          "StopLimitDefaultDistanceType": "Pips",
+          "StopLossDefaultDistance": 0.5,
+          "StopLossDefaultDistanceType": "Percentage",
+          "StopLossDefaultEnabled": false,
+          "StopLossDefaultOrderType": "Stop",
+          "TakeProfitDefaultDistance": 0.5,
+          "TakeProfitDefaultDistanceType": "Percentage",
+          "TakeProfitDefaultEnabled": false
+        },
+        "PriceToContractFactor": 5,
+        "RelatedInstruments": [
+          {
+            "AssetType": "StockIndex",
+            "Uic": 1907570
+          }
+        ],
+        "RelatedOptionRootsEnhanced": [
+          {
+            "AssetType": "StockIndexOption",
+            "OptionRootId": 110,
+            "OptionType": "Default"
+          },
+          {
+            "AssetType": "StockOption",
+            "OptionRootId": 111,
+            "OptionType": "Default"
+          },
+          {
+            "AssetType": "StockOption",
+            "OptionRootId": 112,
+            "OptionType": "Default"
+          }
+        ],
+        "SettlementStyle": "CashDelivery",
+        "StandardAmounts": [
+          1,
+          5,
+          10,
+          25,
+          50,
+          100,
+          500,
+          1000
+        ],
+        "SupportedOrderTypes": [
+          "Limit"
+        ],
+        "Symbol": "ODAX:xeur",
+        "TickSize": 0.1,
+        "TradableOn": [
+          "76940INET",
+          "76940INET1",
+          "76940INET2"
+        ],
+        "UnderlyingAssetType": "StockIndex"
+      }
+    },
+    {
+      "name": "Get detailed information for list of instruments",
+      "method": "GET",
+      "path": "/ref/v1/instruments/details",
+      "url": "https://www.developer.saxo/openapi/referencedocs/ref/v1/instruments/get__ref__details",
+      "parameters": [
+        {
+          "name": "$skip",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to skip from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "$top",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to return from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "AccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "If specified, access permissions to instruments for the specified account will be evaluated. Optional.",
+          "children": []
+        },
+        {
+          "name": "AssetTypes",
+          "type": "AssetType []",
+          "link": "https://www.developer.saxo/openapi/referencedocs/ref/v1/instruments/get__ref__details/schema-assettype",
+          "origin": "Query-String",
+          "description": "Comma separated list of one or more asset types to search for. E.g. AssetTypes=FxSpot,Stock",
+          "children": [
+            {
+              "name": "Bond",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Bond.",
+              "children": []
+            },
+            {
+              "name": "Cash",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cash. Not tradeable!",
+              "children": []
+            },
+            {
+              "name": "CBBCCategoryN",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Callable Bull/Bear Contract Category N. Call price or level is equal to its strike price or level, under which you will not receive any cash payment after the occurrence of a mandatory call event, and will lose your entire investment.",
+              "children": []
+            },
+            {
+              "name": "CBBCCategoryR",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Callable Bull/Bear Contract Category R. Call price or level is different from its strike price or level, and you may receive a residual cash payment (called \"residual value\") upon the occurrence of a mandatory call event. However, in the worst case, you will not receive any residual value and will lose your entire investment.",
+              "children": []
+            },
+            {
+              "name": "CertificateBarrierDiscount",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "A Discount Certificate with Barrier allows investors with moderate to high risk tolerance to buy a selected underlying asset at a discount. The more favorable entry price gives a yield advantage, so that an attractive return is possible even in a sideways market.",
+              "children": []
+            },
+            {
+              "name": "CertificateBarrierReverseConvertibles",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "With Barrier Reverse Convertibles investors with a moderate-to-high risk tolerance in sideways moving markets can optimize their opportunities to earn yields thanks to a coupon. As in the Reverse Convertibles, the coupon is always paid out. The type and amount of the repayment of the nominal amount on expiry is aligned to the price of the underlying asset (e.g. individual equity, share index, equity basket, currency pair or commodity).",
+              "children": []
+            },
+            {
+              "name": "CertificateBonus",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Mirrors the price movement of the underlying only if and when the underlying price exceeds the defined barrier. If the certificate expires below the barrier, it offers partial protection/return of investment.",
+              "children": []
+            },
+            {
+              "name": "CertificateCapitalProtectionWithCoupon",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Capital protection certificates with coupon, also known as Coupon CPNs, are capital protected at maturity. This means that at the end of the usually multi-year term, you will always receive at least 90% of the nominal amount back. Depending on the features, the capital protection is usually between 90% and 100% of the nominal value.",
+              "children": []
+            },
+            {
+              "name": "CertificateCapitalProtectionWithKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Capital Protection Certificates with Barrier, also known as Barrier CPNs or Dolphin CPNs, are capital protected at maturity. The capital protection usually amounts to 90 - 100 percent of the nominal value, so that at maturity you will be paid back at least 90% of the capital invested at issue - regardless of the underlying asset.",
+              "children": []
+            },
+            {
+              "name": "CertificateCappedBonus",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Certificate Capped Bonus.",
+              "children": []
+            },
+            {
+              "name": "CertificateCappedCapitalProtected",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Guarantees a capped percentage increase of the underlying asset's value above the issue price at expiry/maturity. Max loss is the amount invested multiplied by the CapitalProtection percentage.",
+              "children": []
+            },
+            {
+              "name": "CertificateCappedOutperformance",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Capped Outperformance Certificate.",
+              "children": []
+            },
+            {
+              "name": "CertificateConstantLeverage",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Certificate Constant Leverage.",
+              "children": []
+            },
+            {
+              "name": "CertificateDiscount",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Yields a capped return if the underlying asset's value is above the specified cap level at expiry. If the underlying's value is below the strike at expiry, the investor received the underlying or equivalent value. Offers direct exposure in underlying at a lower price (discount) with a capped potential profit and limited loss.",
+              "children": []
+            },
+            {
+              "name": "CertificateExpress",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Certificate Express kick out.",
+              "children": []
+            },
+            {
+              "name": "CertificateOtherCapitalProtection",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Capital protection products are the most defensive form of Investment Products and are therefore suitable for investors with a low to moderate risk tolerance.",
+              "children": []
+            },
+            {
+              "name": "CertificateOtherConstantLeverage",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Constant Leverage Certificates, aka Factor Certificates, enable investors who are willing to take risks to participate disproportionately in the price performance of an underlying asset (e.g. equities, indices, commodities or currency pairs)",
+              "children": []
+            },
+            {
+              "name": "CertificateOtherParticipation",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Participation products are covered by Tracker Certificates. These Certificates are suitable for investors with a medium to high risk preference who want to participate cost efficiently and unlimitedly in the price development of a single stock, a market or a market segment.",
+              "children": []
+            },
+            {
+              "name": "CertificateOtherYieldEnhancement",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Investment Products aimed at optimizing yields offer partial protection. This can provide attractive returns even when the price of the respective underlying asset just remains stationary up to maturity.",
+              "children": []
+            },
+            {
+              "name": "CertificateOutperformanceBonus",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "With Bonus-Outperformance Certificates, you can apply leverage, since Bonus-Outperformance Certificates offer you the chance to participate disproportionately and without restriction in rising prices of the underlying asset (e.g. an equity, an index or a currency pair). This means that as of a predefined price level (the so-called strike level) participation in a potentially rising price performance is higher than 100%. The exact performance rate varies depending on the product features and is fixed per issue.",
+              "children": []
+            },
+            {
+              "name": "CertificateReverseConvertibles",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "With Reverse Convertibles investors with a moderate-to-high risk tolerance in sideways moving markets can optimize their opportunities to earn yields thanks to a coupon. While the coupon is always paid out, the type and amount of the repayment of the nominal amount on expiration is aligned to the price of the underlying asset (e.g. individual equity, share index, equity basket, currency pair or commodity).",
+              "children": []
+            },
+            {
+              "name": "CertificateTracker",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "A certificate that mirrors the price movement of the underlying instrument. Often used to trade movements in indicies. Movements can be a fixed ratio of the underlying and can be inverted for bearish/short speculation. Risk is equivalent to owning the underlying.",
+              "children": []
+            },
+            {
+              "name": "CertificateTwinWin",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "With Twin-Win Certificates, you can pull off a remarkable balancing act on the markets, i.e. whether the underlying asset (e.g. equity or index) rises or falls, you can profit in both cases. In doing so, you participate 1:1 in price gains of the underlying asset over and above the strike price without restriction (taking into account the subscription ratio). Price losses below the strike price are, on the other hand, converted accordingly on the due date if the price of the underlying asset has never fallen to or below a specific barrier (Knock-Out Level) during the term. However, after a barrier has been broken the conversion of prices losses of the underlying asset into gains ceases to apply. Instead, in this case Twin-Win Certificates behave like conventional Tracker Certificates, so that price losses of the underlying asset (under the strike price) lead to corresponding losses in the certificate.",
+              "children": []
+            },
+            {
+              "name": "CertificateUncappedCapitalProtection",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Guarantees a percentage increase of the underlying asset's value above the issue price at expiry/maturity. Max loss is the amount invested multiplied by the CapitalProtection percentage.",
+              "children": []
+            },
+            {
+              "name": "CertificateUncappedOutperformance",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Provides leveraged returns when the underlying price exceeds the threshold strike price. The amount leverage is defined by the Participation %. When the underlying is below the strike price, the certificate mirrors the underlying price 1:1.",
+              "children": []
+            },
+            {
+              "name": "CfdIndexOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd Index Option.",
+              "children": []
+            },
+            {
+              "name": "CfdOnCompanyWarrant",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on unlisted warrant issued by a corporation.",
+              "children": []
+            },
+            {
+              "name": "CfdOnEtc",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Etc",
+              "children": []
+            },
+            {
+              "name": "CfdOnEtf",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Etf",
+              "children": []
+            },
+            {
+              "name": "CfdOnEtn",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Etn",
+              "children": []
+            },
+            {
+              "name": "CfdOnFund",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Fund",
+              "children": []
+            },
+            {
+              "name": "CfdOnFutures",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Futures.",
+              "children": []
+            },
+            {
+              "name": "CfdOnIndex",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Stock Index.",
+              "children": []
+            },
+            {
+              "name": "CfdOnRights",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Rights",
+              "children": []
+            },
+            {
+              "name": "CfdOnStock",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Stock.",
+              "children": []
+            },
+            {
+              "name": "CompanyWarrant",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Unlisted warrant issued by a corporation, often physically settled.",
+              "children": []
+            },
+            {
+              "name": "ContractFutures",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Contract Futures.",
+              "children": []
+            },
+            {
+              "name": "Etc",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Etc",
+              "children": []
+            },
+            {
+              "name": "Etf",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Exchange traded fund.",
+              "children": []
+            },
+            {
+              "name": "Etn",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Etn",
+              "children": []
+            },
+            {
+              "name": "Fund",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Fund",
+              "children": []
+            },
+            {
+              "name": "FuturesOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Futures Option.",
+              "children": []
+            },
+            {
+              "name": "FuturesStrategy",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Futures Strategy.",
+              "children": []
+            },
+            {
+              "name": "FxBinaryOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Binary Option.",
+              "children": []
+            },
+            {
+              "name": "FxCrypto",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Crypto Currency.",
+              "children": []
+            },
+            {
+              "name": "FxForwards",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Forward.",
+              "children": []
+            },
+            {
+              "name": "FxKnockInOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Knock In Option.",
+              "children": []
+            },
+            {
+              "name": "FxKnockOutOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Knock Out Option.",
+              "children": []
+            },
+            {
+              "name": "FxNoTouchOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex No Touch Option.",
+              "children": []
+            },
+            {
+              "name": "FxOneTouchOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex One Touch Option.",
+              "children": []
+            },
+            {
+              "name": "FxSpot",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Spot.",
+              "children": []
+            },
+            {
+              "name": "FxSwap",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Swap.",
+              "children": []
+            },
+            {
+              "name": "FxVanillaOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Vanilla Option.",
+              "children": []
+            },
+            {
+              "name": "GuaranteeNote",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Danish investment scheme (“Grantbevis”). Not online tradeable.",
+              "children": []
+            },
+            {
+              "name": "InlineWarrant",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Inline Warrants. Holders receive a pre-determined amount that depends on whether an underlying asset falls at, or within or outside the upper and lower strikes at expiry.",
+              "children": []
+            },
+            {
+              "name": "IpoOnStock",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "IPO on Stock",
+              "children": []
+            },
+            {
+              "name": "ManagedFund Obsolete",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": ": Managed Fund.",
+              "children": []
+            },
+            {
+              "name": "MiniFuture",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "MiniFuture.",
+              "children": []
+            },
+            {
+              "name": "MutualFund",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Mutual Fund.",
+              "children": []
+            },
+            {
+              "name": "PortfolioNote",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Danish pooled investment scheme (“Pulje”). Not online tradeable.",
+              "children": []
+            },
+            {
+              "name": "Rights",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Rights",
+              "children": []
+            },
+            {
+              "name": "SrdOnEtf",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "SRD. (Service de Règlement Différé) on Etf.",
+              "children": []
+            },
+            {
+              "name": "SrdOnStock",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "SRD. (Service de Règlement Différé) on Stock.",
+              "children": []
+            },
+            {
+              "name": "Stock",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Stock.",
+              "children": []
+            },
+            {
+              "name": "StockIndex",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Stock Index.",
+              "children": []
+            },
+            {
+              "name": "StockIndexOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Stock Index Option.",
+              "children": []
+            },
+            {
+              "name": "StockOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Stock Option.",
+              "children": []
+            },
+            {
+              "name": "SubscriptionOnCertificate",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Used for IPO/Subscription.",
+              "children": []
+            },
+            {
+              "name": "Warrant",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Warrant",
+              "children": []
+            },
+            {
+              "name": "WarrantDoubleKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Warrant with two knock-out barriers.",
+              "children": []
+            },
+            {
+              "name": "WarrantKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Warrant with a knock-out barrier.",
+              "children": []
+            },
+            {
+              "name": "WarrantOpenEndKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Knock-out Warrant with no expiry.",
+              "children": []
+            },
+            {
+              "name": "WarrantOtherLeverageWithKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "In the case of Warrants with Knock-Out, aka Turbos, the name says it all. With these investment instruments, investors who are willing to take risks can shift into turbo and considerably increase their yield potential.",
+              "children": []
+            },
+            {
+              "name": "WarrantOtherLeverageWithoutKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Warrants allow investors who are willing to take risks can choose between Call and Put Warrants. Call Warrants benefit from rising prices of the underlying asset whereas. Put Warrants rely on falling prices of the underlying asset.",
+              "children": []
+            },
+            {
+              "name": "WarrantSpread",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Warrant with built-in spread.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "FieldGroups",
+          "type": "InstrumentFieldGroup []",
+          "link": "https://www.developer.saxo/openapi/referencedocs/ref/v1/instruments/get__ref__details/schema-instrumentfieldgroup",
+          "origin": "Query-String",
+          "description": "Specifies comma-separated list of additional fields to receive.",
+          "children": [
+            {
+              "name": "OrderSetting",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Adds information about the instrument's order setting.",
+              "children": []
+            },
+            {
+              "name": "SupportedOrderTypeSettings",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Adds information about supported order types.",
+              "children": []
+            },
+            {
+              "name": "TradingSessions",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Adds information about the instrument's trading sessions.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Tags",
+          "type": "String []",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Allows filtering by display hint, on Stocks, ETFs and ETCs are currently supported. Use null to indicate Tag should not be included in search criteria. Currently only one tag is supported.",
+          "children": []
+        },
+        {
+          "name": "Uics",
+          "type": "Integer []",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Limit list to return information for the following Uics",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "__next": "/openapi/....../?$top=1&$skip=1",
+        "Data": [
+          {
+            "AmountDecimals": 0,
+            "AssetType": "FxSpot",
+            "CurrencyCode": "AUD",
+            "DefaultAmount": 100000,
+            "DefaultSlippage": 0.01,
+            "DefaultSlippageType": "Percentage",
+            "Description": "British Pound/Australian Dollar",
+            "Exchange": {
+              "CountryCode": "DK",
+              "ExchangeId": "SBFX",
+              "Name": "Inter Bank"
+            },
+            "Format": {
+              "Decimals": 4,
+              "Format": "AllowDecimalPips",
+              "OrderDecimals": 4
+            },
+            "FxForwardMaxForwardDate": "2018-05-08T00:00:00Z",
+            "FxForwardMinForwardDate": "2017-05-03T00:00:00Z",
+            "GroupId": 0,
+            "IncrementSize": 5000,
+            "IsRedemptionByAmounts": false,
+            "IsTradable": true,
+            "NonTradableReason": "None",
+            "OrderDistances": {
+              "EntryDefaultDistance": 0,
+              "EntryDefaultDistanceType": "Percentage",
+              "LimitDefaultDistance": 0,
+              "LimitDefaultDistanceType": "Percentage",
+              "StopLimitDefaultDistance": 5,
+              "StopLimitDefaultDistanceType": "Pips",
+              "StopLossDefaultDistance": 0.5,
+              "StopLossDefaultDistanceType": "Percentage",
+              "StopLossDefaultEnabled": false,
+              "StopLossDefaultOrderType": "Stop",
+              "TakeProfitDefaultDistance": 0.5,
+              "TakeProfitDefaultDistanceType": "Percentage",
+              "TakeProfitDefaultEnabled": false
+            },
+            "StandardAmounts": [
+              10000,
+              50000,
+              100000,
+              250000,
+              500000,
+              1000000,
+              2000000,
+              5000000,
+              10000000,
+              20000000
+            ],
+            "SupportedOrderTypes": [
+              "Market",
+              "Limit",
+              "Stop",
+              "TrailingStop",
+              "StopLimit"
+            ],
+            "Symbol": "GBPAUD",
+            "TickSize": 5e-05,
+            "TradableAs": [
+              "FxSpot",
+              "FxForwards",
+              "FxVanillaOption",
+              "FxKnockInOption",
+              "FxKnockOutOption"
+            ],
+            "TradableOn": [
+              "76940INET",
+              "76940INET1",
+              "76940INET2",
+              "SAMGS*585220"
+            ],
+            "TradingStatus": "NotDefined",
+            "Uic": 22
+          },
+          {
+            "AmountDecimals": 0,
+            "AssetType": "FxSpot",
+            "CurrencyCode": "CAD",
+            "DefaultAmount": 100000,
+            "DefaultSlippage": 0.01,
+            "DefaultSlippageType": "Percentage",
+            "Description": "British Pound/Canadian Dollar",
+            "Exchange": {
+              "CountryCode": "DK",
+              "ExchangeId": "SBFX",
+              "Name": "Inter Bank"
+            },
+            "Format": {
+              "Decimals": 4,
+              "Format": "AllowDecimalPips",
+              "OrderDecimals": 4
+            },
+            "FxForwardMaxForwardDate": "2018-05-07T00:00:00Z",
+            "FxForwardMinForwardDate": "2017-05-02T00:00:00Z",
+            "GroupId": 0,
+            "IncrementSize": 5000,
+            "IsRedemptionByAmounts": false,
+            "IsTradable": true,
+            "NonTradableReason": "None",
+            "OrderDistances": {
+              "EntryDefaultDistance": 0,
+              "EntryDefaultDistanceType": "Percentage",
+              "LimitDefaultDistance": 0,
+              "LimitDefaultDistanceType": "Percentage",
+              "StopLimitDefaultDistance": 5,
+              "StopLimitDefaultDistanceType": "Pips",
+              "StopLossDefaultDistance": 0.5,
+              "StopLossDefaultDistanceType": "Percentage",
+              "StopLossDefaultEnabled": false,
+              "StopLossDefaultOrderType": "Stop",
+              "TakeProfitDefaultDistance": 0.5,
+              "TakeProfitDefaultDistanceType": "Percentage",
+              "TakeProfitDefaultEnabled": false
+            },
+            "StandardAmounts": [
+              10000,
+              50000,
+              100000,
+              250000,
+              500000,
+              1000000,
+              2000000,
+              5000000,
+              10000000,
+              20000000
+            ],
+            "SupportedOrderTypes": [
+              "Market",
+              "Limit",
+              "Stop",
+              "TrailingStop",
+              "StopLimit"
+            ],
+            "Symbol": "GBPCAD",
+            "TickSize": 5e-05,
+            "TradableAs": [
+              "FxSpot",
+              "FxForwards",
+              "FxVanillaOption",
+              "FxKnockInOption",
+              "FxKnockOutOption"
+            ],
+            "TradableOn": [
+              "76940INET",
+              "76940INET1",
+              "76940INET2",
+              "SAMGS*585220"
+            ],
+            "TradingStatus": "NotDefined",
+            "Uic": 23
+          }
+        ]
+      }
+    },
+    {
+      "name": "Get detailed information for a specific instrument",
+      "method": "GET",
+      "path": "/ref/v1/instruments/details/{Uic}/{AssetType}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/ref/v1/instruments/get__ref__details_uic_assettype",
+      "parameters": [
+        {
+          "name": "AccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "",
+          "children": []
+        },
+        {
+          "name": "AssetType",
+          "type": "AssetType",
+          "link": "https://www.developer.saxo/openapi/referencedocs/ref/v1/instruments/get__ref__details_uic_assettype/schema-assettype",
+          "origin": "Route",
+          "description": "The of the instrument to get.",
+          "children": [
+            {
+              "name": "Bond",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Bond.",
+              "children": []
+            },
+            {
+              "name": "Cash",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cash. Not tradeable!",
+              "children": []
+            },
+            {
+              "name": "CBBCCategoryN",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Callable Bull/Bear Contract Category N. Call price or level is equal to its strike price or level, under which you will not receive any cash payment after the occurrence of a mandatory call event, and will lose your entire investment.",
+              "children": []
+            },
+            {
+              "name": "CBBCCategoryR",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Callable Bull/Bear Contract Category R. Call price or level is different from its strike price or level, and you may receive a residual cash payment (called \"residual value\") upon the occurrence of a mandatory call event. However, in the worst case, you will not receive any residual value and will lose your entire investment.",
+              "children": []
+            },
+            {
+              "name": "CertificateBarrierDiscount",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "A Discount Certificate with Barrier allows investors with moderate to high risk tolerance to buy a selected underlying asset at a discount. The more favorable entry price gives a yield advantage, so that an attractive return is possible even in a sideways market.",
+              "children": []
+            },
+            {
+              "name": "CertificateBarrierReverseConvertibles",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "With Barrier Reverse Convertibles investors with a moderate-to-high risk tolerance in sideways moving markets can optimize their opportunities to earn yields thanks to a coupon. As in the Reverse Convertibles, the coupon is always paid out. The type and amount of the repayment of the nominal amount on expiry is aligned to the price of the underlying asset (e.g. individual equity, share index, equity basket, currency pair or commodity).",
+              "children": []
+            },
+            {
+              "name": "CertificateBonus",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Mirrors the price movement of the underlying only if and when the underlying price exceeds the defined barrier. If the certificate expires below the barrier, it offers partial protection/return of investment.",
+              "children": []
+            },
+            {
+              "name": "CertificateCapitalProtectionWithCoupon",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Capital protection certificates with coupon, also known as Coupon CPNs, are capital protected at maturity. This means that at the end of the usually multi-year term, you will always receive at least 90% of the nominal amount back. Depending on the features, the capital protection is usually between 90% and 100% of the nominal value.",
+              "children": []
+            },
+            {
+              "name": "CertificateCapitalProtectionWithKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Capital Protection Certificates with Barrier, also known as Barrier CPNs or Dolphin CPNs, are capital protected at maturity. The capital protection usually amounts to 90 - 100 percent of the nominal value, so that at maturity you will be paid back at least 90% of the capital invested at issue - regardless of the underlying asset.",
+              "children": []
+            },
+            {
+              "name": "CertificateCappedBonus",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Certificate Capped Bonus.",
+              "children": []
+            },
+            {
+              "name": "CertificateCappedCapitalProtected",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Guarantees a capped percentage increase of the underlying asset's value above the issue price at expiry/maturity. Max loss is the amount invested multiplied by the CapitalProtection percentage.",
+              "children": []
+            },
+            {
+              "name": "CertificateCappedOutperformance",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Capped Outperformance Certificate.",
+              "children": []
+            },
+            {
+              "name": "CertificateConstantLeverage",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Certificate Constant Leverage.",
+              "children": []
+            },
+            {
+              "name": "CertificateDiscount",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Yields a capped return if the underlying asset's value is above the specified cap level at expiry. If the underlying's value is below the strike at expiry, the investor received the underlying or equivalent value. Offers direct exposure in underlying at a lower price (discount) with a capped potential profit and limited loss.",
+              "children": []
+            },
+            {
+              "name": "CertificateExpress",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Certificate Express kick out.",
+              "children": []
+            },
+            {
+              "name": "CertificateOtherCapitalProtection",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Capital protection products are the most defensive form of Investment Products and are therefore suitable for investors with a low to moderate risk tolerance.",
+              "children": []
+            },
+            {
+              "name": "CertificateOtherConstantLeverage",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Constant Leverage Certificates, aka Factor Certificates, enable investors who are willing to take risks to participate disproportionately in the price performance of an underlying asset (e.g. equities, indices, commodities or currency pairs)",
+              "children": []
+            },
+            {
+              "name": "CertificateOtherParticipation",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Participation products are covered by Tracker Certificates. These Certificates are suitable for investors with a medium to high risk preference who want to participate cost efficiently and unlimitedly in the price development of a single stock, a market or a market segment.",
+              "children": []
+            },
+            {
+              "name": "CertificateOtherYieldEnhancement",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Investment Products aimed at optimizing yields offer partial protection. This can provide attractive returns even when the price of the respective underlying asset just remains stationary up to maturity.",
+              "children": []
+            },
+            {
+              "name": "CertificateOutperformanceBonus",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "With Bonus-Outperformance Certificates, you can apply leverage, since Bonus-Outperformance Certificates offer you the chance to participate disproportionately and without restriction in rising prices of the underlying asset (e.g. an equity, an index or a currency pair). This means that as of a predefined price level (the so-called strike level) participation in a potentially rising price performance is higher than 100%. The exact performance rate varies depending on the product features and is fixed per issue.",
+              "children": []
+            },
+            {
+              "name": "CertificateReverseConvertibles",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "With Reverse Convertibles investors with a moderate-to-high risk tolerance in sideways moving markets can optimize their opportunities to earn yields thanks to a coupon. While the coupon is always paid out, the type and amount of the repayment of the nominal amount on expiration is aligned to the price of the underlying asset (e.g. individual equity, share index, equity basket, currency pair or commodity).",
+              "children": []
+            },
+            {
+              "name": "CertificateTracker",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "A certificate that mirrors the price movement of the underlying instrument. Often used to trade movements in indicies. Movements can be a fixed ratio of the underlying and can be inverted for bearish/short speculation. Risk is equivalent to owning the underlying.",
+              "children": []
+            },
+            {
+              "name": "CertificateTwinWin",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "With Twin-Win Certificates, you can pull off a remarkable balancing act on the markets, i.e. whether the underlying asset (e.g. equity or index) rises or falls, you can profit in both cases. In doing so, you participate 1:1 in price gains of the underlying asset over and above the strike price without restriction (taking into account the subscription ratio). Price losses below the strike price are, on the other hand, converted accordingly on the due date if the price of the underlying asset has never fallen to or below a specific barrier (Knock-Out Level) during the term. However, after a barrier has been broken the conversion of prices losses of the underlying asset into gains ceases to apply. Instead, in this case Twin-Win Certificates behave like conventional Tracker Certificates, so that price losses of the underlying asset (under the strike price) lead to corresponding losses in the certificate.",
+              "children": []
+            },
+            {
+              "name": "CertificateUncappedCapitalProtection",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Guarantees a percentage increase of the underlying asset's value above the issue price at expiry/maturity. Max loss is the amount invested multiplied by the CapitalProtection percentage.",
+              "children": []
+            },
+            {
+              "name": "CertificateUncappedOutperformance",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Provides leveraged returns when the underlying price exceeds the threshold strike price. The amount leverage is defined by the Participation %. When the underlying is below the strike price, the certificate mirrors the underlying price 1:1.",
+              "children": []
+            },
+            {
+              "name": "CfdIndexOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd Index Option.",
+              "children": []
+            },
+            {
+              "name": "CfdOnCompanyWarrant",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on unlisted warrant issued by a corporation.",
+              "children": []
+            },
+            {
+              "name": "CfdOnEtc",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Etc",
+              "children": []
+            },
+            {
+              "name": "CfdOnEtf",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Etf",
+              "children": []
+            },
+            {
+              "name": "CfdOnEtn",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Etn",
+              "children": []
+            },
+            {
+              "name": "CfdOnFund",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Fund",
+              "children": []
+            },
+            {
+              "name": "CfdOnFutures",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Futures.",
+              "children": []
+            },
+            {
+              "name": "CfdOnIndex",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Stock Index.",
+              "children": []
+            },
+            {
+              "name": "CfdOnRights",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Rights",
+              "children": []
+            },
+            {
+              "name": "CfdOnStock",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Stock.",
+              "children": []
+            },
+            {
+              "name": "CompanyWarrant",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Unlisted warrant issued by a corporation, often physically settled.",
+              "children": []
+            },
+            {
+              "name": "ContractFutures",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Contract Futures.",
+              "children": []
+            },
+            {
+              "name": "Etc",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Etc",
+              "children": []
+            },
+            {
+              "name": "Etf",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Exchange traded fund.",
+              "children": []
+            },
+            {
+              "name": "Etn",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Etn",
+              "children": []
+            },
+            {
+              "name": "Fund",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Fund",
+              "children": []
+            },
+            {
+              "name": "FuturesOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Futures Option.",
+              "children": []
+            },
+            {
+              "name": "FuturesStrategy",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Futures Strategy.",
+              "children": []
+            },
+            {
+              "name": "FxBinaryOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Binary Option.",
+              "children": []
+            },
+            {
+              "name": "FxCrypto",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Crypto Currency.",
+              "children": []
+            },
+            {
+              "name": "FxForwards",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Forward.",
+              "children": []
+            },
+            {
+              "name": "FxKnockInOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Knock In Option.",
+              "children": []
+            },
+            {
+              "name": "FxKnockOutOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Knock Out Option.",
+              "children": []
+            },
+            {
+              "name": "FxNoTouchOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex No Touch Option.",
+              "children": []
+            },
+            {
+              "name": "FxOneTouchOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex One Touch Option.",
+              "children": []
+            },
+            {
+              "name": "FxSpot",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Spot.",
+              "children": []
+            },
+            {
+              "name": "FxSwap",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Swap.",
+              "children": []
+            },
+            {
+              "name": "FxVanillaOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Vanilla Option.",
+              "children": []
+            },
+            {
+              "name": "GuaranteeNote",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Danish investment scheme (“Grantbevis”). Not online tradeable.",
+              "children": []
+            },
+            {
+              "name": "InlineWarrant",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Inline Warrants. Holders receive a pre-determined amount that depends on whether an underlying asset falls at, or within or outside the upper and lower strikes at expiry.",
+              "children": []
+            },
+            {
+              "name": "IpoOnStock",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "IPO on Stock",
+              "children": []
+            },
+            {
+              "name": "ManagedFund Obsolete",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": ": Managed Fund.",
+              "children": []
+            },
+            {
+              "name": "MiniFuture",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "MiniFuture.",
+              "children": []
+            },
+            {
+              "name": "MutualFund",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Mutual Fund.",
+              "children": []
+            },
+            {
+              "name": "PortfolioNote",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Danish pooled investment scheme (“Pulje”). Not online tradeable.",
+              "children": []
+            },
+            {
+              "name": "Rights",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Rights",
+              "children": []
+            },
+            {
+              "name": "SrdOnEtf",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "SRD. (Service de Règlement Différé) on Etf.",
+              "children": []
+            },
+            {
+              "name": "SrdOnStock",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "SRD. (Service de Règlement Différé) on Stock.",
+              "children": []
+            },
+            {
+              "name": "Stock",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Stock.",
+              "children": []
+            },
+            {
+              "name": "StockIndex",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Stock Index.",
+              "children": []
+            },
+            {
+              "name": "StockIndexOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Stock Index Option.",
+              "children": []
+            },
+            {
+              "name": "StockOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Stock Option.",
+              "children": []
+            },
+            {
+              "name": "SubscriptionOnCertificate",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Used for IPO/Subscription.",
+              "children": []
+            },
+            {
+              "name": "Warrant",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Warrant",
+              "children": []
+            },
+            {
+              "name": "WarrantDoubleKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Warrant with two knock-out barriers.",
+              "children": []
+            },
+            {
+              "name": "WarrantKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Warrant with a knock-out barrier.",
+              "children": []
+            },
+            {
+              "name": "WarrantOpenEndKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Knock-out Warrant with no expiry.",
+              "children": []
+            },
+            {
+              "name": "WarrantOtherLeverageWithKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "In the case of Warrants with Knock-Out, aka Turbos, the name says it all. With these investment instruments, investors who are willing to take risks can shift into turbo and considerably increase their yield potential.",
+              "children": []
+            },
+            {
+              "name": "WarrantOtherLeverageWithoutKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Warrants allow investors who are willing to take risks can choose between Call and Put Warrants. Call Warrants benefit from rising prices of the underlying asset whereas. Put Warrants rely on falling prices of the underlying asset.",
+              "children": []
+            },
+            {
+              "name": "WarrantSpread",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Warrant with built-in spread.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "",
+          "children": []
+        },
+        {
+          "name": "FieldGroups",
+          "type": "InstrumentFieldGroup []",
+          "link": "https://www.developer.saxo/openapi/referencedocs/ref/v1/instruments/get__ref__details_uic_assettype/schema-instrumentfieldgroup",
+          "origin": "Query-String",
+          "description": "Specifies comma-separated list of additional fields to receive.",
+          "children": [
+            {
+              "name": "OrderSetting",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Adds information about the instrument's order setting.",
+              "children": []
+            },
+            {
+              "name": "SupportedOrderTypeSettings",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Adds information about supported order types.",
+              "children": []
+            },
+            {
+              "name": "TradingSessions",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Adds information about the instrument's trading sessions.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Uic",
+          "type": "Uic",
+          "link": null,
+          "origin": "Route",
+          "description": "The Universal Instrument Code (UIC) of the instrument to get.",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "AmountDecimals": 0,
+        "AssetType": "FxSpot",
+        "CurrencyCode": "AUD",
+        "DefaultAmount": 100000,
+        "DefaultSlippage": 0.01,
+        "DefaultSlippageType": "Percentage",
+        "Description": "British Pound/Australian Dollar",
+        "Exchange": {
+          "CountryCode": "DK",
+          "ExchangeId": "SBFX",
+          "Name": "Inter Bank"
+        },
+        "ExerciseCutOffTime": "2026-07-04T00:00:00Z",
+        "Format": {
+          "Decimals": 4,
+          "Format": "AllowDecimalPips",
+          "OrderDecimals": 4
+        },
+        "FxForwardMaxForwardDate": "2018-05-08T00:00:00Z",
+        "FxForwardMinForwardDate": "2017-05-03T00:00:00Z",
+        "GroupId": 0,
+        "IncrementSize": 5000,
+        "IpoDetails": {
+          "Denominations": [
+            100,
+            200,
+            500
+          ]
+        },
+        "IsRedemptionByAmounts": false,
+        "IsTradable": true,
+        "MinimumTradeSize": 1000,
+        "NonTradableReason": "None",
+        "OrderDistances": {
+          "EntryDefaultDistance": 0,
+          "EntryDefaultDistanceType": "Percentage",
+          "LimitDefaultDistance": 0,
+          "LimitDefaultDistanceType": "Percentage",
+          "StopLimitDefaultDistance": 5,
+          "StopLimitDefaultDistanceType": "Pips",
+          "StopLossDefaultDistance": 0.5,
+          "StopLossDefaultDistanceType": "Percentage",
+          "StopLossDefaultEnabled": false,
+          "StopLossDefaultOrderType": "Stop",
+          "TakeProfitDefaultDistance": 0.5,
+          "TakeProfitDefaultDistanceType": "Percentage",
+          "TakeProfitDefaultEnabled": false
+        },
+        "SettlementStyle": "PhysicalDelivery",
+        "ShortTradeDisabled": true,
+        "StandardAmounts": [
+          10000,
+          50000,
+          100000,
+          250000,
+          500000,
+          1000000,
+          2000000,
+          5000000,
+          10000000,
+          20000000
+        ],
+        "SupportedOrderTypes": [
+          "Market",
+          "Limit",
+          "Stop",
+          "TrailingStop",
+          "StopLimit"
+        ],
+        "Symbol": "GBPAUD",
+        "TickSize": 5e-05,
+        "TradableAs": [
+          "FxSpot",
+          "FxForwards",
+          "FxVanillaOption",
+          "FxKnockInOption",
+          "FxKnockOutOption"
+        ],
+        "TradableOn": [
+          "76940INET",
+          "76940INET1",
+          "76940INET2",
+          "SAMGS*585220"
+        ],
+        "TradingStatus": "NotDefined",
+        "Uic": 22
+      }
+    },
+    {
+      "name": "Get contract futures space",
+      "method": "GET",
+      "path": "/ref/v1/instruments/futuresspaces/{ContinuousFuturesUic}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/ref/v1/instruments/get__ref__futuresspaces_continuousfuturesuic",
+      "parameters": [
+        {
+          "name": "ContinuousFuturesUic",
+          "type": "Integer",
+          "link": null,
+          "origin": "Route",
+          "description": "The UIC of the continuous futures instrument of the space.",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "BaseIdentifier": "W",
+        "Elements": [
+          {
+            "DaysToExpiry": 64,
+            "ExpiryDate": "2017-07-14T00:00:00Z",
+            "Symbol": "WQ7",
+            "Uic": 3406797
+          },
+          {
+            "DaysToExpiry": 127,
+            "ExpiryDate": "2017-09-15T00:00:00Z",
+            "Symbol": "WV7",
+            "Uic": 3844782
+          },
+          {
+            "DaysToExpiry": 188,
+            "ExpiryDate": "2017-11-15T00:00:00Z",
+            "Symbol": "WZ7",
+            "Uic": 4239352
+          },
+          {
+            "DaysToExpiry": 278,
+            "ExpiryDate": "2018-02-13T00:00:00Z",
+            "Symbol": "WH8",
+            "Uic": 4895721
+          },
+          {
+            "DaysToExpiry": 337,
+            "ExpiryDate": "2018-04-13T00:00:00Z",
+            "Symbol": "WK8",
+            "Uic": 5352847
+          },
+          {
+            "DaysToExpiry": 431,
+            "ExpiryDate": "2018-07-16T00:00:00Z",
+            "Symbol": "WQ8",
+            "Uic": 6112156
+          },
+          {
+            "DaysToExpiry": 491,
+            "ExpiryDate": "2018-09-14T00:00:00Z",
+            "Symbol": "WV8",
+            "Uic": 6609171
+          }
+        ]
+      }
+    },
+    {
+      "name": "Trading schedules",
+      "method": "GET",
+      "path": "/ref/v1/instruments/tradingschedule/{Uic}/{AssetType}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/ref/v1/instruments/get__ref__tradingschedule_uic_assettype",
+      "parameters": [
+        {
+          "name": "AssetType",
+          "type": "AssetType",
+          "link": "https://www.developer.saxo/openapi/referencedocs/ref/v1/instruments/get__ref__tradingschedule_uic_assettype/schema-assettype",
+          "origin": "Route",
+          "description": "The of the instrument to get.",
+          "children": [
+            {
+              "name": "Bond",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Bond.",
+              "children": []
+            },
+            {
+              "name": "Cash",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cash. Not tradeable!",
+              "children": []
+            },
+            {
+              "name": "CBBCCategoryN",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Callable Bull/Bear Contract Category N. Call price or level is equal to its strike price or level, under which you will not receive any cash payment after the occurrence of a mandatory call event, and will lose your entire investment.",
+              "children": []
+            },
+            {
+              "name": "CBBCCategoryR",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Callable Bull/Bear Contract Category R. Call price or level is different from its strike price or level, and you may receive a residual cash payment (called \"residual value\") upon the occurrence of a mandatory call event. However, in the worst case, you will not receive any residual value and will lose your entire investment.",
+              "children": []
+            },
+            {
+              "name": "CertificateBarrierDiscount",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "A Discount Certificate with Barrier allows investors with moderate to high risk tolerance to buy a selected underlying asset at a discount. The more favorable entry price gives a yield advantage, so that an attractive return is possible even in a sideways market.",
+              "children": []
+            },
+            {
+              "name": "CertificateBarrierReverseConvertibles",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "With Barrier Reverse Convertibles investors with a moderate-to-high risk tolerance in sideways moving markets can optimize their opportunities to earn yields thanks to a coupon. As in the Reverse Convertibles, the coupon is always paid out. The type and amount of the repayment of the nominal amount on expiry is aligned to the price of the underlying asset (e.g. individual equity, share index, equity basket, currency pair or commodity).",
+              "children": []
+            },
+            {
+              "name": "CertificateBonus",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Mirrors the price movement of the underlying only if and when the underlying price exceeds the defined barrier. If the certificate expires below the barrier, it offers partial protection/return of investment.",
+              "children": []
+            },
+            {
+              "name": "CertificateCapitalProtectionWithCoupon",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Capital protection certificates with coupon, also known as Coupon CPNs, are capital protected at maturity. This means that at the end of the usually multi-year term, you will always receive at least 90% of the nominal amount back. Depending on the features, the capital protection is usually between 90% and 100% of the nominal value.",
+              "children": []
+            },
+            {
+              "name": "CertificateCapitalProtectionWithKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Capital Protection Certificates with Barrier, also known as Barrier CPNs or Dolphin CPNs, are capital protected at maturity. The capital protection usually amounts to 90 - 100 percent of the nominal value, so that at maturity you will be paid back at least 90% of the capital invested at issue - regardless of the underlying asset.",
+              "children": []
+            },
+            {
+              "name": "CertificateCappedBonus",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Certificate Capped Bonus.",
+              "children": []
+            },
+            {
+              "name": "CertificateCappedCapitalProtected",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Guarantees a capped percentage increase of the underlying asset's value above the issue price at expiry/maturity. Max loss is the amount invested multiplied by the CapitalProtection percentage.",
+              "children": []
+            },
+            {
+              "name": "CertificateCappedOutperformance",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Capped Outperformance Certificate.",
+              "children": []
+            },
+            {
+              "name": "CertificateConstantLeverage",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Certificate Constant Leverage.",
+              "children": []
+            },
+            {
+              "name": "CertificateDiscount",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Yields a capped return if the underlying asset's value is above the specified cap level at expiry. If the underlying's value is below the strike at expiry, the investor received the underlying or equivalent value. Offers direct exposure in underlying at a lower price (discount) with a capped potential profit and limited loss.",
+              "children": []
+            },
+            {
+              "name": "CertificateExpress",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Certificate Express kick out.",
+              "children": []
+            },
+            {
+              "name": "CertificateOtherCapitalProtection",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Capital protection products are the most defensive form of Investment Products and are therefore suitable for investors with a low to moderate risk tolerance.",
+              "children": []
+            },
+            {
+              "name": "CertificateOtherConstantLeverage",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Constant Leverage Certificates, aka Factor Certificates, enable investors who are willing to take risks to participate disproportionately in the price performance of an underlying asset (e.g. equities, indices, commodities or currency pairs)",
+              "children": []
+            },
+            {
+              "name": "CertificateOtherParticipation",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Participation products are covered by Tracker Certificates. These Certificates are suitable for investors with a medium to high risk preference who want to participate cost efficiently and unlimitedly in the price development of a single stock, a market or a market segment.",
+              "children": []
+            },
+            {
+              "name": "CertificateOtherYieldEnhancement",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Investment Products aimed at optimizing yields offer partial protection. This can provide attractive returns even when the price of the respective underlying asset just remains stationary up to maturity.",
+              "children": []
+            },
+            {
+              "name": "CertificateOutperformanceBonus",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "With Bonus-Outperformance Certificates, you can apply leverage, since Bonus-Outperformance Certificates offer you the chance to participate disproportionately and without restriction in rising prices of the underlying asset (e.g. an equity, an index or a currency pair). This means that as of a predefined price level (the so-called strike level) participation in a potentially rising price performance is higher than 100%. The exact performance rate varies depending on the product features and is fixed per issue.",
+              "children": []
+            },
+            {
+              "name": "CertificateReverseConvertibles",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "With Reverse Convertibles investors with a moderate-to-high risk tolerance in sideways moving markets can optimize their opportunities to earn yields thanks to a coupon. While the coupon is always paid out, the type and amount of the repayment of the nominal amount on expiration is aligned to the price of the underlying asset (e.g. individual equity, share index, equity basket, currency pair or commodity).",
+              "children": []
+            },
+            {
+              "name": "CertificateTracker",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "A certificate that mirrors the price movement of the underlying instrument. Often used to trade movements in indicies. Movements can be a fixed ratio of the underlying and can be inverted for bearish/short speculation. Risk is equivalent to owning the underlying.",
+              "children": []
+            },
+            {
+              "name": "CertificateTwinWin",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "With Twin-Win Certificates, you can pull off a remarkable balancing act on the markets, i.e. whether the underlying asset (e.g. equity or index) rises or falls, you can profit in both cases. In doing so, you participate 1:1 in price gains of the underlying asset over and above the strike price without restriction (taking into account the subscription ratio). Price losses below the strike price are, on the other hand, converted accordingly on the due date if the price of the underlying asset has never fallen to or below a specific barrier (Knock-Out Level) during the term. However, after a barrier has been broken the conversion of prices losses of the underlying asset into gains ceases to apply. Instead, in this case Twin-Win Certificates behave like conventional Tracker Certificates, so that price losses of the underlying asset (under the strike price) lead to corresponding losses in the certificate.",
+              "children": []
+            },
+            {
+              "name": "CertificateUncappedCapitalProtection",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Guarantees a percentage increase of the underlying asset's value above the issue price at expiry/maturity. Max loss is the amount invested multiplied by the CapitalProtection percentage.",
+              "children": []
+            },
+            {
+              "name": "CertificateUncappedOutperformance",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Provides leveraged returns when the underlying price exceeds the threshold strike price. The amount leverage is defined by the Participation %. When the underlying is below the strike price, the certificate mirrors the underlying price 1:1.",
+              "children": []
+            },
+            {
+              "name": "CfdIndexOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd Index Option.",
+              "children": []
+            },
+            {
+              "name": "CfdOnCompanyWarrant",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on unlisted warrant issued by a corporation.",
+              "children": []
+            },
+            {
+              "name": "CfdOnEtc",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Etc",
+              "children": []
+            },
+            {
+              "name": "CfdOnEtf",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Etf",
+              "children": []
+            },
+            {
+              "name": "CfdOnEtn",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Etn",
+              "children": []
+            },
+            {
+              "name": "CfdOnFund",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Fund",
+              "children": []
+            },
+            {
+              "name": "CfdOnFutures",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Futures.",
+              "children": []
+            },
+            {
+              "name": "CfdOnIndex",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Stock Index.",
+              "children": []
+            },
+            {
+              "name": "CfdOnRights",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Rights",
+              "children": []
+            },
+            {
+              "name": "CfdOnStock",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Cfd on Stock.",
+              "children": []
+            },
+            {
+              "name": "CompanyWarrant",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Unlisted warrant issued by a corporation, often physically settled.",
+              "children": []
+            },
+            {
+              "name": "ContractFutures",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Contract Futures.",
+              "children": []
+            },
+            {
+              "name": "Etc",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Etc",
+              "children": []
+            },
+            {
+              "name": "Etf",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Exchange traded fund.",
+              "children": []
+            },
+            {
+              "name": "Etn",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Etn",
+              "children": []
+            },
+            {
+              "name": "Fund",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Fund",
+              "children": []
+            },
+            {
+              "name": "FuturesOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Futures Option.",
+              "children": []
+            },
+            {
+              "name": "FuturesStrategy",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Futures Strategy.",
+              "children": []
+            },
+            {
+              "name": "FxBinaryOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Binary Option.",
+              "children": []
+            },
+            {
+              "name": "FxCrypto",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Crypto Currency.",
+              "children": []
+            },
+            {
+              "name": "FxForwards",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Forward.",
+              "children": []
+            },
+            {
+              "name": "FxKnockInOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Knock In Option.",
+              "children": []
+            },
+            {
+              "name": "FxKnockOutOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Knock Out Option.",
+              "children": []
+            },
+            {
+              "name": "FxNoTouchOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex No Touch Option.",
+              "children": []
+            },
+            {
+              "name": "FxOneTouchOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex One Touch Option.",
+              "children": []
+            },
+            {
+              "name": "FxSpot",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Spot.",
+              "children": []
+            },
+            {
+              "name": "FxSwap",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Swap.",
+              "children": []
+            },
+            {
+              "name": "FxVanillaOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Forex Vanilla Option.",
+              "children": []
+            },
+            {
+              "name": "GuaranteeNote",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Danish investment scheme (“Grantbevis”). Not online tradeable.",
+              "children": []
+            },
+            {
+              "name": "InlineWarrant",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Inline Warrants. Holders receive a pre-determined amount that depends on whether an underlying asset falls at, or within or outside the upper and lower strikes at expiry.",
+              "children": []
+            },
+            {
+              "name": "IpoOnStock",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "IPO on Stock",
+              "children": []
+            },
+            {
+              "name": "ManagedFund Obsolete",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": ": Managed Fund.",
+              "children": []
+            },
+            {
+              "name": "MiniFuture",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "MiniFuture.",
+              "children": []
+            },
+            {
+              "name": "MutualFund",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Mutual Fund.",
+              "children": []
+            },
+            {
+              "name": "PortfolioNote",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Danish pooled investment scheme (“Pulje”). Not online tradeable.",
+              "children": []
+            },
+            {
+              "name": "Rights",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Rights",
+              "children": []
+            },
+            {
+              "name": "SrdOnEtf",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "SRD. (Service de Règlement Différé) on Etf.",
+              "children": []
+            },
+            {
+              "name": "SrdOnStock",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "SRD. (Service de Règlement Différé) on Stock.",
+              "children": []
+            },
+            {
+              "name": "Stock",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Stock.",
+              "children": []
+            },
+            {
+              "name": "StockIndex",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Stock Index.",
+              "children": []
+            },
+            {
+              "name": "StockIndexOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Stock Index Option.",
+              "children": []
+            },
+            {
+              "name": "StockOption",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Stock Option.",
+              "children": []
+            },
+            {
+              "name": "SubscriptionOnCertificate",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Used for IPO/Subscription.",
+              "children": []
+            },
+            {
+              "name": "Warrant",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Warrant",
+              "children": []
+            },
+            {
+              "name": "WarrantDoubleKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Warrant with two knock-out barriers.",
+              "children": []
+            },
+            {
+              "name": "WarrantKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Warrant with a knock-out barrier.",
+              "children": []
+            },
+            {
+              "name": "WarrantOpenEndKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Knock-out Warrant with no expiry.",
+              "children": []
+            },
+            {
+              "name": "WarrantOtherLeverageWithKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "In the case of Warrants with Knock-Out, aka Turbos, the name says it all. With these investment instruments, investors who are willing to take risks can shift into turbo and considerably increase their yield potential.",
+              "children": []
+            },
+            {
+              "name": "WarrantOtherLeverageWithoutKnockOut",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Warrants allow investors who are willing to take risks can choose between Call and Put Warrants. Call Warrants benefit from rising prices of the underlying asset whereas. Put Warrants rely on falling prices of the underlying asset.",
+              "children": []
+            },
+            {
+              "name": "WarrantSpread",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Warrant with built-in spread.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Uic",
+          "type": "Uic",
+          "link": null,
+          "origin": "Route",
+          "description": "The Universal Instrument Code (UIC) of the instrument to get.",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "Sessions": [
+          {
+            "EndTime": "2021-05-21T00:00:00Z",
+            "StartTime": "2021-05-21T00:00:00Z",
+            "State": "Undefined"
+          }
+        ],
+        "TimeZone": 99,
+        "TimeZoneAbbreviation": "stringValue",
+        "TimeZoneOffset": "2026-07-04T00:00:00.000004Z"
+      }
+    }
+  ]
+}

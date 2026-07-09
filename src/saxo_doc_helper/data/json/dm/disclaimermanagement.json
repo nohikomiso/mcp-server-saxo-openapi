@@ -1,0 +1,129 @@
+{
+  "service": "dm",
+  "category": "disclaimermanagement",
+  "url": "https://www.developer.saxo/openapi/referencedocs/dm/v2/disclaimermanagement",
+  "endpoints": [
+    {
+      "name": "Get disclaimers with given disclaimer token(s)",
+      "method": "GET",
+      "path": "/dm/v2/disclaimers",
+      "url": "https://www.developer.saxo/openapi/referencedocs/dm/v2/disclaimermanagement/get__dm_disclaimers",
+      "parameters": [
+        {
+          "name": "DisclaimerTokens",
+          "type": "String []",
+          "link": null,
+          "origin": "Query-String",
+          "description": "disclaimer tokens",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "Data": [
+          {
+            "Body": "",
+            "Conditions": [
+              {
+                "InputText": "User disclaimer accepted",
+                "Label": "User input",
+                "Type": "UserInput"
+              }
+            ],
+            "DisclaimerToken": "2G9VK5aCtPCF5mfS7F0J5Fs7tdb6x96hz6jEpKkBNAw=",
+            "DismissableUntil": "(DismissableUntil)6/27/2026 5:10:08 AM",
+            "IsBlocking": false,
+            "ResponseOptions": [
+              {
+                "Label": "I Accept",
+                "ResponseType": "Accepted"
+              }
+            ],
+            "Title": "Terms and Conditions"
+          }
+        ],
+        "MaxRows": 99
+      }
+    },
+    {
+      "name": "Register users' disclaimer response/ user input disclaimer for disclaimer token and context token",
+      "method": "POST",
+      "path": "/dm/v2/disclaimers",
+      "url": "https://www.developer.saxo/openapi/referencedocs/dm/v2/disclaimermanagement/post__dm_disclaimers",
+      "parameters": [
+        {
+          "name": "DisclaimerContext",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "Unique token representing the context in which the disclaimers are shown. This token is provided from the pre-check endpoint together with the list of DisclaimerTokens.",
+          "children": []
+        },
+        {
+          "name": "DisclaimerToken",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "Identifies a specific disclaimer token",
+          "children": []
+        },
+        {
+          "name": "ResponseType",
+          "type": "DisclaimerResponseType",
+          "link": "https://www.developer.saxo/openapi/referencedocs/dm/v2/disclaimermanagement/post__dm_disclaimers/schema-disclaimerresponsetype",
+          "origin": "Body",
+          "description": "ResponseType for the disclaimer",
+          "children": [
+            {
+              "name": "Accepted",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Disclaimer accepted",
+              "children": []
+            },
+            {
+              "name": "AlternateAccepted",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Disclaimer alternate accepted",
+              "children": []
+            },
+            {
+              "name": "Dismissed",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Disclaimer dismissed",
+              "children": []
+            },
+            {
+              "name": "None",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "UserInput",
+          "type": "String",
+          "link": null,
+          "origin": "Body",
+          "description": "Additional user input in disclaimer response",
+          "children": []
+        }
+      ],
+      "request_sample": {
+        "DisclaimerContext": "stringValue",
+        "DisclaimerToken": "stringValue",
+        "ResponseType": "Accepted",
+        "UserInput": "stringValue"
+      },
+      "response_sample": null
+    }
+  ]
+}

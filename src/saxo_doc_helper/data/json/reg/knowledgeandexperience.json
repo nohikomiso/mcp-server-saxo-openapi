@@ -1,0 +1,131 @@
+{
+  "service": "reg",
+  "category": "knowledgeandexperience",
+  "url": "https://www.developer.saxo/openapi/referencedocs/reg/v3/knowledgeandexperience",
+  "endpoints": [
+    {
+      "name": "Retrieve the latest appropriateness status",
+      "method": "GET",
+      "path": "/reg/v3/mifid/appropriateness/{UserKey}/{RegulatoryContext}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/reg/v3/knowledgeandexperience/get__reg_mifid_appropriateness_userkey_regulatorycontext",
+      "parameters": [
+        {
+          "name": "RegulatoryContext",
+          "type": "RegulatoryContext",
+          "link": "https://www.developer.saxo/openapi/referencedocs/reg/v3/knowledgeandexperience/get__reg_mifid_appropriateness_userkey_regulatorycontext/schema-enums.regulatorycontext",
+          "origin": "Route",
+          "description": "",
+          "children": [
+            {
+              "name": "Advisory",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Test has been taken as part of an advisory session",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "UserKey",
+          "type": "UserKey",
+          "link": null,
+          "origin": "Route",
+          "description": "",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "LastUpdated": "2026-06-27T05:09:52.764744Z",
+        "RegulatoryContext": "Advisory",
+        "Statuses": [
+          {
+            "AssetType": "Etf",
+            "IsComplex": true,
+            "Status": "Appropriate"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Get questions and responses related to the (general) Knowledge and Experience assessment",
+      "method": "GET",
+      "path": "/reg/v3/mifid/qnasections/{UserKey}/{RegulatoryContext}",
+      "url": "https://www.developer.saxo/openapi/referencedocs/reg/v3/knowledgeandexperience/get__reg_mifid_qnasections_userkey_regulatorycontext",
+      "parameters": [
+        {
+          "name": "RegulatoryContext",
+          "type": "RegulatoryContext",
+          "link": "https://www.developer.saxo/openapi/referencedocs/reg/v3/knowledgeandexperience/get__reg_mifid_qnasections_userkey_regulatorycontext/schema-enums.regulatorycontext",
+          "origin": "Route",
+          "description": "",
+          "children": [
+            {
+              "name": "Advisory",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Test has been taken as part of an advisory session",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "SectionName",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Name of the section.",
+          "children": []
+        },
+        {
+          "name": "UserKey",
+          "type": "UserKey",
+          "link": null,
+          "origin": "Route",
+          "description": "",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "__count": 2,
+        "Data": [
+          {
+            "Data": [
+              {
+                "Answer": "Postgraduate degree",
+                "Question": "What is your highest education?"
+              },
+              {
+                "Answer": "When I have experience with trading a complex product, it means that I have the required level of knowledge and experience for all other complex products",
+                "Question": "Which of the following statements is true"
+              }
+            ],
+            "Language": "EN",
+            "LastUpdated": "2026-06-27T05:09:52.771744Z",
+            "SectionName": "general",
+            "Status": "Successful"
+          },
+          {
+            "Data": [
+              {
+                "Answer": "Yes",
+                "Question": "Would you like to invest in Complex bonds?"
+              },
+              {
+                "Answer": "100000 DKK",
+                "Question": "How much would you like to invest in Complex bonds?"
+              }
+            ],
+            "Language": "EN",
+            "LastUpdated": "2026-06-27T05:09:52.771744Z",
+            "SectionName": "complexbonds",
+            "Status": "Successful"
+          }
+        ]
+      }
+    }
+  ]
+}

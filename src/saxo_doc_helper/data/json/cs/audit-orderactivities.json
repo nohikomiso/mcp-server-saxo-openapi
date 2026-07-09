@@ -1,0 +1,257 @@
+{
+  "service": "cs",
+  "category": "audit-orderactivities",
+  "url": "https://www.developer.saxo/openapi/referencedocs/cs/v1/audit-orderactivities",
+  "endpoints": [
+    {
+      "name": "Query Order activities history",
+      "method": "GET",
+      "path": "/cs/v1/audit/orderactivities",
+      "url": "https://www.developer.saxo/openapi/referencedocs/cs/v1/audit-orderactivities/get__cs_audit_orderactivities",
+      "parameters": [
+        {
+          "name": "$skiptoken",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Specifies an entity id to start retrieving entries from. This is normally only used in generated nextlinks.",
+          "children": []
+        },
+        {
+          "name": "$top",
+          "type": "Integer",
+          "link": null,
+          "origin": "Query-String",
+          "description": "The number of entries to return from the beginning of the collection",
+          "children": []
+        },
+        {
+          "name": "AccountKey",
+          "type": "AccountKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Account key: If specified will only return entries pertaining to specified Account.",
+          "children": []
+        },
+        {
+          "name": "ClientKey",
+          "type": "ClientKey",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Client key: If specified will only return entries pertaining to specified client and its sub clients depending upon includeSubAccounts.",
+          "children": []
+        },
+        {
+          "name": "CorrelationKey",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "CorrelationKey: If specified, will only return entries with the specified CorrelationKey",
+          "children": []
+        },
+        {
+          "name": "EntryType",
+          "type": "OrderEntryType",
+          "link": "https://www.developer.saxo/openapi/referencedocs/cs/v1/audit-orderactivities/get__cs_audit_orderactivities/schema-models.orderentrytype",
+          "origin": "Query-String",
+          "description": "EntryType: optional. Defaults to 'All': Return all entries pertaining to any order. 'Last': Only return the latest state of an order ignoring ToDateTime (if any).",
+          "children": [
+            {
+              "name": "All",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "EntryType:- All: Return all entries pertaining to any order.",
+              "children": []
+            },
+            {
+              "name": "Last",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "EntryType:- Last: Only return the latest state of an order.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "FieldGroups",
+          "type": "OrderActivityFieldGroup []",
+          "link": "https://www.developer.saxo/openapi/referencedocs/cs/v1/audit-orderactivities/get__cs_audit_orderactivities/schema-models.orderactivityfieldgroup",
+          "origin": "Query-String",
+          "description": "FieldGroups: DisplayAndFormat",
+          "children": [
+            {
+              "name": "DisplayAndFormat",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Display and Format.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "FromDateTime",
+          "type": "UtcDateTime",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Only include entries, with a ActivityDateTime greater than or equal to FromDateTime",
+          "children": []
+        },
+        {
+          "name": "IncludeSubAccounts",
+          "type": "Boolean",
+          "link": null,
+          "origin": "Query-String",
+          "description": "IncludeSubAccounts: If specified true will return entries for all clients under specified ClientId in a hierarchy.",
+          "children": []
+        },
+        {
+          "name": "OrderId",
+          "type": "String",
+          "link": null,
+          "origin": "Query-String",
+          "description": "OrderId: Will only return entries pertaining to specified OrderId",
+          "children": []
+        },
+        {
+          "name": "Status",
+          "type": "OrderLogStatus []",
+          "link": "https://www.developer.saxo/openapi/referencedocs/cs/v1/audit-orderactivities/get__cs_audit_orderactivities/schema-orderlogstatus",
+          "origin": "Query-String",
+          "description": "Status: If specified will only return entries with the specified OrderStatus",
+          "children": [
+            {
+              "name": "Cancelled",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Order cancel initiated by client or dealer.",
+              "children": []
+            },
+            {
+              "name": "Changed",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Order change.",
+              "children": []
+            },
+            {
+              "name": "DoneForDay",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Order is done for day in external OMS.",
+              "children": []
+            },
+            {
+              "name": "Expired",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Order has expired.",
+              "children": []
+            },
+            {
+              "name": "Fill",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Order fill - (Also used for trade on quote in OrderLog)",
+              "children": []
+            },
+            {
+              "name": "FinalFill",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "Order fill - final fill of an open order.",
+              "children": []
+            },
+            {
+              "name": "Placed",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "New order placement.",
+              "children": []
+            },
+            {
+              "name": "Working",
+              "type": "",
+              "link": null,
+              "origin": "Sub",
+              "description": "System or dealer initiated order placement in external OMS of existing order.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "ToDateTime",
+          "type": "UtcDateTime",
+          "link": null,
+          "origin": "Query-String",
+          "description": "Only include entries, with a ActivityDateTime less than or equal to ToDateTime. Cannot be used with EntryType=\"Last\"",
+          "children": []
+        }
+      ],
+      "request_sample": null,
+      "response_sample": {
+        "__next": "/openapi/....../?$top=1&$skiptoken=1",
+        "Data": [
+          {
+            "AccountId": "120602INET",
+            "ActivityTime": "2017-12-28T08:20:19Z",
+            "Amount": 300,
+            "AssetType": "CfdOnStock",
+            "BuySell": "Buy",
+            "ClientId": "3031269",
+            "CorrelationKey": "bb6bfb96-606d-45d6-95f5-efa443192f5c",
+            "DisplayAndFormat": {
+              "BarrierFormat": "Normal",
+              "Currency": "DKK",
+              "Decimals": 3,
+              "Description": "Genmab A/S",
+              "Format": "Normal",
+              "OrderDecimals": 2,
+              "StrikeFormat": "Normal",
+              "Symbol": "GEN:xcse"
+            },
+            "Duration": {
+              "DurationType": "DayOrder"
+            },
+            "HandledBy": "3031269",
+            "LogId": "260971",
+            "OrderId": "234728341",
+            "OrderRelation": "StandAlone",
+            "OrderType": "Market",
+            "Price": 1048.2,
+            "RelatedOrders": [],
+            "SleepingOrderCondition": {
+              "BreakoutTriggerDownPrice": 150.1,
+              "BreakoutTriggerUpPrice": 160.6,
+              "BuySell": "Buy",
+              "ConditionId": "114485191",
+              "Duration": {
+                "DurationType": "DayOrder"
+              },
+              "OrderType": "LimitTrigger",
+              "Price": 16000.01,
+              "Status": "Placed",
+              "SubStatus": "Confirmed",
+              "Symbol": "NAS100.I",
+              "TrailingStopDistanceToMarket": 10.1,
+              "TriggerPriceType": "Ask",
+              "Uic": 1909050
+            },
+            "Status": "Placed",
+            "SubStatus": "Requested",
+            "Uic": 2090
+          }
+        ]
+      }
+    }
+  ]
+}

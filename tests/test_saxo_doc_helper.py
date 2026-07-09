@@ -5,13 +5,11 @@ from __future__ import annotations
 
 import json
 import os
-import sys
 import tempfile
 import unittest
 
-# Allow importing sibling module without package install
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import saxo_doc_helper as helper  # noqa: E402
+import saxo_doc_helper as helper
+from saxo_doc_helper.index import SaxoDocIndex, resolve_spec_dir
 
 
 SAMPLE_SPEC = {
@@ -73,12 +71,16 @@ class NormalizerTests(unittest.TestCase):
         self.assertEqual(helper.normalize_path("trade/v2/orders"), "/trade/v2/orders")
         self.assertEqual(helper.normalize_path("/trade/v2/orders/"), "/trade/v2/orders")
         self.assertEqual(
-            helper.normalize_path("https://gateway.saxobank.com/sim/openapi/trade/v2/orders"),
+            helper.normalize_path(
+                "https://gateway.saxobank.com/sim/openapi/trade/v2/orders"
+            ),
             "/trade/v2/orders",
         )
 
     def test_normalize_schema_name(self) -> None:
-        self.assertEqual(helper.normalize_schema_name("AlgorithmicOrderData"), "algorithmicorderdata")
+        self.assertEqual(
+            helper.normalize_schema_name("AlgorithmicOrderData"), "algorithmicorderdata"
+        )
 
 
 class SaxoDocHelperCommandTests(unittest.TestCase):
@@ -88,7 +90,7 @@ class SaxoDocHelperCommandTests(unittest.TestCase):
         os.makedirs(spec_dir)
         with open(os.path.join(spec_dir, "orders.json"), "w", encoding="utf-8") as f:
             json.dump(SAMPLE_SPEC, f)
-        self.index = helper.SaxoDocIndex(os.path.join(self.tmp.name, "json"))
+        self.index = SaxoDocIndex(os.path.join(self.tmp.name, "json"))
 
     def tearDown(self) -> None:
         self.tmp.cleanup()
@@ -128,6 +130,16 @@ class SaxoDocHelperCommandTests(unittest.TestCase):
     def test_get_schema_not_found(self) -> None:
         out = helper.cmd_get_schema(self.index, "nonexistent_schema_xyz")
         self.assertIn("not found", out)
+
+
+class PackagedSpecSmokeTests(unittest.TestCase):
+    def test_resolve_spec_dir_loads_endpoints(self) -> None:
+        spec_dir = resolve_spec_dir()
+        self.assertTrue(os.path.isdir(spec_dir), f"spec dir missing: {spec_dir}")
+        index = SaxoDocIndex(spec_dir)
+        self.assertGreater(len(index.endpoints), 0)
+        out = helper.cmd_search_endpoints(index, "orders")
+        self.assertIn("endpoint", out.lower())
 
 
 if __name__ == "__main__":

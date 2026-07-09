@@ -1,4 +1,4 @@
-# saxo-openapi-agent-brain
+# mcp-server-saxo-openapi
 
 **Saxo OpenAPI spec lookup — CLI tool and MCP server**
 
@@ -8,54 +8,101 @@ English | [日本語](./README.ja.md)
 
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
-![CLI](https://img.shields.io/badge/CLI-saxo__doc__helper-blue.svg)
+![CLI](https://img.shields.io/badge/CLI-saxo--doc--helper-blue.svg)
 ![MCP](https://img.shields.io/badge/MCP-stdio-orange.svg)
 
 Look up Saxo OpenAPI endpoint parameters and JSON samples from your terminal, or attach the same lookup tools to Cursor, Claude Desktop, and other MCP clients.
 
-`saxo_doc_helper.py` is a zero-dependency Python script backed by `spec/json/` (~260 endpoints across 17 service groups).
+Zero third-party dependencies (Python stdlib only). Spec database: `spec/json/` (~260 endpoints across 17 service groups), also shipped inside the wheel.
 
 ---
 
 ## Features
 
-- **Structured spec database** — `spec/json/` with nested parameters and request/response samples
+- **Structured spec database** — nested parameters and request/response samples
 - **CLI** — `search-endpoints`, `get-endpoint`, `get-schema` with depth control and "Did you mean?" suggestions
-- **MCP server** — run with `--mcp`; exposes the same three tools over stdio JSON-RPC
+- **MCP server** — stdio JSON-RPC; same three tools
 - **Token-efficient** — progressive disclosure (collapsed nested schemas, drill down on demand)
-- **For** — Saxo API integrators, AI coding agents, and developers who want the raw JSON spec
 
-**Requirements:** Python 3.10+ (stdlib only — no `pip install` needed for the helper).
+**Requirements:** Python 3.10+
 
 ---
 
-## Getting started — CLI
+## Getting started — recommended (uvx)
 
-### 1. Clone
+### CLI (TestPyPI — available now)
 
 ```bash
-git clone https://github.com/nohikomiso/saxo-openapi-agent-brain.git
-cd saxo-openapi-agent-brain
+uvx --index-url https://test.pypi.org/simple/ \
+    --index https://pypi.org/simple/ \
+    saxo-doc-helper search-endpoints orders
 ```
 
-### 2. Try a lookup
+```bash
+uvx --index-url https://test.pypi.org/simple/ \
+    --index https://pypi.org/simple/ \
+    saxo-doc-helper get-endpoint POST /trade/v2/orders
+```
+
+### MCP (TestPyPI)
 
 ```bash
+uvx --index-url https://test.pypi.org/simple/ \
+    --index https://pypi.org/simple/ \
+    mcp-server-saxo-openapi
+```
+
+MCP client config example:
+
+```json
+{
+  "mcpServers": {
+    "saxo-openapi": {
+      "command": "uvx",
+      "args": [
+        "--index-url", "https://test.pypi.org/simple/",
+        "--index", "https://pypi.org/simple/",
+        "mcp-server-saxo-openapi"
+      ]
+    }
+  }
+}
+```
+
+### From GitHub (after this repository is published)
+
+```bash
+uvx --from git+https://github.com/nohikomiso/mcp-server-saxo-openapi.git saxo-doc-helper search-endpoints orders
+uvx --from git+https://github.com/nohikomiso/mcp-server-saxo-openapi.git mcp-server-saxo-openapi
+```
+
+### Production PyPI (next gate — not published yet)
+
+After the production release:
+
+```bash
+uvx mcp-server-saxo-openapi
+uvx saxo-doc-helper search-endpoints orders
+```
+
+---
+
+## Getting started — local clone
+
+```bash
+git clone https://github.com/nohikomiso/mcp-server-saxo-openapi.git
+cd mcp-server-saxo-openapi
 python tools/saxo_doc_helper.py search-endpoints orders
-```
-
-### 3. Get an endpoint spec
-
-```bash
 python tools/saxo_doc_helper.py get-endpoint POST /trade/v2/orders
 python tools/saxo_doc_helper.py get-schema algorithmicorderdata
 ```
 
-### More CLI examples
+Or install editable:
 
 ```bash
-# Expand one level of nested parameters
-python tools/saxo_doc_helper.py get-endpoint POST /trade/v2/orders --depth 1
+uv sync
+uv run saxo-doc-helper search-endpoints orders
+uv run mcp-server-saxo-openapi
 ```
 
 ### Input normalization
@@ -68,53 +115,9 @@ python tools/saxo_doc_helper.py get-endpoint POST /trade/v2/orders --depth 1
 
 If no exact match is found, **Did you mean?** suggestions are returned.
 
-### Full-scratch developers
-
-You can also read `spec/json/` directly. The CLI is recommended because it returns only the slice you need and keeps token usage low.
-
 ---
 
-## Getting started — MCP
-
-Expose Saxo spec lookup to MCP clients (Cursor, Claude Desktop, etc.).
-
-### Option 1: From a local clone (available now)
-
-**Step 1.** Clone this repository (see CLI section above).
-
-**Step 2.** Test the server:
-
-```bash
-python tools/saxo_doc_helper.py --mcp
-```
-
-**Step 3.** Add to your MCP client config:
-
-```json
-{
-  "mcpServers": {
-    "saxo-openapi-agent-brain": {
-      "command": "python3",
-      "args": ["tools/saxo_doc_helper.py", "--mcp"],
-      "cwd": "/absolute/path/to/saxo-openapi-agent-brain"
-    }
-  }
-}
-```
-
-Replace `cwd` with the path where you cloned this repository.
-
-### Option 2: uvx (planned — not yet published)
-
-After PyPI packaging, the target experience will be:
-
-```bash
-uvx mcp-server-saxo-openapi
-```
-
-This is **not available yet**. See the distribution roadmap in the parent development workspace (`docs/saxo-openapi-agent-brain-distribution-roadmap.md`) for plans.
-
-### MCP tools exposed
+## MCP tools exposed
 
 | Tool | Description |
 |------|-------------|
@@ -126,39 +129,27 @@ This is **not available yet**. See the distribution roadmap in the parent develo
 
 ## Agent integration
 
-Add to your agent rules (`.cursor/rules/`, `AGENTS.md`, etc.):
-
 > When researching Saxo OpenAPI specs, do **not** read `spec/json/` files directly.  
-> Use `python tools/saxo_doc_helper.py` from this repository root.
-
-Example workflow:
-
-```bash
-python tools/saxo_doc_helper.py search-endpoints positions
-python tools/saxo_doc_helper.py get-endpoint GET /port/v1/positions
-```
+> Use `saxo-doc-helper` (or `python tools/saxo_doc_helper.py` from a clone).
 
 ---
 
 ## Repository layout
 
 ```text
-saxo-openapi-agent-brain/
+mcp-server-saxo-openapi/
+├── pyproject.toml
 ├── LICENSE
 ├── README.md / README.ja.md
 ├── CONTRIBUTING.md
 ├── docs/
-│   └── MAINTAINER.md      # Spec regeneration (maintainers only)
-├── spec/json/             # Machine-readable OpenAPI database
-│   ├── trade/
-│   ├── port/
-│   └── ...                # 17 service groups
+│   └── MAINTAINER.md
+├── src/saxo_doc_helper/   # installable package (+ data/json)
+├── spec/json/             # maintainer source of truth
+├── tests/
 └── tools/
-    ├── saxo_doc_helper.py
-    └── test_saxo_doc_helper.py
+    └── saxo_doc_helper.py # thin clone-compatible wrapper
 ```
-
-Each JSON file under `spec/json/` lists endpoints with `method`, `path`, `name`, recursive `parameters`, and `request_sample` / `response_sample`.
 
 ---
 
@@ -178,7 +169,7 @@ This repository provides **spec lookup**. The libraries above provide **runtime 
 - Spec JSON is derived from the public [Saxo Developer Portal](https://www.developer.saxo/openapi/referencedocs).
 - **Unofficial** — not affiliated with or endorsed by Saxo Bank A/S.
 - Data may be incomplete or outdated. Verify against official documentation and live API responses before production use.
-- Check commit history for when `spec/json/` was last refreshed. Maintainers: [docs/MAINTAINER.md](docs/MAINTAINER.md).
+- Maintainers: [docs/MAINTAINER.md](docs/MAINTAINER.md).
 
 ---
 
