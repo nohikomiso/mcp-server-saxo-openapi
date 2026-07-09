@@ -19,7 +19,7 @@ There is **no single semver** for the whole Saxo OpenAPI documentation set. Saxo
 - Release notes: https://www.developer.saxo/openapi/releasenotes
 - Planned changes: https://www.developer.saxo/openapi/releasenotes/planned-changes
 
-Maintainers detect portal updates by hashing the Release Notes and Planned Changes pages (see the private workspace crawler `check_change_detection`), then re-crawl, update this file, sync package data, and publish a new package version.
+When the portal changes, maintainers refresh `spec/json/`, update the dates in this file (and the matching constants in the package), sync package data, and publish a new package version.
 
 ## Feedback
 
