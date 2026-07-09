@@ -1,53 +1,46 @@
-# mcp-server-saxo-openapi
+# Saxo Bank OpenAPI MCP Server
 
-**Saxo Bank OpenAPI spec lookup — CLI tool and MCP server**
+A specialized [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server acting as a **reference manual and knowledge base** for the Saxo Bank OpenAPI.
 
-English | [日本語](https://github.com/nohikomiso/mcp-server-saxo-openapi/blob/main/README.ja.md)
+**Version:** 0.2.0 · **Spec snapshot:** 2026-07-08
 
----
+## Purpose
 
-![License](https://img.shields.io/badge/license-MIT-green.svg)
-![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
-![CLI](https://img.shields.io/badge/CLI-saxo--doc--helper-blue.svg)
-![MCP](https://img.shields.io/badge/MCP-stdio-orange.svg)
-![Spec updated](https://img.shields.io/github/last-commit/nohikomiso/mcp-server-saxo-openapi/main?label=spec%20updated)
+This server is **not an execution client**. It does NOT execute trades, place orders, or modify portfolios.
 
-Look up **Saxo Bank** / **Saxobank** OpenAPI endpoint parameters and JSON samples from your terminal, or from Cursor, Claude Desktop, and other MCP clients. Built because the official reference tree is deep and hard for AI tools (and humans) to navigate.
+Instead, it serves as an interactive **dictionary and strategy guide** for AI agents tasked with generating Saxo Bank API code.
 
-No third-party dependencies (Python standard library only). Spec data is JSON: ~260 endpoints across 17 service groups, shipped with the package.
+Saxo's OpenAPI is complex: account netting modes, asset-class restrictions, and hedging workflows are easy to hallucinate. This MCP server helps by:
 
-**Requirements:** Python 3.10+
+1. Providing accurate OpenAPI endpoint schemas on demand (request **and response** structure).
+2. Injecting **critical warnings** when dangerous endpoints (like `/orders` or `/positions`) are queried.
+3. Exposing `saxo://docs/pitfalls.md` — a survival guide for Saxo-specific quirks.
 
----
+## Tools
 
-## What this is / is not
+| Tool | Description |
+|------|-------------|
+| `search_saxo_endpoints(keyword)` | Discover endpoints by keyword (path, summary, operationId). |
+| `get_saxo_endpoint_spec(method, path)` | Parameters, request body, **responses**, and dynamic warnings. |
 
-**Purpose:** Help AI agents (and developers) understand *how* to use Saxo OpenAPI — parameters and JSON samples extracted from the official reference, available via CLI and MCP.
+## Resources
 
-**What it does**
+| URI | Description |
+|-----|-------------|
+| `saxo://docs/pitfalls.md` | Netting modes, Stop vs StopIfTraded, IsForceOpen, UIC dedup, Precheck. |
 
-- Search endpoints by keyword
-- Look up parameters and sample JSON by method + path
-- Open nested schemas step by step
-- No Saxo login or API keys (does not call Saxo over the network)
+## Usage (AI agents)
 
-**What it does not do**
+When writing Saxo Bank integration code:
 
-- Call live Saxo APIs (orders, balances, positions, …)
-- OAuth / token management
-- Replace a full trading client
+1. Call `search_saxo_endpoints` to find the endpoint.
+2. Call `get_saxo_endpoint_spec` to understand parameters and responses.
+3. If warned, read `saxo://docs/pitfalls.md` before writing execution code.
+4. Implement using your language's HTTP client or Saxo SDK — not via this MCP.
 
-For live API access, use a separate library or tool. One community MCP example: [`@borgels/mcp-server-saxo`](https://www.npmjs.com/package/@borgels/mcp-server-saxo) (npm, unofficial, unrelated project).
+## Installation
 
-**Unofficial** — not affiliated with or endorsed by Saxo Bank A/S.
-
----
-
-## Usage
-
-The easiest path is [uv](https://docs.astral.sh/uv/)’s `uvx` (run without a permanent install).
-
-### Cursor / Claude Desktop (MCP)
+### MCP (Cursor / Claude Desktop)
 
 ```json
 {
@@ -60,66 +53,45 @@ The easiest path is [uv](https://docs.astral.sh/uv/)’s `uvx` (run without a pe
 }
 ```
 
-### Terminal (CLI)
-
-```bash
-uvx --from mcp-server-saxo-openapi saxo-doc-helper search-endpoints orders
-uvx --from mcp-server-saxo-openapi saxo-doc-helper get-endpoint POST /trade/v2/orders
-uvx --from mcp-server-saxo-openapi saxo-doc-helper --version
-```
-
-The **package** name is `mcp-server-saxo-openapi`; the **CLI** command is `saxo-doc-helper`. Use `--from mcp-server-saxo-openapi` when running the CLI via `uvx`.
-
-To start the MCP server only:
+### uvx (one-shot)
 
 ```bash
 uvx mcp-server-saxo-openapi
 ```
 
----
+### Local development
 
-## MCP tools
+```bash
+cd tools/mcp-server-saxo-openapi
+uv sync
+uv run mcp-server-saxo-openapi
+```
 
-| Tool | Description |
-|------|-------------|
-| `search_saxo_endpoints(query)` | Keyword search across endpoints |
-| `get_saxo_endpoint_spec(method, path, depth?)` | Parameters + sample JSON |
-| `get_saxo_schema_spec(schema_name, depth?)` | Nested schema details |
+Override spec file (optional):
 
-The CLI exposes the same content (`search-endpoints` / `get-endpoint` / `get-schema`).
+```bash
+export SAXO_OPENAPI_JSON_PATH=/path/to/saxo_openapi.json
+```
 
----
+## What it does / does not do
 
-## Spec snapshot
+| Does | Does not |
+|------|----------|
+| Offline OpenAPI lookup | Call live Saxo APIs |
+| Pitfalls & workflow warnings | OAuth / token management |
+| Request + response schemas | Place or modify orders |
 
-**Snapshot date: 2026-07-08** (newest Saxo Release Notes heading at that time: **2025/05/15**).
+## Known limitations (0.2.0)
 
-Saxo does not publish a single docs version number, so we record the crawl date and the newest Release Notes heading on the portal. Details: [SPEC_FRESHNESS.md](SPEC_FRESHNESS.md).
+- Warnings are soft hints; agents may still skip `pitfalls.md`.
+- No `get_saxo_schema_spec` or `get_saxo_workflow_guide` tools yet (feedback welcome via Issues).
+- Pitfalls reflect practical experience; not a substitute for Saxo's official docs.
+- Spec snapshot may lag Saxo Release Notes; see `SPEC_FRESHNESS.md`.
 
-Missing endpoint, wrong parameter, or something that looks stale? Please [open an Issue](https://github.com/nohikomiso/mcp-server-saxo-openapi/issues).
+## Changes from 0.1.1
 
----
-
-## Related projects
-
-This repo is for **reading specs**. Calling the API is a separate concern:
-
-| Project | Role |
-|---------|------|
-| [saxo-apy](https://github.com/nohikomiso/saxo-apy) | OAuth / session (author’s other repo) |
-| [saxo-openapi](https://github.com/nohikomiso/saxo-openapi) | REST / WebSocket client (author’s other repo) |
-| [@borgels/mcp-server-saxo](https://www.npmjs.com/package/@borgels/mcp-server-saxo) | Live API via MCP (community; unofficial; different author) |
-
----
-
-## Feedback & development
-
-- Bugs / stale specs: [GitHub Issues](https://github.com/nohikomiso/mcp-server-saxo-openapi/issues)
-- Contributing (clone, tests): [CONTRIBUTING.md](CONTRIBUTING.md)
-- Spec refresh & release (maintainers): [docs/MAINTAINER.md](docs/MAINTAINER.md)
-
----
+See [CHANGELOG.md](CHANGELOG.md). **0.2.0 replaces the stdlib implementation** with a FastMCP-based server that adds pitfalls, warnings, and response schemas.
 
 ## License
 
-[MIT License](LICENSE)
+MIT — see [LICENSE](LICENSE).
