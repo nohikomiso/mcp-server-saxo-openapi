@@ -1,14 +1,23 @@
 [project]
 name = "mcp-server-saxo-openapi"
 version = "0.1.1"
-description = "Saxo OpenAPI spec lookup — CLI tool and MCP server"
+description = "MCP server and CLI for Saxo Bank OpenAPI spec lookup (offline; no trading)"
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.10"
 authors = [
   { name = "nohikomiso" },
 ]
-keywords = ["saxo", "openapi", "mcp", "cli", "trading"]
+keywords = [
+  "mcp",
+  "model-context-protocol",
+  "saxo",
+  "saxo-bank",
+  "saxobank",
+  "openapi",
+  "cli",
+  "trading",
+]
 classifiers = [
   "Development Status :: 4 - Beta",
   "Environment :: Console",
@@ -49,6 +58,7 @@ include = [
   "tools",
   "README.md",
   "README.ja.md",
+  "SPEC_FRESHNESS.md",
   "LICENSE",
   "CONTRIBUTING.md",
 ]

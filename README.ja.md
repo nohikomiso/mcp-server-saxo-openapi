@@ -1,6 +1,6 @@
 # mcp-server-saxo-openapi
 
-**Saxo OpenAPI 仕様ルックアップ — CLI と MCP サーバー**
+**Saxo Bank / サクソバンク証券 OpenAPI 仕様ルックアップ — CLI と MCP サーバー**
 
 [English](https://github.com/nohikomiso/mcp-server-saxo-openapi/blob/main/README.md) | 日本語
 
@@ -10,10 +10,35 @@
 ![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
 ![CLI](https://img.shields.io/badge/CLI-saxo--doc--helper-blue.svg)
 ![MCP](https://img.shields.io/badge/MCP-stdio-orange.svg)
+![Spec updated](https://img.shields.io/github/last-commit/nohikomiso/mcp-server-saxo-openapi/main?label=spec%20updated)
 
-ターミナルまたは Cursor / Claude Desktop などの MCP クライアントから、Saxo OpenAPI のエンドポイントパラメータと JSON サンプルを参照できます。
+ターミナルまたは Cursor / Claude Desktop などの MCP クライアントから、**サクソバンク証券（Saxo Bank）** OpenAPI のエンドポイントパラメータと JSON サンプルを参照できます。公式リファレンスツリーが深すぎて辿りにくい、という問題向けです。
 
-サードパーティ依存なし（Python 標準ライブラリのみ）。仕様 DB は `spec/json/`（約 260 エンドポイント / 17 サービスグループ）で、wheel にも同梱されます。
+サードパーティ依存なし（Python 標準ライブラリのみ）。仕様 DB は約 260 エンドポイント / 17 サービスグループで、wheel にも同梱されます。
+
+---
+
+## Spec snapshot
+
+**Spec snapshot: 2026-07-08**（Saxo Release Notes through **2025/05/15**）。
+
+エージェント向けに再構成したスナップショットです。Saxo にドキュメント全体の semver はなく、クロール日と当時の最新 Release Notes 見出しを記録します。詳細: [SPEC_FRESHNESS.md](SPEC_FRESHNESS.md)。
+
+欠け・誤り・古さを見つけたら [Issue](https://github.com/nohikomiso/mcp-server-saxo-openapi/issues) をください。PR: [CONTRIBUTING.md](CONTRIBUTING.md)。
+
+---
+
+## これは何か / 何かではないか
+
+| 本パッケージ | 対象外 |
+|--------------|--------|
+| オフラインの **仕様ルックアップ**（CLI + MCP） | ライブ取引・ポートフォリオ API |
+| Saxo 認証情報は不要 | OAuth・発注・残高照会 |
+| トークン効率の段階的開示 | フル OpenAPI クライアントの代替 |
+
+**ライブ** API を MCP から叩く場合は、コミュニティの [`@borgels/mcp-server-saxo`](https://www.npmjs.com/package/@borgels/mcp-server-saxo)（npm・非公式・別プロジェクト）などを参照。
+
+**非公式** — Saxo Bank A/S との提携・推奨はありません。
 
 ---
 
@@ -22,7 +47,7 @@
 - **構造化仕様 DB** — ネストパラメータと Request/Response サンプル
 - **CLI** — `search-endpoints` / `get-endpoint` / `get-schema`（depth 制御・Did you mean?）
 - **MCP サーバー** — stdio JSON-RPC、同じ 3 ツール
-- **トークン効率** — 段階的開示（ネストは折りたたみ、必要時にドリルダウン）
+- **トークン効率** — 段階的開示
 
 **要件:** Python 3.10+
 
@@ -30,39 +55,24 @@
 
 ## はじめに — 推奨（uvx）
 
-### CLI（TestPyPI — 利用可）
-
-`uvx` は**パッケージ名**で解決するため、CLI は `--from mcp-server-saxo-openapi` を付けます:
+### 本番 PyPI
 
 ```bash
-uvx --index-url https://test.pypi.org/simple/ \
-    --index https://pypi.org/simple/ \
-    --from mcp-server-saxo-openapi \
-    saxo-doc-helper search-endpoints orders
+uvx mcp-server-saxo-openapi
+uvx --from mcp-server-saxo-openapi saxo-doc-helper search-endpoints orders
+uvx --from mcp-server-saxo-openapi saxo-doc-helper --version
 ```
 
-### MCP（TestPyPI）
+CLI はパッケージ名と違うため `--from mcp-server-saxo-openapi` が必要です。
 
-パッケージ名と MCP エントリが一致するため `--from` は任意:
-
-```bash
-uvx --index-url https://test.pypi.org/simple/ \
-    --index https://pypi.org/simple/ \
-    mcp-server-saxo-openapi
-```
-
-MCP クライアント設定例:
+MCP 設定例:
 
 ```json
 {
   "mcpServers": {
     "saxo-openapi": {
       "command": "uvx",
-      "args": [
-        "--index-url", "https://test.pypi.org/simple/",
-        "--index", "https://pypi.org/simple/",
-        "mcp-server-saxo-openapi"
-      ]
+      "args": ["mcp-server-saxo-openapi"]
     }
   }
 }
@@ -72,16 +82,15 @@ MCP クライアント設定例:
 
 ```bash
 uvx --from git+https://github.com/nohikomiso/mcp-server-saxo-openapi.git saxo-doc-helper search-endpoints orders
-uvx --from git+https://github.com/nohikomiso/mcp-server-saxo-openapi.git mcp-server-saxo-openapi
 ```
 
-### 本番 PyPI（次ゲート — 未公開）
-
-本番公開後:
+### TestPyPI（開発用）
 
 ```bash
-uvx mcp-server-saxo-openapi
-uvx --from mcp-server-saxo-openapi saxo-doc-helper search-endpoints orders
+uvx --index-url https://test.pypi.org/simple/ \
+    --index https://pypi.org/simple/ \
+    --from mcp-server-saxo-openapi \
+    saxo-doc-helper search-endpoints orders
 ```
 
 ---
@@ -92,25 +101,14 @@ uvx --from mcp-server-saxo-openapi saxo-doc-helper search-endpoints orders
 git clone https://github.com/nohikomiso/mcp-server-saxo-openapi.git
 cd mcp-server-saxo-openapi
 python tools/saxo_doc_helper.py search-endpoints orders
-python tools/saxo_doc_helper.py get-endpoint POST /trade/v2/orders
 ```
 
-または editable インストール:
+または:
 
 ```bash
 uv sync
-uv run saxo-doc-helper search-endpoints orders
+uv run saxo-doc-helper --version
 ```
-
-### 入力正規化
-
-| 入力 | 正規化後 |
-|------|----------|
-| `post` | `POST` |
-| `trade/v2/orders` | `/trade/v2/orders` |
-| フル gateway URL | `/trade/v2/orders` など |
-
-一致しない場合は **Did you mean?** を返します。
 
 ---
 
@@ -124,29 +122,22 @@ uv run saxo-doc-helper search-endpoints orders
 
 ---
 
-## エージェント統合
-
-> Saxo OpenAPI 仕様を調べるときは `spec/json/` を直接読まないこと。  
-> `saxo-doc-helper`（または clone 時は `python tools/saxo_doc_helper.py`）を使うこと。
-
----
-
 ## 関連プロジェクト
 
 | プロジェクト | 役割 |
 |--------------|------|
 | [saxo-apy](https://github.com/nohikomiso/saxo-apy) | OAuth / セッション |
 | [saxo-openapi](https://github.com/nohikomiso/saxo-openapi) | REST/WebSocket クライアント |
+| [@borgels/mcp-server-saxo](https://www.npmjs.com/package/@borgels/mcp-server-saxo) | ライブ Saxo OpenAPI MCP（npm・非公式） |
 
-本リポジトリは **仕様ルックアップ**。上記は **ランタイム API アクセス**。
+本リポジトリは **仕様ルックアップ**。ランタイム API は別レイヤーです。
 
 ---
 
-## データソースと免責
+## フィードバック
 
-- 仕様 JSON は公開 [Saxo Developer Portal](https://www.developer.saxo/openapi/referencedocs) 由来。
-- **非公式** — Saxo Bank A/S との提携・推奨はありません。
-- メンテ手順: [docs/MAINTAINER.md](docs/MAINTAINER.md)。
+- 不具合・古い仕様: [GitHub Issues](https://github.com/nohikomiso/mcp-server-saxo-openapi/issues)
+- メンテ: [docs/MAINTAINER.md](docs/MAINTAINER.md)
 
 ---
 

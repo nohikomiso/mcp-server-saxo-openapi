@@ -5,9 +5,22 @@ from __future__ import annotations
 import argparse
 import sys
 
+from saxo_doc_helper import (
+    SAXO_RELEASE_NOTES_THROUGH,
+    SPEC_SNAPSHOT_DATE,
+    __version__,
+)
 from saxo_doc_helper.commands import cmd_get_endpoint, cmd_get_schema, cmd_search_endpoints
 from saxo_doc_helper.index import SaxoDocIndex, resolve_spec_dir
 from saxo_doc_helper.mcp_server import run_mcp_server
+
+
+def version_string() -> str:
+    return (
+        f"mcp-server-saxo-openapi {__version__} "
+        f"(spec snapshot {SPEC_SNAPSHOT_DATE}; "
+        f"saxo RN through {SAXO_RELEASE_NOTES_THROUGH})"
+    )
 
 
 def mcp_main() -> None:
@@ -30,6 +43,11 @@ Examples:
   saxo-doc-helper --mcp
   mcp-server-saxo-openapi
         """,
+    )
+    parser.add_argument(
+        "--version",
+        action="version",
+        version=version_string(),
     )
     parser.add_argument("--mcp", action="store_true", help="Run as MCP stdio server")
     parser.add_argument(

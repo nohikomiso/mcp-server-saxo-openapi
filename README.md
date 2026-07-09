@@ -1,6 +1,6 @@
 # mcp-server-saxo-openapi
 
-**Saxo OpenAPI spec lookup — CLI tool and MCP server**
+**Saxo Bank OpenAPI spec lookup — CLI tool and MCP server**
 
 English | [日本語](https://github.com/nohikomiso/mcp-server-saxo-openapi/blob/main/README.ja.md)
 
@@ -10,10 +10,35 @@ English | [日本語](https://github.com/nohikomiso/mcp-server-saxo-openapi/blob
 ![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
 ![CLI](https://img.shields.io/badge/CLI-saxo--doc--helper-blue.svg)
 ![MCP](https://img.shields.io/badge/MCP-stdio-orange.svg)
+![Spec updated](https://img.shields.io/github/last-commit/nohikomiso/mcp-server-saxo-openapi/main?label=spec%20updated)
 
-Look up Saxo OpenAPI endpoint parameters and JSON samples from your terminal, or attach the same lookup tools to Cursor, Claude Desktop, and other MCP clients.
+Look up **Saxo Bank** / **Saxobank** OpenAPI endpoint parameters and JSON samples from your terminal, or attach the same tools to Cursor, Claude Desktop, and other MCP clients — without wrestling the deep official reference tree.
 
-Zero third-party dependencies (Python stdlib only). Spec database: `spec/json/` (~260 endpoints across 17 service groups), also shipped inside the wheel.
+Zero third-party dependencies (Python stdlib only). Spec database: ~260 endpoints across 17 service groups, shipped inside the wheel.
+
+---
+
+## Spec snapshot
+
+**Spec snapshot: 2026-07-08** (Saxo Release Notes through **2025/05/15**).
+
+Structured endpoint specs for agents and developers. Saxo does not publish a single docs semver; we record the crawl date and the newest Release Notes heading present at that time. Details: [SPEC_FRESHNESS.md](SPEC_FRESHNESS.md).
+
+Missing endpoint, wrong parameter, or something that looks out of date? Please [open an Issue](https://github.com/nohikomiso/mcp-server-saxo-openapi/issues). Pull requests: [CONTRIBUTING.md](CONTRIBUTING.md).
+
+---
+
+## What this is / is not
+
+| This package | Not this package |
+|--------------|------------------|
+| Offline **spec lookup** (CLI + MCP) | Live trading / portfolio API calls |
+| No Saxo credentials required | OAuth, order placement, balances |
+| Token-efficient progressive disclosure | A substitute for a full OpenAPI client |
+
+For **live** Saxo OpenAPI access from an MCP client, see community servers such as [`@borgels/mcp-server-saxo`](https://www.npmjs.com/package/@borgels/mcp-server-saxo) (npm, unofficial, separate project).
+
+**Unofficial** — not affiliated with or endorsed by Saxo Bank A/S.
 
 ---
 
@@ -30,46 +55,24 @@ Zero third-party dependencies (Python stdlib only). Spec database: `spec/json/` 
 
 ## Getting started — recommended (uvx)
 
-### CLI (TestPyPI — available now)
-
-`uvx` resolves the **package** name; use `--from mcp-server-saxo-openapi` to run the `saxo-doc-helper` console script:
+### Production PyPI
 
 ```bash
-uvx --index-url https://test.pypi.org/simple/ \
-    --index https://pypi.org/simple/ \
-    --from mcp-server-saxo-openapi \
-    saxo-doc-helper search-endpoints orders
+uvx mcp-server-saxo-openapi
+uvx --from mcp-server-saxo-openapi saxo-doc-helper search-endpoints orders
+uvx --from mcp-server-saxo-openapi saxo-doc-helper --version
 ```
 
-```bash
-uvx --index-url https://test.pypi.org/simple/ \
-    --index https://pypi.org/simple/ \
-    --from mcp-server-saxo-openapi \
-    saxo-doc-helper get-endpoint POST /trade/v2/orders
-```
+`uvx` resolves the **package** name; use `--from mcp-server-saxo-openapi` to run the `saxo-doc-helper` console script.
 
-### MCP (TestPyPI)
-
-Package name matches the MCP entry point, so `--from` is optional:
-
-```bash
-uvx --index-url https://test.pypi.org/simple/ \
-    --index https://pypi.org/simple/ \
-    mcp-server-saxo-openapi
-```
-
-MCP client config example:
+MCP client config:
 
 ```json
 {
   "mcpServers": {
     "saxo-openapi": {
       "command": "uvx",
-      "args": [
-        "--index-url", "https://test.pypi.org/simple/",
-        "--index", "https://pypi.org/simple/",
-        "mcp-server-saxo-openapi"
-      ]
+      "args": ["mcp-server-saxo-openapi"]
     }
   }
 }
@@ -82,13 +85,13 @@ uvx --from git+https://github.com/nohikomiso/mcp-server-saxo-openapi.git saxo-do
 uvx --from git+https://github.com/nohikomiso/mcp-server-saxo-openapi.git mcp-server-saxo-openapi
 ```
 
-### Production PyPI (next gate — not published yet)
-
-After the production release:
+### TestPyPI (development only)
 
 ```bash
-uvx mcp-server-saxo-openapi
-uvx --from mcp-server-saxo-openapi saxo-doc-helper search-endpoints orders
+uvx --index-url https://test.pypi.org/simple/ \
+    --index https://pypi.org/simple/ \
+    --from mcp-server-saxo-openapi \
+    saxo-doc-helper search-endpoints orders
 ```
 
 ---
@@ -107,8 +110,8 @@ Or install editable:
 
 ```bash
 uv sync
+uv run saxo-doc-helper --version
 uv run saxo-doc-helper search-endpoints orders
-uv run mcp-server-saxo-openapi
 ```
 
 ### Input normalization
@@ -145,6 +148,7 @@ If no exact match is found, **Did you mean?** suggestions are returned.
 ```text
 mcp-server-saxo-openapi/
 ├── pyproject.toml
+├── SPEC_FRESHNESS.md
 ├── LICENSE
 ├── README.md / README.ja.md
 ├── CONTRIBUTING.md
@@ -165,17 +169,17 @@ mcp-server-saxo-openapi/
 |---------|------|
 | [saxo-apy](https://github.com/nohikomiso/saxo-apy) | OAuth and session management |
 | [saxo-openapi](https://github.com/nohikomiso/saxo-openapi) | Python REST/WebSocket client (AI-ready) |
+| [@borgels/mcp-server-saxo](https://www.npmjs.com/package/@borgels/mcp-server-saxo) | Live Saxo OpenAPI MCP (npm; unofficial) |
 
-This repository provides **spec lookup**. The libraries above provide **runtime API access**.
+This repository provides **spec lookup**. Runtime API access is a separate concern.
 
 ---
 
-## Data source and disclaimer
+## Feedback and maintainers
 
-- Spec JSON is derived from the public [Saxo Developer Portal](https://www.developer.saxo/openapi/referencedocs).
-- **Unofficial** — not affiliated with or endorsed by Saxo Bank A/S.
-- Data may be incomplete or outdated. Verify against official documentation and live API responses before production use.
-- Maintainers: [docs/MAINTAINER.md](docs/MAINTAINER.md).
+- Bugs / stale specs: [GitHub Issues](https://github.com/nohikomiso/mcp-server-saxo-openapi/issues)
+- Maintainers: [docs/MAINTAINER.md](docs/MAINTAINER.md)
+- Source crawl: public Saxo Developer Portal reference docs
 
 ---
 

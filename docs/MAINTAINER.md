@@ -52,7 +52,18 @@ uv run python scripts/sync_saxo_agent_brain_spec.py --summary
 
 Review the summary (`+new`, `~updated`, `=unchanged`).
 
-## Step 3: Sync package data (required before release)
+## Step 3: Update freshness markers (required before release)
+
+After a successful crawl/sync, update **both**:
+
+1. [`SPEC_FRESHNESS.md`](../SPEC_FRESHNESS.md) — `snapshot_date` (crawl day) and `saxo_release_notes_through` (newest Release Notes heading on the portal, e.g. `2025/05/15`)
+2. `src/saxo_doc_helper/__init__.py` — `SPEC_SNAPSHOT_DATE` and `SAXO_RELEASE_NOTES_THROUGH` (must match)
+
+Saxo does not publish a single OpenAPI docs semver; dated Release Notes are the portal’s change log. The private crawler’s `check_change_detection()` hashes Release Notes + Planned Changes pages to decide when to re-crawl.
+
+Bump the **package** `version` in `pyproject.toml` when publishing refreshed data (PyPI forbids re-uploading the same version).
+
+## Step 4: Sync package data (required before release)
 
 ```bash
 cd docs/mcp-server-saxo-openapi
@@ -62,34 +73,36 @@ cp -a spec/json src/saxo_doc_helper/data/json
 
 `spec/json/` and `src/saxo_doc_helper/data/json/` must match before `uv build` / publish.
 
-## Step 4: Verify helper and tests
+## Step 5: Verify helper and tests
 
 ```bash
 cd docs/mcp-server-saxo-openapi
 uv sync
 uv run python -m unittest discover -s tests -v
+uv run saxo-doc-helper --version
 uv run saxo-doc-helper search-endpoints orders
 ```
 
-## Step 5: Local wheel / uvx check
+## Step 6: Local wheel / uvx check
 
 ```bash
 rm -rf dist
 uv build
+uvx --from ./dist/mcp_server_saxo_openapi-*.whl saxo-doc-helper --version
 uvx --from ./dist/mcp_server_saxo_openapi-*.whl saxo-doc-helper search-endpoints orders
 ```
 
-## Step 6: Commit in this repository
+## Step 7: Commit in this repository
 
 ```bash
 cd docs/mcp-server-saxo-openapi
-git add spec/json/ src/saxo_doc_helper/data/json/
+git add spec/json/ src/saxo_doc_helper/data/json/ SPEC_FRESHNESS.md src/saxo_doc_helper/__init__.py
 git commit -m "chore: refresh spec JSON from Saxo portal"
 ```
 
 ## Publishing
 
-### TestPyPI (current Phase C gate)
+### TestPyPI
 
 Requires `~/.pypirc` with a `[testpypi]` token section.
 
@@ -99,21 +112,7 @@ uv build
 uv publish --publish-url https://test.pypi.org/legacy/
 ```
 
-Verify:
-
-```bash
-uvx --index-url https://test.pypi.org/simple/ \
-    --index https://pypi.org/simple/ \
-    --from mcp-server-saxo-openapi \
-    saxo-doc-helper search-endpoints orders
-uvx --index-url https://test.pypi.org/simple/ \
-    --index https://pypi.org/simple/ \
-    mcp-server-saxo-openapi
-```
-
-### Production PyPI (next gate)
-
-Accounts and `[pypi]` in `~/.pypirc` may already be ready. Do **not** run until TestPyPI verification is accepted:
+### Production PyPI
 
 ```bash
 uv publish
