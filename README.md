@@ -32,19 +32,25 @@ Zero third-party dependencies (Python stdlib only). Spec database: `spec/json/` 
 
 ### CLI (TestPyPI — available now)
 
+`uvx` resolves the **package** name; use `--from mcp-server-saxo-openapi` to run the `saxo-doc-helper` console script:
+
 ```bash
 uvx --index-url https://test.pypi.org/simple/ \
     --index https://pypi.org/simple/ \
+    --from mcp-server-saxo-openapi \
     saxo-doc-helper search-endpoints orders
 ```
 
 ```bash
 uvx --index-url https://test.pypi.org/simple/ \
     --index https://pypi.org/simple/ \
+    --from mcp-server-saxo-openapi \
     saxo-doc-helper get-endpoint POST /trade/v2/orders
 ```
 
 ### MCP (TestPyPI)
+
+Package name matches the MCP entry point, so `--from` is optional:
 
 ```bash
 uvx --index-url https://test.pypi.org/simple/ \
@@ -69,7 +75,7 @@ MCP client config example:
 }
 ```
 
-### From GitHub (after this repository is published)
+### From GitHub
 
 ```bash
 uvx --from git+https://github.com/nohikomiso/mcp-server-saxo-openapi.git saxo-doc-helper search-endpoints orders
@@ -82,7 +88,7 @@ After the production release:
 
 ```bash
 uvx mcp-server-saxo-openapi
-uvx saxo-doc-helper search-endpoints orders
+uvx --from mcp-server-saxo-openapi saxo-doc-helper search-endpoints orders
 ```
 
 ---

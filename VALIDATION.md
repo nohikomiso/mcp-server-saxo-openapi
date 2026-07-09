@@ -35,7 +35,27 @@ uv run python -m unittest discover -s tests -v
 
 ### TestPyPI
 
-（公開後に追記）
+公開先: https://test.pypi.org/project/mcp-server-saxo-openapi/
+
+```bash
+uvx --index-url https://test.pypi.org/simple/ \
+    --index https://pypi.org/simple/ \
+    --from mcp-server-saxo-openapi \
+    saxo-doc-helper search-endpoints orders
+```
+
+**結果**: OK。16 件ヒット。
+
+```bash
+printf '%s\n' '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"smoke","version":"0"}}}' \
+| uvx --index-url https://test.pypi.org/simple/ \
+      --index https://pypi.org/simple/ \
+      mcp-server-saxo-openapi
+```
+
+**結果**: OK。`serverInfo.name=mcp-server-saxo-openapi`, `version=0.1.0`。
+
+本番 PyPI は次ゲート（未実施）。
 
 ---
 

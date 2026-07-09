@@ -104,7 +104,11 @@ Verify:
 ```bash
 uvx --index-url https://test.pypi.org/simple/ \
     --index https://pypi.org/simple/ \
+    --from mcp-server-saxo-openapi \
     saxo-doc-helper search-endpoints orders
+uvx --index-url https://test.pypi.org/simple/ \
+    --index https://pypi.org/simple/ \
+    mcp-server-saxo-openapi
 ```
 
 ### Production PyPI (next gate)

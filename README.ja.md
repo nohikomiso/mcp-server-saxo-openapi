@@ -32,13 +32,18 @@
 
 ### CLI（TestPyPI — 利用可）
 
+`uvx` は**パッケージ名**で解決するため、CLI は `--from mcp-server-saxo-openapi` を付けます:
+
 ```bash
 uvx --index-url https://test.pypi.org/simple/ \
     --index https://pypi.org/simple/ \
+    --from mcp-server-saxo-openapi \
     saxo-doc-helper search-endpoints orders
 ```
 
 ### MCP（TestPyPI）
+
+パッケージ名と MCP エントリが一致するため `--from` は任意:
 
 ```bash
 uvx --index-url https://test.pypi.org/simple/ \
@@ -63,7 +68,7 @@ MCP クライアント設定例:
 }
 ```
 
-### GitHub から（リポジトリ公開後）
+### GitHub から
 
 ```bash
 uvx --from git+https://github.com/nohikomiso/mcp-server-saxo-openapi.git saxo-doc-helper search-endpoints orders
@@ -76,7 +81,7 @@ uvx --from git+https://github.com/nohikomiso/mcp-server-saxo-openapi.git mcp-ser
 
 ```bash
 uvx mcp-server-saxo-openapi
-uvx saxo-doc-helper search-endpoints orders
+uvx --from mcp-server-saxo-openapi saxo-doc-helper search-endpoints orders
 ```
 
 ---
