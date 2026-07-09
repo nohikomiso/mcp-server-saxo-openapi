@@ -53,9 +53,20 @@ printf '%s\n' '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocol
       mcp-server-saxo-openapi
 ```
 
-**結果**: OK。`serverInfo.name=mcp-server-saxo-openapi`, `version=0.1.0`。
+**結果**: OK。`serverInfo.name=mcp-server-saxo-openapi`, `version=0.1.0`（当時）。
 
-本番 PyPI は次ゲート（未実施）。
+### Production PyPI（2026-07-09）
+
+公開先: https://pypi.org/project/mcp-server-saxo-openapi/
+
+```bash
+uvx --refresh-package mcp-server-saxo-openapi --from mcp-server-saxo-openapi saxo-doc-helper --version
+uvx --from mcp-server-saxo-openapi saxo-doc-helper search-endpoints orders
+```
+
+**結果**: OK。`0.1.1 (spec snapshot 2026-07-08; saxo RN through 2025/05/15)`。orders 16 件。
+
+GitHub Release: https://github.com/nohikomiso/mcp-server-saxo-openapi/releases/tag/v0.1.1
 
 ---
 
