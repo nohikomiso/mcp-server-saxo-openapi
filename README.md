@@ -2,7 +2,7 @@
 
 **Saxo OpenAPI spec lookup — CLI tool and MCP server**
 
-English | [日本語](./README.ja.md)
+English | [日本語](https://github.com/nohikomiso/mcp-server-saxo-openapi/blob/main/README.ja.md)
 
 ---
 

@@ -1,6 +1,6 @@
 """Saxo OpenAPI spec lookup — CLI and MCP server."""
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 from saxo_doc_helper.index import (
     SaxoDocIndex,

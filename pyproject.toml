@@ -1,6 +1,6 @@
 [project]
 name = "mcp-server-saxo-openapi"
-version = "0.1.0"
+version = "0.1.1"
 description = "Saxo OpenAPI spec lookup — CLI tool and MCP server"
 readme = "README.md"
 license = "MIT"

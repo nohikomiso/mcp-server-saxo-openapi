@@ -2,7 +2,7 @@
 
 **Saxo OpenAPI 仕様ルックアップ — CLI と MCP サーバー**
 
-[English](./README.md) | 日本語
+[English](https://github.com/nohikomiso/mcp-server-saxo-openapi/blob/main/README.md) | 日本語
 
 ---
 
