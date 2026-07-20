@@ -2,7 +2,7 @@
 
 A specialized [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server acting as a **reference manual and knowledge base** for the Saxo Bank OpenAPI.
 
-**Version:** 0.3.1 · **Spec snapshot:** 2026-07-08
+**Version:** 0.3.3 · **Spec snapshot:** 2026-07-08
 
 ## Purpose
 

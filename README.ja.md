@@ -12,7 +12,7 @@
 ![MCP](https://img.shields.io/badge/MCP-FastMCP-orange.svg)
 ![Spec updated](https://img.shields.io/github/last-commit/nohikomiso/mcp-server-saxo-openapi/main?label=spec%20updated)
 
-**版 0.3.1** · 仕様スナップショット: 2026-07-08
+**版 0.3.3** · 仕様スナップショット: 2026-07-08
 
 ターミナル、または Cursor / Claude Desktop などの MCP クライアントから、**サクソバンク証券（Saxo Bank）** OpenAPI のエンドポイント仕様を参照できます。AI エージェントがコードを書く前に、パラメータ・サンプル JSON・Saxo 特有の罠（pitfalls）を学ぶための**辞書サーバー**です（取引の実行はしません）。
 
