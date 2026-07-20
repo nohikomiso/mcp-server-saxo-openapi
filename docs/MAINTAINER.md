@@ -25,6 +25,8 @@ uv build
 
 ## Publish gate (TestPyPI first)
 
+親 monorepo では Cursor スキル **`pypi-publish`**（`.cursor/skills/pypi-publish/SKILL.md`）とルール `70-pypi-publish.mdc` が正本。認証は `~/.pypirc` + `uvx twine`。
+
 ### 1. TestPyPI
 
 ```bash

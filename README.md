@@ -27,7 +27,7 @@ It helps AI agents generate Saxo Bank API code by combining:
 
 | URI | Description |
 |-----|-------------|
-| `saxo://docs/pitfalls.md` | Netting, Stop/StopIfTraded, IsForceOpen, UIC, Precheck. |
+| `saxo://docs/pitfalls.md` | Netting, ForceOpen close (§1b), Stop/StopIfTraded, IsForceOpen, UIC, Precheck. |
 
 ## Installation
 

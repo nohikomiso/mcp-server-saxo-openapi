@@ -111,8 +111,7 @@ uvx --from mcp-server-saxo-openapi saxo-doc-helper --version
 
 | プロジェクト | 何をするか |
 |--------------|------------|
-| [saxo-apy](https://github.com/nohikomiso/saxo-apy) | OAuth / セッション |
-| [saxo-openapi](https://github.com/nohikomiso/saxo-openapi) | REST / WebSocket クライアント |
+| [saxo-api-client](https://github.com/nohikomiso/saxo-api-client) | OAuth / セッション・REST / WebSocket クライアント |
 
 ---
 

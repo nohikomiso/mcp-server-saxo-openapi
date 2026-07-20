@@ -1,6 +1,6 @@
 [project]
 name = "mcp-server-saxo-openapi"
-version = "0.3.1"
+version = "0.3.3"
 description = "MCP server for Saxo Bank OpenAPI spec lookup with pitfalls guide (offline; no trading)"
 readme = "README.md"
 license = "MIT"
@@ -59,4 +59,9 @@ include = [
   "CHANGELOG.md",
   "SPEC_FRESHNESS.md",
   "LICENSE",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
 ]

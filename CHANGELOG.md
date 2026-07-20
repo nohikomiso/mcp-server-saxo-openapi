@@ -1,5 +1,31 @@
 # Changelog
 
+## 0.3.3 — 2026-07-20
+
+### Fixed
+
+- `__version__` / `saxo-doc-helper --version` now report `0.3.3` (0.3.2 wheel shipped with
+  stale `0.3.1` in `__init__.py` while package metadata was already 0.3.2).
+
+### Note
+
+- Prefer **0.3.3** on PyPI. Workflow/pitfalls content matches 0.3.2; only the CLI version
+  string differed.
+
+## 0.3.2 — 2026-07-20
+
+### Changed
+
+- `get_saxo_workflow_guide(close_position)`: ForceOpen close is **PositionId + nested
+  Orders[]** (not `OrderRelation=ClosePosition` alone). Aligns with SIM evidence and
+  `saxo-api-client` `PositionClose`.
+- `pitfalls.md` §1 Hedging line points to §1b; §1b documents fake-flatten risk.
+
+### Note
+
+- Publish to PyPI and restart Cursor MCP / clear `uvx` cache so agents pick up this text.
+  Prefer **0.3.3** if available (fixes CLI `--version` string).
+
 ## 0.3.1 — 2026-07-10
 
 ### Fixed

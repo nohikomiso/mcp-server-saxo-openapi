@@ -4,7 +4,7 @@
 |-------|-------|
 | `snapshot_date` | 2026-07-08 |
 | `saxo_release_notes_through` | 2025/05/15 |
-| `package_version` | 0.3.1 |
+| `package_version` | 0.3.3 |
 
 Bundled spec: `src/mcp_server_saxo_openapi/data/json/` (synced from parent monorepo crawler).
 

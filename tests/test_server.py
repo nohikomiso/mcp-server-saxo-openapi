@@ -47,11 +47,17 @@ class TestTools(unittest.TestCase):
 
     def test_workflow_guide_close_position(self) -> None:
         result = get_saxo_workflow_guide("close_position")
-        self.assertIn("Netting", result)
+        self.assertIn("FIFO", result)
+        self.assertIn("ForceOpen", result)
+        self.assertIn("Orders", result)
+        self.assertIn("PositionId", result)
+        self.assertNotIn('OrderRelation: Must be set to "ClosePosition"', result)
 
     def test_pitfalls_resource(self) -> None:
         self.assertEqual(get_pitfalls(), PITFALLS_MD)
         self.assertIn("Precheck", get_pitfalls())
+        self.assertIn("1b. ForceOpen close", get_pitfalls())
+        self.assertIn("nested", get_pitfalls().lower())
 
 
 if __name__ == "__main__":
